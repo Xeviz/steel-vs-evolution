@@ -12,4 +12,3 @@ func _process(delta: float) -> void:
 	if player != null:
 		position.x = player.position.x
 		position.z = player.position.z
-	pass
