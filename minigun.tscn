@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccq02lefpinoa"]
+
+[ext_resource type="Script" path="res://minigun.gd" id="1_ll5c2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_42pc6"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.45
+
+[sub_resource type="SphereMesh" id="SphereMesh_3s3s7"]
+radius = 0.02
+height = 0.04
+
+[node name="Minigun" type="Node3D"]
+script = ExtResource("1_ll5c2")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.84622e-10, 0.00422365, 0.999991, -1, -4.37114e-08, 0, 4.3711e-08, -0.999991, 0.00422365, 0, 0, 0)
+mesh = SubResource("CylinderMesh_42pc6")
+
+[node name="BulletSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00211176, 0, -0.231282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawner"]
+mesh = SubResource("SphereMesh_3s3s7")
+
+[node name="RayCast3D" type="RayCast3D" parent="BulletSpawner"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
