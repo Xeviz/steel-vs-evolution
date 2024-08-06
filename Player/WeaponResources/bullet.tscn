@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://he6k5vt4mfh5"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_8x7an"]
+[ext_resource type="Script" path="res://Player/WeaponResources/bullet.gd" id="1_7mbrd"]
 
 [sub_resource type="Gradient" id="Gradient_ul6x6"]
 offsets = PackedFloat32Array(0.047619, 0.309524, 0.47619, 0.706349)
@@ -24,7 +24,7 @@ size = Vector3(0.12, 0.12, 0.25)
 size = Vector3(0.25, 0.12, 0.12)
 
 [node name="Bullet" type="Node3D"]
-script = ExtResource("1_8x7an")
+script = ExtResource("1_7mbrd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hgnpr")

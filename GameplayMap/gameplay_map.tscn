@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bn1ggy27aucsf"]
 
-[ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://player.tscn" id="1_kia1u"]
-[ext_resource type="Script" path="res://Camera3D.gd" id="1_v1w5t"]
-[ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://enemy.tscn" id="3_i8jfe"]
-[ext_resource type="Script" path="res://EnemySpawner.gd" id="4_adnpm"]
+[ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="1_kia1u"]
+[ext_resource type="Script" path="res://GameplayMap/PlayerFollowingCamera.gd" id="1_v1w5t"]
+[ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="3_i8jfe"]
+[ext_resource type="Script" path="res://GameplayMap/EnemySpawner.gd" id="4_adnpm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4xua"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
