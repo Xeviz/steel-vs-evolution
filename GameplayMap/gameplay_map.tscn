@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn1ggy27aucsf"]
+[gd_scene load_steps=9 format=3 uid="uid://bn1ggy27aucsf"]
 
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="1_kia1u"]
-[ext_resource type="Script" path="res://GameplayMap/PlayerFollowingCamera.gd" id="1_v1w5t"]
+[ext_resource type="Script" path="res://GameplayMap/player_following_camera.gd" id="1_v1w5t"]
 [ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="3_i8jfe"]
-[ext_resource type="Script" path="res://GameplayMap/EnemySpawner.gd" id="4_adnpm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4xua"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -55,11 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116704, 0)
 [node name="Enemy" parent="." instance=ExtResource("3_i8jfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8657, 0.933326, 0)
 collision_mask = 2
-
-[node name="EnemySpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-script = ExtResource("4_adnpm")
-enemy_scene = ExtResource("3_i8jfe")
-
-[node name="Right" type="Node3D" parent="EnemySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0427, 0, 0)

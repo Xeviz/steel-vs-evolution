@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccq02lefpinoa"]
+[gd_scene load_steps=8 format=3 uid="uid://ccq02lefpinoa"]
 
 [ext_resource type="Script" path="res://Player/Weapons/minigun.gd" id="1_slv4r"]
+[ext_resource type="PackedScene" uid="uid://he6k5vt4mfh5" path="res://Player/WeaponResources/bullet.tscn" id="2_ir3xc"]
+[ext_resource type="Script" path="res://Enemies/finite_state_machine.gd" id="3_b6kwb"]
+[ext_resource type="Script" path="res://States/Minigun/minigun_firing.gd" id="4_1o44c"]
+[ext_resource type="Script" path="res://States/Minigun/minigun_reloading.gd" id="5_apyxp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_42pc6"]
 top_radius = 0.05
@@ -13,6 +17,7 @@ height = 0.04
 
 [node name="Minigun" type="Node3D"]
 script = ExtResource("1_slv4r")
+bullet_scene = ExtResource("2_ir3xc")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.84622e-10, 0.00422365, 0.999991, -1, -4.37114e-08, 0, 4.3711e-08, -0.999991, 0.00422365, 0, 0, 0)
@@ -28,3 +33,15 @@ mesh = SubResource("SphereMesh_3s3s7")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -1)
 collide_with_areas = true
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_b6kwb")
+initial_state = NodePath("MinigunFiring")
+
+[node name="MinigunFiring" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("minigun")]
+script = ExtResource("4_1o44c")
+minigun = NodePath("../..")
+
+[node name="MinigunReloading" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("minigun")]
+script = ExtResource("5_apyxp")
+minigun = NodePath("../..")

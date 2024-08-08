@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ckkokmvpqe4o7"]
 
-[ext_resource type="Script" path="res://CustomizationArea/CameraRoot.gd" id="1_q5ptp"]
+[ext_resource type="Script" path="res://CustomizationArea/camera_root.gd" id="1_q5ptp"]
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="2_76ss7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tcn"]

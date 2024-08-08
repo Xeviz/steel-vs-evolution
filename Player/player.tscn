@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct4wpugyn0inh"]
+[gd_scene load_steps=5 format=3 uid="uid://ct4wpugyn0inh"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_kh8c7"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_kh8c7"]
 [ext_resource type="PackedScene" uid="uid://ccq02lefpinoa" path="res://Player/Weapons/minigun.tscn" id="2_usg6n"]
-[ext_resource type="PackedScene" uid="uid://he6k5vt4mfh5" path="res://Player/WeaponResources/bullet.tscn" id="3_pgeo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0ky"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2dg5h"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_kh8c7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,4 +21,3 @@ skeleton = NodePath("")
 
 [node name="Minigun" parent="." instance=ExtResource("2_usg6n")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00105534, 0.867437, 0.626591)
-bullet_scene = ExtResource("3_pgeo2")
