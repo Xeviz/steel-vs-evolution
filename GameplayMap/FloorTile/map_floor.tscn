@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd7pq2k1ikls3"]
+
+[ext_resource type="Texture2D" uid="uid://bkm5h3mkcahkm" path="res://Textures/grass_path_2_diff_4k.jpg" id="1_syirg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_firbp"]
+albedo_texture = ExtResource("1_syirg")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+
+[node name="MapFloor" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.02, 25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.02, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.02, -25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.02, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.02, 25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.02, -25)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(25, 0.02, 25)
+material = SubResource("StandardMaterial3D_firbp")

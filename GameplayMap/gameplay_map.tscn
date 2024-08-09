@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn1ggy27aucsf"]
+[gd_scene load_steps=11 format=3 uid="uid://bn1ggy27aucsf"]
 
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="1_kia1u"]
+[ext_resource type="Script" path="res://GameplayMap/gameplay_map.gd" id="1_p1itd"]
 [ext_resource type="Script" path="res://GameplayMap/player_following_camera.gd" id="1_v1w5t"]
-[ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="3_i8jfe"]
+[ext_resource type="PackedScene" uid="uid://bd3rcpauj7sqx" path="res://GameplayMap/EnemySpawner/enemy_spawner.tscn" id="4_4e7du"]
+[ext_resource type="Texture2D" uid="uid://bkm5h3mkcahkm" path="res://Textures/grass_path_2_diff_4k.jpg" id="4_e4gu6"]
+[ext_resource type="PackedScene" uid="uid://cd7pq2k1ikls3" path="res://GameplayMap/FloorTile/map_floor.tscn" id="6_kf3tu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4xua"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,13 +20,14 @@ sky = SubResource("Sky_dgkiu")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fneaa"]
-size = Vector2(50, 50)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiy33"]
+albedo_texture = ExtResource("4_e4gu6")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_md5kv"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
-
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("map_floor")]
+script = ExtResource("1_p1itd")
+map_floor = NodePath("MapFloor")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jw17m")
@@ -36,21 +40,20 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.2414, 0)
 script = ExtResource("1_v1w5t")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-layers = 32771
-mesh = SubResource("PlaneMesh_fneaa")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_md5kv")
-
 [node name="Player" parent="." instance=ExtResource("1_kia1u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116704, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("3_i8jfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8657, 0.933326, 0)
-collision_mask = 2
+[node name="EnemySpawner" parent="." instance=ExtResource("4_4e7du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185567, 0.933326, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 111.932)
+visible = false
+layers = 3
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(40, 0.02, 41)
+material = SubResource("StandardMaterial3D_yiy33")
+
+[node name="MapFloor" parent="." instance=ExtResource("6_kf3tu")]

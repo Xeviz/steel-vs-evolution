@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bd3rcpauj7sqx"]
+
+[ext_resource type="Script" path="res://GameplayMap/EnemySpawner/enemy_spawner.gd" id="1_qtmtw"]
+[ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="2_iyvee"]
+[ext_resource type="Script" path="res://GameplayMap/EnemySpawner/spawn_info.gd" id="3_k0uex"]
+[ext_resource type="Script" path="res://Enemies/finite_state_machine.gd" id="4_f3xg8"]
+[ext_resource type="Script" path="res://States/EnemySpawner/spawning_enemies.gd" id="5_e2xxl"]
+[ext_resource type="Script" path="res://States/EnemySpawner/switching_pattern.gd" id="6_twwps"]
+
+[sub_resource type="Resource" id="Resource_kclw6"]
+script = ExtResource("3_k0uex")
+time_start = 0
+time_end = 0
+enemy = ExtResource("2_iyvee")
+enemy_amount = 2
+enemy_spawn_delay = 1
+
+[node name="EnemySpawner" type="Node3D"]
+script = ExtResource("1_qtmtw")
+spawns = Array[ExtResource("3_k0uex")]([SubResource("Resource_kclw6")])
+current_enemy = ExtResource("2_iyvee")
+
+[node name="SpawnSectors" type="Node3D" parent="."]
+
+[node name="Left" type="Node3D" parent="SpawnSectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="Right" type="Node3D" parent="SpawnSectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Up" type="Node3D" parent="SpawnSectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Down" type="Node3D" parent="SpawnSectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_f3xg8")
+initial_state = NodePath("SpawningEnemies")
+
+[node name="SpawningEnemies" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("spawner")]
+script = ExtResource("5_e2xxl")
+spawner = NodePath("../..")
+
+[node name="SwitchingPattern" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_twwps")

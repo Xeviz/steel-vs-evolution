@@ -1,7 +1,7 @@
 extends State
 class_name EnemyDie
 
-var time_to_death = 2.5
+var time_to_death = 0.05
 @export var enemy: CharacterBody3D
 
 
