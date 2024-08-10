@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://GameplayMap/EnemySpawner/enemy_spawner.gd" id="1_qtmtw"]
 [ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="2_iyvee"]
 [ext_resource type="Script" path="res://GameplayMap/EnemySpawner/spawn_info.gd" id="3_k0uex"]
-[ext_resource type="Script" path="res://Enemies/finite_state_machine.gd" id="4_f3xg8"]
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="4_6jo84"]
 [ext_resource type="Script" path="res://States/EnemySpawner/spawning_enemies.gd" id="5_e2xxl"]
 [ext_resource type="Script" path="res://States/EnemySpawner/switching_pattern.gd" id="6_twwps"]
 
@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_f3xg8")
+script = ExtResource("4_6jo84")
 initial_state = NodePath("SpawningEnemies")
 
 [node name="SpawningEnemies" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("spawner")]

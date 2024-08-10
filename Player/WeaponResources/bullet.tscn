@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://he6k5vt4mfh5"]
 
 [ext_resource type="Script" path="res://Player/WeaponResources/bullet.gd" id="1_7mbrd"]
-[ext_resource type="Script" path="res://Enemies/finite_state_machine.gd" id="2_nbd5s"]
-[ext_resource type="Script" path="res://States/Bullet/bullet_fired.gd" id="3_emhhq"]
-[ext_resource type="Script" path="res://States/Bullet/bullet_stored.gd" id="4_4mamd"]
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_47ipp"]
+[ext_resource type="Script" path="res://States/Weapons/Bullet/bullet_fired.gd" id="3_ye4iq"]
+[ext_resource type="Script" path="res://States/Weapons/Bullet/bullet_stored.gd" id="4_17o8u"]
 
 [sub_resource type="Gradient" id="Gradient_ul6x6"]
 offsets = PackedFloat32Array(0.047619, 0.309524, 0.47619, 0.706349)
@@ -45,15 +45,15 @@ target_position = Vector3(0, 0, -1)
 collision_mask = 3
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_nbd5s")
+script = ExtResource("2_47ipp")
 initial_state = NodePath("BulletFired")
 
 [node name="BulletFired" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("bullet")]
-script = ExtResource("3_emhhq")
+script = ExtResource("3_ye4iq")
 bullet = NodePath("../..")
 
 [node name="BulletStored" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("bullet")]
-script = ExtResource("4_4mamd")
+script = ExtResource("4_17o8u")
 bullet = NodePath("../..")
 
 [connection signal="body_entered" from="BulletArea" to="." method="_on_bullet_area_body_entered"]

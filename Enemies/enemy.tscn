@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2wvk6t85enkj"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_ibu5e"]
-[ext_resource type="Script" path="res://Enemies/finite_state_machine.gd" id="2_ojl1b"]
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_kycqa"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_follow_player.gd" id="3_phvss"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_die.gd" id="4_w2q4t"]
 
@@ -27,7 +27,7 @@ layers = 2
 mesh = SubResource("CapsuleMesh_mf6sv")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_ojl1b")
+script = ExtResource("2_kycqa")
 initial_state = NodePath("EnemyFollowPlayer")
 
 [node name="EnemyFollowPlayer" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("enemy")]

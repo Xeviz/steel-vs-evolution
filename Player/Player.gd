@@ -6,13 +6,11 @@ var SPEED = 250
 var params = PhysicsRayQueryParameters3D.new()
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	camera = game_map.get_node("PlayerFollowingCamera")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func move_player(delta: float):
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_backward")
@@ -22,11 +20,9 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = input * SPEED * delta
 	move_and_slide()
-	
-	look_at_mouse()
 
-# Function to rotate the node to face the direction of the mouse cursor
-func look_at_mouse() -> void:
+
+func look_at_mouse():
 	var mouse_position = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(mouse_position)
 	var ray_direction = camera.project_ray_normal(mouse_position)

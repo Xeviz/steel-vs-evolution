@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckkokmvpqe4o7"]
+[gd_scene load_steps=9 format=3 uid="uid://ckkokmvpqe4o7"]
 
 [ext_resource type="Script" path="res://CustomizationArea/camera_root.gd" id="1_q5ptp"]
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="2_76ss7"]
@@ -23,8 +23,6 @@ size = Vector2(10, 10)
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_srbph"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_n2lq8"]
 
 [node name="CharacterCreation" type="Node3D"]
 
@@ -55,7 +53,7 @@ script = ExtResource("1_q5ptp")
 shape = SubResource("SphereShape3D_srbph")
 spring_length = 5.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D" groups=["Camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21413, -1.93001)
 
 [node name="LaserMesh" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D"]
@@ -63,12 +61,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21413, -1.93001)
 [node name="RayCast3D" type="RayCast3D" parent="CameraRoot"]
 
 [node name="Player" parent="." instance=ExtResource("2_76ss7")]
-
-[node name="LimbSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27779, 1.93544, 0)
-visible = false
-
-[node name="Part1" type="Node3D" parent="LimbSpawner"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LimbSpawner/Part1"]
-mesh = SubResource("BoxMesh_n2lq8")
