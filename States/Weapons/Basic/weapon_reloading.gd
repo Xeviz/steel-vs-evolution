@@ -11,4 +11,4 @@ func update(delta: float):
 	time_to_reload -= delta
 	if time_to_reload <= 0:
 		weapon.ammo_left = weapon.ammo_capacity
-		state_transition.emit(self, str(weapon.name + "Firing"))
+		state_transition.emit(self, str(weapon.weapon_name + "Firing"))

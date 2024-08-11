@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckkokmvpqe4o7"]
+[gd_scene load_steps=10 format=3 uid="uid://ckkokmvpqe4o7"]
 
+[ext_resource type="Script" path="res://CustomizationArea/character_creation_zone.gd" id="1_4t0ty"]
 [ext_resource type="Script" path="res://CustomizationArea/camera_root.gd" id="1_q5ptp"]
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="2_76ss7"]
 
@@ -25,6 +26,7 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 [sub_resource type="SphereShape3D" id="SphereShape3D_srbph"]
 
 [node name="CharacterCreation" type="Node3D"]
+script = ExtResource("1_4t0ty")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h04gh")

@@ -1,13 +1,22 @@
 extends CharacterBody3D
 
+
+@export var weapons: Node3D
 var SPEED = 250
-@onready var game_map = get_parent()
-@onready var camera
+var is_on_the_map = false
+var game_map
+var camera
 var params = PhysicsRayQueryParameters3D.new()
 
 
-func _ready():
+
+	
+func _enter_tree():
+	game_map = get_parent()
 	camera = game_map.get_node("PlayerFollowingCamera")
+	var all_weapons = weapons.get_children()
+	for weapon in all_weapons:
+		print(weapon.weapon_name)
 
 
 func move_player(delta: float):

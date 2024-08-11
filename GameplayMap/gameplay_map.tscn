@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn1ggy27aucsf"]
+[gd_scene load_steps=8 format=3 uid="uid://bn1ggy27aucsf"]
 
-[ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="1_kia1u"]
 [ext_resource type="Script" path="res://GameplayMap/gameplay_map.gd" id="1_p1itd"]
 [ext_resource type="Script" path="res://GameplayMap/player_following_camera.gd" id="1_v1w5t"]
 [ext_resource type="PackedScene" uid="uid://bd3rcpauj7sqx" path="res://GameplayMap/EnemySpawner/enemy_spawner.tscn" id="4_4e7du"]
@@ -33,9 +32,6 @@ shadow_enabled = true
 [node name="PlayerFollowingCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.2414, 0)
 script = ExtResource("1_v1w5t")
-
-[node name="Player" parent="." instance=ExtResource("1_kia1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116704, 0)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_4e7du")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185567, 0.933326, 0)

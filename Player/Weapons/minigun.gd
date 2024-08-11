@@ -15,6 +15,9 @@ var time_to_reload : float = 2.0
 var time_left_to_reload = time_to_reload
 var ammo_left = ammo_capacity
 
+func _ready():
+	weapon_name = "Minigun"
+
 
 func fire_bullet():
 	var bullet

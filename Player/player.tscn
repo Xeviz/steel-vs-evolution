@@ -10,8 +10,9 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2dg5h"]
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 script = ExtResource("1_kh8c7")
+weapons = NodePath("Weapons")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883779, 0)
@@ -35,6 +36,7 @@ initial_state = NodePath("CustomizationMode")
 script = ExtResource("4_rd3ps")
 player = NodePath("../..")
 
-[node name="CustomizationMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapons")]
+[node name="CustomizationMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapons", "player")]
 script = ExtResource("5_l8my1")
 weapons = NodePath("../../Weapons")
+player = NodePath("../..")

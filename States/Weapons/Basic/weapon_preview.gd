@@ -12,6 +12,26 @@ var position_on_screen: Vector3
 var collision_point_with_player: Vector3
 
 func update(_delta: float):
+	check_if_on_player()
+	display_weapon()
+	check_if_add_weapon()
+		
+func check_if_on_player():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_direction = camera.project_ray_normal(mouse_pos)
+	var ray_end = ray_origin + ray_direction * 2000
+	
+	var space_state = player.get_world_3d().direct_space_state
+	var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var result = space_state.intersect_ray(new_intersection)
+	if result and result.collider == player:
+		collision_point_with_player = result.position
+		is_on_player = true
+	else:
+		is_on_player = false
+		
+func display_weapon():
 	if is_on_player == false:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -28,28 +48,9 @@ func update(_delta: float):
 		weapon.global_position = collision_point_with_player
 		var forward_vector = -Vector3.FORWARD.rotated(Vector3.UP, weapon.rotation.y)
 		weapon.global_position -= forward_vector * attachment_distance
-		
-		
-		
-		
 	
-		
-	check_if_on_player()
-		
-func check_if_on_player():
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_origin = camera.project_ray_origin(mouse_pos)
-	var ray_direction = camera.project_ray_normal(mouse_pos)
-	var ray_end = ray_origin + ray_direction * 2000
-	
-	var space_state = player.get_world_3d().direct_space_state
-	var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
-	var result = space_state.intersect_ray(new_intersection)
-	if result and result.collider == player:
-		collision_point_with_player = result.position
-		is_on_player = true
-	else:
-		is_on_player = false
-	
-	
-	
+func check_if_add_weapon():
+	if Input.is_action_just_pressed("left_mouse_click") and is_on_player:
+		weapon.go_to_idle()
+	elif Input.is_action_just_pressed("left_mouse_click") or Input.is_action_just_pressed("ui_cancel"):
+		weapon.queue_free()
