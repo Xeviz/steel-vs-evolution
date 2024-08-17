@@ -1,7 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ct4wpugyn0inh"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kh8c7"]
-[ext_resource type="PackedScene" uid="uid://ccq02lefpinoa" path="res://Player/Weapons/minigun.tscn" id="2_usg6n"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="3_7l488"]
 [ext_resource type="Script" path="res://States/Player/gameplay_mode.gd" id="4_rd3ps"]
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
@@ -9,6 +8,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0ky"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2dg5h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dx4da"]
+radius = 0.15
+height = 0.3
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 script = ExtResource("1_kh8c7")
@@ -25,18 +28,20 @@ skeleton = NodePath("")
 
 [node name="Weapons" type="Node3D" parent="."]
 
-[node name="Minigun" parent="Weapons" instance=ExtResource("2_usg6n")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00105534, 0.867437, 0.693507)
-
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_7l488")
 initial_state = NodePath("CustomizationMode")
 
-[node name="GameplayMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="GameplayMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player", "weapons")]
 script = ExtResource("4_rd3ps")
 player = NodePath("../..")
+weapons = NodePath("../../Weapons")
 
 [node name="CustomizationMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapons", "player")]
 script = ExtResource("5_l8my1")
 weapons = NodePath("../../Weapons")
 player = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.887302, 0.498774)
+mesh = SubResource("SphereMesh_dx4da")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckkokmvpqe4o7"]
+[gd_scene load_steps=9 format=3 uid="uid://ckkokmvpqe4o7"]
 
 [ext_resource type="Script" path="res://CustomizationArea/character_creation_zone.gd" id="1_4t0ty"]
 [ext_resource type="Script" path="res://CustomizationArea/camera_root.gd" id="1_q5ptp"]
-[ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="2_76ss7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tcn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,5 +60,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21413, -1.93001)
 [node name="LaserMesh" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D"]
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRoot"]
-
-[node name="Player" parent="." instance=ExtResource("2_76ss7")]

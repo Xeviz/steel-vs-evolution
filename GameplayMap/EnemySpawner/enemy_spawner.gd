@@ -13,7 +13,7 @@ extends Node3D
 var time = 1.5
 var spawn_directions = ["up", "down", "left", "right"]
 var offsets_directions = [1, -1]
-var current_recipe = {"speed": 120, "health": 10}
+var current_recipe = {"speed": 120, "health": 10, "experience": 3}
 
 
 
@@ -31,6 +31,7 @@ func get_random_position():
 		"right":
 			new_position = Vector3(right_sector.global_position.x, 1, right_sector.global_position.z + offset)
 	var new_enemy = current_enemy.instantiate()
+	current_recipe["health"] = randi_range(10, 30)
 	new_enemy.set_stats_from_recipe(current_recipe)
 	new_enemy.global_position = new_position
 	gameplay_world.add_child(new_enemy)

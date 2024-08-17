@@ -18,7 +18,7 @@ sky = SubResource("Sky_dgkiu")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("map_floor")]
+[node name="GameplayMap" type="Node3D" node_paths=PackedStringArray("map_floor")]
 script = ExtResource("1_p1itd")
 map_floor = NodePath("MapFloor")
 

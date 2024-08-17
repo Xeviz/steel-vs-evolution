@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://he6k5vt4mfh5"]
 
-[ext_resource type="Script" path="res://Player/WeaponResources/bullet.gd" id="1_7mbrd"]
-[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_47ipp"]
-[ext_resource type="Script" path="res://States/Weapons/Bullet/bullet_fired.gd" id="3_ye4iq"]
-[ext_resource type="Script" path="res://States/Weapons/Bullet/bullet_stored.gd" id="4_17o8u"]
+[ext_resource type="Script" path="res://Player/WeaponResources/Minigun/bullet.gd" id="1_5nr2h"]
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_gerbl"]
+[ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_fired.gd" id="3_hw2iq"]
+[ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_stored.gd" id="4_q7r5b"]
 
 [sub_resource type="Gradient" id="Gradient_ul6x6"]
 offsets = PackedFloat32Array(0.047619, 0.309524, 0.47619, 0.706349)
@@ -27,7 +27,7 @@ size = Vector3(0.12, 0.12, 0.25)
 size = Vector3(0.25, 0.12, 0.12)
 
 [node name="Bullet" type="Node3D"]
-script = ExtResource("1_7mbrd")
+script = ExtResource("1_5nr2h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hgnpr")
@@ -45,15 +45,15 @@ target_position = Vector3(0, 0, -1)
 collision_mask = 3
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_47ipp")
+script = ExtResource("2_gerbl")
 initial_state = NodePath("BulletFired")
 
 [node name="BulletFired" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("bullet")]
-script = ExtResource("3_ye4iq")
+script = ExtResource("3_hw2iq")
 bullet = NodePath("../..")
 
 [node name="BulletStored" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("bullet")]
-script = ExtResource("4_17o8u")
+script = ExtResource("4_q7r5b")
 bullet = NodePath("../..")
 
 [connection signal="body_entered" from="BulletArea" to="." method="_on_bullet_area_body_entered"]

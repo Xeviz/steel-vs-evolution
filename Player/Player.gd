@@ -1,22 +1,31 @@
 extends CharacterBody3D
+class_name Player
 
 
 @export var weapons: Node3D
-var SPEED = 250
 var is_on_the_map = false
-var game_map
+var current_map
 var camera
 var params = PhysicsRayQueryParameters3D.new()
 
+@onready var state_machine = $FiniteStateMachine
 
 
-	
+var speed: int = 250
+var health: int = 150
+var construction_points: int = 1
+var level: int = 1
+var experience: int = 0
+var experience_to_level_up: int = 20
+
+func apply_menu_upgrades():
+	pass
+
+
 func _enter_tree():
-	game_map = get_parent()
-	camera = game_map.get_node("PlayerFollowingCamera")
-	var all_weapons = weapons.get_children()
-	for weapon in all_weapons:
-		print(weapon.weapon_name)
+	current_map = get_parent()
+	if current_map is GameplayMap:
+		camera = current_map.get_node("PlayerFollowingCamera")
 
 
 func move_player(delta: float):
@@ -26,18 +35,18 @@ func move_player(delta: float):
 	
 	if input.length() > 0:
 		input = input.normalized()
-	
-	velocity = input * SPEED * delta
+	velocity = input * speed * delta
 	move_and_slide()
 
 
 func look_at_mouse():
+	
 	var mouse_position = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(mouse_position)
 	var ray_direction = camera.project_ray_normal(mouse_position)
 	var ray_end = ray_origin + ray_direction * 2000.0  
-	
 	var space_state = get_world_3d().direct_space_state
+	
 	params.from = ray_origin
 	params.to = ray_end
 	var result = space_state.intersect_ray(params)
@@ -49,3 +58,22 @@ func look_at_mouse():
 		var direction = look_at_position - global_transform.origin
 		rotation_degrees.y = atan2(direction.x, direction.z) * rad_to_deg(1.0)
 		
+
+func go_to_gameplay_state():
+	state_machine.on_child_transition(state_machine.current_state, "GameplayMode")
+
+func go_to_customization_state():
+	state_machine.on_child_transition(state_machine.current_state, "CustomizationMode")
+	
+func get_player():
+	get_tree().current_scene.player = get_tree().get_first_node_in_group("Player")
+	transform.basis = Basis()
+	global_position.x = 0
+	global_position.z = 0
+		
+		
+func get_experience(amount):
+	experience+=amount
+	if experience>=experience_to_level_up:
+		level += 1
+		experience -= experience_to_level_up
