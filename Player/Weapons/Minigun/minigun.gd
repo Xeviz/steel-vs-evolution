@@ -2,6 +2,7 @@ extends Weapon
 class_name Minigun
 
 @export var bullet_scene: PackedScene
+var base_weapon_cost = 1
 
 var fire_rate: float = 0.15
 var fire_timer: float = 0.0

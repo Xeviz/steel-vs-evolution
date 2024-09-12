@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwk8xpxpbofqs"]
+
+[ext_resource type="Texture2D" uid="uid://d3xg8soy5uojl" path="res://Textures/icon.svg" id="1_d3e1l"]
+[ext_resource type="Script" path="res://InterfaceComponents/CustomizationUI/attachable_item.gd" id="1_u410h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ij8yx"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AttachableItem" type="Button"]
+custom_minimum_size = Vector2(130, 160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1790.0
+offset_bottom = -920.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u410h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_d3e1l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 128.0
+offset_right = 127.0
+offset_bottom = 161.0
+text = "Default Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 745.0
+offset_bottom = 168.0
+text = "Cost: 1 CP
+Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+label_settings = SubResource("LabelSettings_ij8yx")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

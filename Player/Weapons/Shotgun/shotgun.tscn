@@ -40,8 +40,9 @@ collide_with_areas = true
 script = ExtResource("2_ckxuh")
 initial_state = NodePath("ShotgunFiring")
 
-[node name="WeaponIdle" type="Node" parent="FiniteStateMachine"]
+[node name="WeaponIdle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
 script = ExtResource("3_bqsf5")
+weapon = NodePath("../..")
 
 [node name="WeaponReloading" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
 script = ExtResource("4_8s7ou")

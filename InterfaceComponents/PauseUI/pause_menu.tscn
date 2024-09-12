@@ -21,6 +21,7 @@ offset_bottom = 507.0
 text = "CONTINUE"
 
 [node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 840.0
 offset_top = 534.0
 offset_right = 1049.0

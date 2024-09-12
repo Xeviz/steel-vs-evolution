@@ -2,6 +2,7 @@ extends Weapon
 class_name Shotgun
 
 @export var bullet_scene: PackedScene
+var base_weapon_cost = 2
 
 var fire_rate: float = 0.5
 var fire_timer: float = 0.0

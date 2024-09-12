@@ -52,5 +52,5 @@ func display_weapon():
 func check_if_add_weapon():
 	if Input.is_action_just_pressed("left_mouse_click") and is_on_player:
 		weapon.go_to_idle()
-	elif Input.is_action_just_pressed("left_mouse_click") or Input.is_action_just_pressed("ui_cancel"):
+	elif Input.is_action_just_pressed("right_mouse_click") or Input.is_action_just_pressed("ui_cancel"):
 		weapon.queue_free()
