@@ -6,7 +6,7 @@ class_name SpawningEnemies
 
 func update(delta):
 	spawner.global_transform.origin = spawner.player.global_transform.origin
-	spawner.time-= delta
-	if spawner.time <= 0 :
+	spawner.time_to_spawn-= delta
+	if spawner.time_to_spawn <= 0 :
 		spawner.get_random_position()
-		spawner.time = 0.5
+		spawner.time_to_spawn = 0.5

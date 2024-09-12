@@ -6,6 +6,7 @@ class_name GameplayMap
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
 var dif_z: float
 var dif_x: float
+var game_time: int
 
 
 func _process(delta):
@@ -13,6 +14,16 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		player.go_to_customization_state()
 		go_to_creation_zone()
+	if Input.is_action_just_pressed("ui_cancel"):
+		pause_game()
+
+func pause_game():
+	get_tree().paused = true
+	$PauseMenu.show()
+
+func unpause_game():
+	get_tree().paused = false
+	$PauseMenu.hide()
 		
 	
 func _check_if_slide_map():
