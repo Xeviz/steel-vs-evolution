@@ -14,6 +14,9 @@ func update(delta):
 
 func move_towards_player(delta):
 	var target_position = player.global_transform.origin
+	enemy.look_at(target_position, Vector3.UP)
+	enemy.rotate_y(deg_to_rad(180))
+	
 	enemy.velocity = (target_position - enemy.global_transform.origin).normalized() * enemy.speed * delta
 	enemy.move_and_slide()
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd3rcpauj7sqx"]
+[gd_scene load_steps=9 format=3 uid="uid://bd3rcpauj7sqx"]
 
 [ext_resource type="Script" path="res://GameplayMap/EnemySpawner/enemy_spawner.gd" id="1_qtmtw"]
 [ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="2_iyvee"]
 [ext_resource type="Script" path="res://GameplayMap/EnemySpawner/spawn_info.gd" id="3_k0uex"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="4_6jo84"]
+[ext_resource type="PackedScene" uid="uid://bjimrx3ctae7o" path="res://Models/Basic/basic_enemy.tscn" id="4_t8xk8"]
 [ext_resource type="Script" path="res://States/EnemySpawner/spawning_enemies.gd" id="5_e2xxl"]
 [ext_resource type="Script" path="res://States/EnemySpawner/switching_pattern.gd" id="6_twwps"]
 
@@ -18,7 +19,7 @@ enemy_spawn_delay = 1
 [node name="EnemySpawner" type="Node3D"]
 script = ExtResource("1_qtmtw")
 spawns = Array[ExtResource("3_k0uex")]([SubResource("Resource_kclw6")])
-current_enemy = ExtResource("2_iyvee")
+current_enemy = ExtResource("4_t8xk8")
 
 [node name="SpawnSectors" type="Node3D" parent="."]
 

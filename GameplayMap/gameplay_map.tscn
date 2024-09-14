@@ -35,7 +35,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.
 script = ExtResource("1_v1w5t")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_4e7du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185567, 0.933326, 0)
 
 [node name="MapFloor" parent="." instance=ExtResource("6_kf3tu")]
 

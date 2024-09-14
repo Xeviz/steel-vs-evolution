@@ -23,13 +23,13 @@ func get_random_position():
 	var new_position: Vector3
 	match spawn_sector:
 		"up":
-			new_position = Vector3(up_sector.global_position.x + offset, 1, up_sector.global_position.z)
+			new_position = Vector3(up_sector.global_position.x + offset, 0, up_sector.global_position.z)
 		"down":
-			new_position = Vector3(down_sector.global_position.x + offset, 1, down_sector.global_position.z)
+			new_position = Vector3(down_sector.global_position.x + offset, 0, down_sector.global_position.z)
 		"left":
-			new_position = Vector3(left_sector.global_position.x, 1, left_sector.global_position.z + offset)
+			new_position = Vector3(left_sector.global_position.x, 0, left_sector.global_position.z + offset)
 		"right":
-			new_position = Vector3(right_sector.global_position.x, 1, right_sector.global_position.z + offset)
+			new_position = Vector3(right_sector.global_position.x, 0, right_sector.global_position.z + offset)
 	var new_enemy = current_enemy.instantiate()
 	new_enemy.set_stats_from_recipe(current_recipe)
 	new_enemy.global_position = new_position
