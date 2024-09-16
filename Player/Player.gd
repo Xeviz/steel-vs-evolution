@@ -3,6 +3,7 @@ class_name Player
 
 
 @export var weapons: Node3D
+@export var lower_body: Node3D
 var is_on_the_map = false
 var current_map
 var camera
@@ -33,8 +34,15 @@ func move_player(delta: float):
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_backward")
 	
-	if input.length() > 0:
+	if input.length() > 0 and lower_body.is_idle:
+		lower_body.go_to_walking()
 		input = input.normalized()
+	elif input.length() > 0:
+		input = input.normalized()
+	else:
+		lower_body.go_to_idle()
+	
+
 	velocity = input * speed * delta
 	move_and_slide()
 

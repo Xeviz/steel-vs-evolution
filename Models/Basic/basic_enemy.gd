@@ -5,6 +5,7 @@ class_name BasicEnemy
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
 
+
 	
 func receive_damage(damage_amount, damage_source):
 	health -= damage_amount
@@ -20,6 +21,7 @@ func die(damage_overkill, damage_source):
 	if damage_source=="bullet":
 		die_from_bullet(damage_overkill)
 	animation_state.travel("DieNLA")
+
 
 func die_from_bullet(damage_overkill):
 	print(damage_overkill)

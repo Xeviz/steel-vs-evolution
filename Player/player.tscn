@@ -3,26 +3,28 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kh8c7"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="3_7l488"]
 [ext_resource type="Script" path="res://States/Player/gameplay_mode.gd" id="4_rd3ps"]
+[ext_resource type="PackedScene" uid="uid://3s6tv5c2ra5l" path="res://Player/lower_body.tscn" id="5_8s5f7"]
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0ky"]
+radius = 0.4
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2dg5h"]
+radius = 0.3
+height = 0.6
 
-[sub_resource type="SphereMesh" id="SphereMesh_dx4da"]
-radius = 0.15
-height = 0.3
-
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons", "lower_body") groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)
 script = ExtResource("1_kh8c7")
 weapons = NodePath("Weapons")
+lower_body = NodePath("lower_body")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883779, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_bb0ky")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883779, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35959, -0.0991435)
 mesh = SubResource("CapsuleMesh_2dg5h")
 skeleton = NodePath("")
 
@@ -42,6 +44,5 @@ script = ExtResource("5_l8my1")
 weapons = NodePath("../../Weapons")
 player = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.887302, 0.498774)
-mesh = SubResource("SphereMesh_dx4da")
+[node name="lower_body" parent="." instance=ExtResource("5_8s5f7")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

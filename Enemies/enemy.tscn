@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_ibu5e"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_kycqa"]
-[ext_resource type="ArrayMesh" uid="uid://dxwg1rr8hgy5a" path="res://Models/untitled.obj" id="2_qyjy0"]
+[ext_resource type="ArrayMesh" path="res://Models/untitled.obj" id="2_qyjy0"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_follow_player.gd" id="3_phvss"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_die.gd" id="4_w2q4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3j32v"]
 
 [node name="Enemy" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42022, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_ibu5e")

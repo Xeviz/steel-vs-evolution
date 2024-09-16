@@ -19,7 +19,7 @@ func move_towards_player(delta):
 	
 	enemy.velocity = (target_position - enemy.global_transform.origin).normalized() * enemy.speed * delta
 	enemy.move_and_slide()
-
+	
 func check_if_alive():
 	if enemy.health<0:
 		state_transition.emit(self, "EnemyDie")

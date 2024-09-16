@@ -15,23 +15,25 @@ var time_to_spawn = 1.5
 var spawn_directions = ["up", "down", "left", "right"]
 var offsets_directions = [1, -1]
 var current_recipe = {"speed": 120, "health": 10, "experience": 3}
-
+var amount_spawned = 0
 
 func get_random_position():
-	var offset = 5 * randf_range(1.1, 1.5) * offsets_directions.pick_random()
-	var spawn_sector = spawn_directions.pick_random()
-	var new_position: Vector3
-	match spawn_sector:
-		"up":
-			new_position = Vector3(up_sector.global_position.x + offset, 0, up_sector.global_position.z)
-		"down":
-			new_position = Vector3(down_sector.global_position.x + offset, 0, down_sector.global_position.z)
-		"left":
-			new_position = Vector3(left_sector.global_position.x, 0, left_sector.global_position.z + offset)
-		"right":
-			new_position = Vector3(right_sector.global_position.x, 0, right_sector.global_position.z + offset)
-	var new_enemy = current_enemy.instantiate()
-	new_enemy.set_stats_from_recipe(current_recipe)
-	new_enemy.global_position = new_position
-	gameplay_world.add_child(new_enemy)
+	if amount_spawned<1:
+		var offset = 5 * randf_range(1.1, 1.5) * offsets_directions.pick_random()
+		var spawn_sector = spawn_directions.pick_random()
+		var new_position: Vector3
+		match spawn_sector:
+			"up":
+				new_position = Vector3(up_sector.global_position.x + offset, 0, up_sector.global_position.z)
+			"down":
+				new_position = Vector3(down_sector.global_position.x + offset, 0, down_sector.global_position.z)
+			"left":
+				new_position = Vector3(left_sector.global_position.x, 0, left_sector.global_position.z + offset)
+			"right":
+				new_position = Vector3(right_sector.global_position.x, 0, right_sector.global_position.z + offset)
+		var new_enemy = current_enemy.instantiate()
+		amount_spawned += 1
+		new_enemy.set_stats_from_recipe(current_recipe)
+		new_enemy.global_position = new_position
+		gameplay_world.add_child(new_enemy)
 	
