@@ -15,4 +15,3 @@ func update(delta):
 	else:
 		player.move_player(delta)
 		player.look_at_mouse()
-

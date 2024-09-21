@@ -50,4 +50,3 @@ func go_to_creation_zone():
 	get_tree().current_scene = new_customization_scene
 	
 	global_data.player.get_player()
-

@@ -34,6 +34,3 @@ func smooth_camera_movement(delta):
 
 func _physics_process(delta):
 	smooth_camera_movement(delta)
-
-
-

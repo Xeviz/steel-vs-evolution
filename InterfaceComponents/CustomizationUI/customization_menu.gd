@@ -17,5 +17,3 @@ func _ready():
 
 func pass_weapon_preview(weapon_scene):
 	get_parent().show_weapon_preview(weapon_scene)
-
-

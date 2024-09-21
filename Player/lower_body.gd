@@ -4,6 +4,7 @@ extends Node3D
 @onready var model = $Armature
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
+@onready var lower_collider_area = $LowerBodyPlayer
 var is_idle = true
 
 
