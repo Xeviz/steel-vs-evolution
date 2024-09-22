@@ -2,9 +2,9 @@ extends Control
 
 var time_to_display = 0.35
 var should_display = false
-var weapon_cost = 1
+var item_cost = 1
 var description = "description"    
-var weapon_name = "weapon"                                                                                    
+var item_name = "weapon"                                                                          
 
 func _process(delta):
 	if should_display:
@@ -13,12 +13,19 @@ func _process(delta):
 		$Description.visible = true
 
 
-func load_item_data(wep_name):
-	weapon_name = wep_name
-	$Label.text = weapon_name
-	$TextureRect.texture = load("res://Textures/Weapons/" + weapon_name + ".png")
-	weapon_cost = global_data.base_costs[weapon_name] + global_data.attached_weapons
-	$Description.text = "COST: " + str(weapon_cost) + "\n" + description
+func load_weapon_data(wep_name):
+	item_name = wep_name
+	$Label.text = item_name
+	$TextureRect.texture = load("res://Textures/Weapons/" + item_name + ".png")
+	item_cost = global_data.base_costs[item_name] + global_data.attached_weapons
+	$Description.text = "COST: " + str(item_cost) + "\n" + description
+
+func load_body_part_data(part_name):
+	item_name = part_name
+	$Label.text = item_name
+	$TextureRect.texture = load("res://Textures/Weapons/" + item_name + ".png")
+	item_cost = global_data.base_costs[item_name] + global_data.attached_weapons
+	$Description.text = "COST: " + str(item_cost) + "\n" + description
 
 func _on_mouse_entered():
 	should_display = true
@@ -33,4 +40,4 @@ func _on_mouse_exited():
 
 
 func _on_button_down():
-	get_parent().get_parent().pass_weapon_preview(weapon_name)
+	get_parent().get_parent().pass_item_preview(item_name)
