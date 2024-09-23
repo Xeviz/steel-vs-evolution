@@ -26,4 +26,4 @@ func _ready():
 
 
 func pass_item_preview(item_scene_name):
-	get_parent().show_weapon_preview(item_scene_name)
+	get_parent().show_item_preview(item_scene_name)

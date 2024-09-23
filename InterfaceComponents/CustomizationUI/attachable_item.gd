@@ -16,16 +16,15 @@ func _process(delta):
 func load_weapon_data(wep_name):
 	item_name = wep_name
 	$Label.text = item_name
-	$TextureRect.texture = load("res://Textures/Weapons/" + item_name + ".png")
+	$TextureRect.texture = load("res://Textures/Icons/Weapons/" + item_name + ".png")
 	item_cost = global_data.base_costs[item_name] + global_data.attached_weapons
 	$Description.text = "COST: " + str(item_cost) + "\n" + description
 
 func load_body_part_data(part_name):
 	item_name = part_name
 	$Label.text = item_name
-	$TextureRect.texture = load("res://Textures/Weapons/" + item_name + ".png")
-	item_cost = global_data.base_costs[item_name] + global_data.attached_weapons
-	$Description.text = "COST: " + str(item_cost) + "\n" + description
+	$TextureRect.texture = load("res://Textures/Icons/BodyParts/" + item_name + ".png")
+	$Description.text = "body part"
 
 func _on_mouse_entered():
 	should_display = true

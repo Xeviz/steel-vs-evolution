@@ -28,6 +28,7 @@ func show_item_preview(item_name):
 	else:
 		var new_body_part = body_part_scenes[item_name].instantiate()
 		player.lower_body.lower_collider_area.add_child(new_body_part)
+		#player.weapons.add_child(new_body_part)
 		new_body_part.go_to_preview()
 
 func go_to_gameplay_zone():

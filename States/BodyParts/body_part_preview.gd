@@ -14,7 +14,7 @@ var collision_point_with_player: Vector3
 func update(_delta: float):
 	check_if_on_player()
 	display_body_part()
-	check_if_add_weapon()
+	check_if_add_body_part()
 		
 func check_if_on_player():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -41,15 +41,16 @@ func display_body_part():
 		body_part.rotation_degrees = Vector3.ZERO
 	else:
 		var attachment_position = attachment_point.position
-		var attachment_distance = attachment_position.distance_to(Vector3.ZERO)
+		var attachment_distance = attachment_position.distance_to(Vector3.ZERO) 
 		var direction_to_part = (body_part.global_position - player.global_position).normalized()
-		var angle_y = atan2(direction_to_part.x, direction_to_part.z) + deg_to_rad(-180)
-		body_part.rotation.y = angle_y
+
 		body_part.global_position = collision_point_with_player
-		var forward_vector = -Vector3.FORWARD.rotated(Vector3.UP, body_part.rotation.y)
-		body_part.global_position -= forward_vector * attachment_distance
-	
-func check_if_add_weapon():
+		if body_part.should_rotate:
+			var angle_y = atan2(direction_to_part.x, direction_to_part.z) + deg_to_rad(-180)
+			body_part.rotation.y = angle_y
+			var forward_vector = -Vector3.FORWARD.rotated(Vector3.UP, body_part.rotation.y)
+			body_part.global_position -= forward_vector * attachment_distance
+func check_if_add_body_part():
 	if Input.is_action_just_pressed("left_mouse_click") and is_on_player:
 		body_part.go_to_idle()
 	elif Input.is_action_just_pressed("right_mouse_click") or Input.is_action_just_pressed("ui_cancel"):
