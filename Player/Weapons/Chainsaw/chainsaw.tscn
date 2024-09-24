@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://biult22u67xaq"]
+
+[ext_resource type="Script" path="res://Player/Weapons/Chainsaw/chainsaw.gd" id="1_hym0j"]
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="1_omutn"]
+[ext_resource type="Script" path="res://States/Weapons/Basic/weapon_idle.gd" id="2_icafn"]
+[ext_resource type="Script" path="res://States/Weapons/Basic/weapon_preview.gd" id="3_pjo7p"]
+[ext_resource type="Script" path="res://States/Weapons/Chainsaw/chainsaw_cutting.gd" id="5_812wy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_deh72"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7fbx1"]
+top_radius = 0.45
+bottom_radius = 0.35
+height = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uvai1"]
+height = 0.05
+
+[node name="Chainsaw" type="Node3D"]
+script = ExtResource("1_hym0j")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_deh72")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.731431)
+mesh = SubResource("CylinderMesh_7fbx1")
+
+[node name="DamageArea" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.729405)
+shape = SubResource("CylinderShape3D_uvai1")
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_omutn")
+initial_state = NodePath("WeaponIdle")
+
+[node name="WeaponPreview" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
+script = ExtResource("3_pjo7p")
+weapon = NodePath("../..")
+
+[node name="ChainsawCutting" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("chainsaw")]
+script = ExtResource("5_812wy")
+chainsaw = NodePath("../..")
+
+[node name="WeaponIdle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
+script = ExtResource("2_icafn")
+weapon = NodePath("../..")
+
+[node name="AttachmentPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.493838)

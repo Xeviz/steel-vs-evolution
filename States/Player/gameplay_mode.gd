@@ -7,7 +7,10 @@ class_name GameplayMode
 func enter():
 	var all_weapons = weapons.get_children()
 	for weapon in all_weapons:
-		weapon.go_to_reloading()
+		if weapon is not MeleeWeapon:
+			weapon.go_to_reloading()
+		else:
+			weapon.go_to_cutting()
 
 func update(delta):
 	if Input.is_action_just_pressed("ui_accept"):

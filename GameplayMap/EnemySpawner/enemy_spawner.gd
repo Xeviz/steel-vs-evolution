@@ -14,7 +14,7 @@ var is_spawning = true
 var time_to_spawn = 1.5
 var spawn_directions = ["up", "down", "left", "right"]
 var offsets_directions = [1, -1]
-var current_recipe = {"speed": 120, "health": 10, "experience": 3}
+var current_recipe = {"speed": 120, "health": 50, "experience": 3}
 
 func get_random_position():
 	var offset = 5 * randf_range(1.1, 1.5) * offsets_directions.pick_random()

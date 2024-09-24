@@ -13,6 +13,10 @@ func _ready():
 	shotgun_item.load_weapon_data("shotgun")
 	$AttachableWeapons.add_child(shotgun_item)
 	
+	var chainsaw_item = attachable_item.instantiate()
+	chainsaw_item.load_weapon_data("chainsaw")
+	$AttachableWeapons.add_child(chainsaw_item)
+	
 	
 	var body_part_2_item = attachable_item.instantiate()
 	body_part_2_item.load_body_part_data("body_part_2")

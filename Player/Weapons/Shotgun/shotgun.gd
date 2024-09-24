@@ -12,10 +12,10 @@ var ammo_speed: float = 20.0
 var ammo_damage: int = 120
 var ammo_penetration: int = 10
 var ammo_range: float = 3.0
-var ammo_capacity: int = 5
+var ammo_capacity: int = 3
 var time_to_reload: float = 2.0
 var ammo_left: int = ammo_capacity
-var spread_angle: int = 30
+var spread_angle: int = 20
 
 func _ready():
 	weapon_name = "Shotgun"

@@ -5,7 +5,8 @@ extends Node3D
 
 var weapon_scenes = {
 	"minigun": preload("res://Player/Weapons/Minigun/minigun.tscn"),
-	"shotgun": preload("res://Player/Weapons/Shotgun/shotgun.tscn")
+	"shotgun": preload("res://Player/Weapons/Shotgun/shotgun.tscn"),
+	"chainsaw": preload("res://Player/Weapons/Chainsaw/chainsaw.tscn")
 }
 
 var body_part_scenes = {

@@ -5,6 +5,7 @@ class_name WeaponIdle
 
 
 func enter():
-	if weapon.fired_bullets:
+	if weapon is not MeleeWeapon:
+		print(weapon)
 		weapon.fired_bullets.clear()
 		weapon.stored_bullets.clear()
