@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpjasvvc8ka4m"]
+
+[ext_resource type="Script" path="res://States/finite_state_machine.gd" id="1_7tpk6"]
+[ext_resource type="Script" path="res://Player/WeaponResources/RocketLauncher/rocket.gd" id="1_kbdrb"]
+[ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_fired.gd" id="3_txp12"]
+[ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_stored.gd" id="4_pofw0"]
+[ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_exploded.gd" id="5_6qq23"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ul1s"]
+albedo_color = Color(1, 0.109804, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xpcoy"]
+material = SubResource("StandardMaterial3D_0ul1s")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e4ue2"]
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e58kw"]
+size = Vector3(7, 1, 7)
+
+[node name="Rocket" type="Node3D"]
+script = ExtResource("1_kbdrb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_xpcoy")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_e4ue2")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="ExplosionArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245137, 0)
+shape = SubResource("BoxShape3D_e58kw")
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_7tpk6")
+initial_state = NodePath("RocketFired")
+
+[node name="RocketFired" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("rocket")]
+script = ExtResource("3_txp12")
+rocket = NodePath("../..")
+
+[node name="RocketStored" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("rocket")]
+script = ExtResource("4_pofw0")
+rocket = NodePath("../..")
+
+[node name="RocketExploded" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("rocket")]
+script = ExtResource("5_6qq23")
+rocket = NodePath("../..")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

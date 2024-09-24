@@ -17,6 +17,10 @@ func _ready():
 	chainsaw_item.load_weapon_data("chainsaw")
 	$AttachableWeapons.add_child(chainsaw_item)
 	
+	var rocket_launcher_item = attachable_item.instantiate()
+	rocket_launcher_item.load_weapon_data("rocket_launcher")
+	$AttachableWeapons.add_child(rocket_launcher_item)
+	
 	
 	var body_part_2_item = attachable_item.instantiate()
 	body_part_2_item.load_body_part_data("body_part_2")

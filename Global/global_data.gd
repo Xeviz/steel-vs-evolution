@@ -8,5 +8,6 @@ var attached_weapons = 0
 var base_costs = {
 	"minigun": 1,
 	"shotgun": 2,
-	"chainsaw": 1
+	"chainsaw": 1,
+	"rocket_launcher": 3
 }
