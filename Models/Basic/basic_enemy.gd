@@ -18,10 +18,11 @@ func set_stats_from_recipe(recipe):
 	experience = recipe["experience"]
 	
 func die(damage_overkill, damage_source):
+	global_data.slain_enemies+=1
 	if damage_source=="bullet":
 		die_from_bullet(damage_overkill)
 	animation_state.travel("DieNLA")
 
 
 func die_from_bullet(damage_overkill):
-	print(damage_overkill)
+	pass

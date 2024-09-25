@@ -21,7 +21,7 @@ func move_towards_player(delta):
 	enemy.move_and_slide()
 	
 func check_if_alive():
-	if enemy.health<0:
+	if enemy.health<=0:
 		state_transition.emit(self, "EnemyDie")
 		
 func physics_update(delta: float):

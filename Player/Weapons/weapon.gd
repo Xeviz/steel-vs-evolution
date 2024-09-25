@@ -4,6 +4,7 @@ class_name Weapon
 @onready var state_machine = $FiniteStateMachine
 var weapon_name = "Weapon"
 var weapon_type = "gun"
+var weapon_level = 1
 
 func go_to_idle():
 	state_machine.on_child_transition(state_machine.current_state, "WeaponIdle")

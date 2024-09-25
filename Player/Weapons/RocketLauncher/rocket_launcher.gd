@@ -24,7 +24,6 @@ func _ready():
 
 
 func fire_bullet():
-	print("strzelam")
 	var bullet
 	if stored_bullets.size() > 0:
 		bullet = stored_bullets.pop_back()

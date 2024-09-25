@@ -16,6 +16,7 @@ var body_part_scenes = {
 }
 
 func _process(delta):
+	
 	if Input.is_action_just_pressed("mouse_pointer_in_creator"):
 		show_item_preview("minigun")
 		
@@ -43,4 +44,8 @@ func go_to_gameplay_zone():
 	get_tree().root.add_child(new_gameplay_scene)
 	get_tree().current_scene = new_gameplay_scene
 	
+	
 	global_data.player.get_player()
+	print(global_data.slain_enemies)
+	new_gameplay_scene.load_gameplay_ui_data()
+	print(global_data.slain_enemies)

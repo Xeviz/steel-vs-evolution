@@ -9,11 +9,11 @@ extends Control
 @export var player_scene : PackedScene
 
 func _on_play_button_pressed():
+	
 	var new_player = player_scene.instantiate()
 	global_data.player = new_player
 	var new_customization_scene = customization_scene.instantiate()
 	new_customization_scene.add_child(new_player)
-	
 	get_tree().current_scene.queue_free()
 	get_tree().root.add_child(new_customization_scene)
 	get_tree().current_scene = new_customization_scene

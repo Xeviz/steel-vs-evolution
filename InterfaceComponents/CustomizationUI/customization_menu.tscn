@@ -13,17 +13,30 @@ script = ExtResource("1_gg85f")
 
 [node name="AttachableWeapons" type="GridContainer" parent="."]
 layout_direction = 2
-layout_mode = 0
-offset_left = 1507.0
-offset_top = 2.0
-offset_right = 1925.0
-offset_bottom = 608.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1470.0
+offset_top = 30.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 10
 columns = 3
 
 [node name="AttachableParts" type="GridContainer" parent="."]
 layout_direction = 2
-offset_left = 1507.0
-offset_top = 633.0
-offset_right = 1925.0
-offset_bottom = 1082.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1470.0
+offset_top = 630.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 10
 columns = 3

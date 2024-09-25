@@ -74,6 +74,7 @@ func go_to_customization_state():
 	state_machine.on_child_transition(state_machine.current_state, "CustomizationMode")
 	
 func get_player():
+	print("xd?")
 	get_tree().current_scene.player = get_tree().get_first_node_in_group("Player")
 	transform.basis = Basis()
 	global_position.x = 0

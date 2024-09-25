@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfea4q55nhh2y"]
+
+[ext_resource type="Texture2D" uid="uid://ce4o2kevrsv2r" path="res://Textures/Icons/Weapons/chainsaw.png" id="1_dgseq"]
+[ext_resource type="Script" path="res://InterfaceComponents/GameplayUI/weapon_icon.gd" id="2_ogbwf"]
+
+[node name="WeaponIcon" type="TextureRect"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -980.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dgseq")
+expand_mode = 1
+script = ExtResource("2_ogbwf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 77.0
+offset_right = 41.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "Lv. 1"

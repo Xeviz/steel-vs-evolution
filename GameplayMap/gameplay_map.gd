@@ -1,8 +1,10 @@
 extends Node3D
 class_name GameplayMap
 
-@onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
+
+@onready var gameplay_ui = $GameplayUI
 @export var map_floor: Node3D
+@onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
 var dif_z: float
 var dif_x: float
@@ -16,6 +18,15 @@ func _process(delta):
 		go_to_creation_zone()
 	if Input.is_action_just_pressed("ui_cancel"):
 		pause_game()
+	update_gameplay_ui_data(delta)
+		
+func update_gameplay_ui_data(delta):
+	gameplay_ui.update_time(delta)
+	gameplay_ui.update_enemies_slain()
+	pass
+
+func load_gameplay_ui_data():
+	gameplay_ui.load_weapons_icons(player.weapons.get_children())
 
 func pause_game():
 	get_tree().paused = true
