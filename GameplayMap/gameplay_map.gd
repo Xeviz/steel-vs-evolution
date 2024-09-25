@@ -23,6 +23,7 @@ func _process(delta):
 func update_gameplay_ui_data(delta):
 	gameplay_ui.update_time(delta)
 	gameplay_ui.update_enemies_slain()
+	gameplay_ui.update_level()
 	pass
 
 func load_gameplay_ui_data():

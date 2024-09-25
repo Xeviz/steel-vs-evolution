@@ -3,9 +3,12 @@ extends Control
 @onready var weapon_icon = preload("res://InterfaceComponents/GameplayUI/weapon_icon.tscn")
 @onready var time_label = $TimeCounter
 @onready var enemies_slain_label = $SlainCounter
+@onready var level_label = $LevelDisplay
+@onready var level_progress = $LevelProgress
 var seconds = 0
 var minutes = 0
 var passed_time = 0.0
+var level = 0
 
 func load_weapons_icons(weapons):
 	for weapon in weapons:
@@ -28,7 +31,13 @@ func update_time(delta):
 	time_label.text = str(minutes) + ":" + str(seconds)
 
 func update_level():
-	pass
+	if global_data.player.level != level:
+		level = global_data.player.level
+		level_label.text = "Lv."+str(level)
+		level_progress.max_value = global_data.player.experience_to_level_up
+	level_progress.value = global_data.player.experience
+	
+		
 
 func update_enemies_slain():
 	enemies_slain_label.text = "ENEMIES SLAIN: " + str(global_data.slain_enemies)
