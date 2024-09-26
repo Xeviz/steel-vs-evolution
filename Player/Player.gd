@@ -13,7 +13,8 @@ var params = PhysicsRayQueryParameters3D.new()
 
 
 var speed: int = 250
-var health: int = 150
+var max_health: int = 150
+var health: int = 120
 var construction_points: int = 1
 var level: int = 1
 var experience: int = 0

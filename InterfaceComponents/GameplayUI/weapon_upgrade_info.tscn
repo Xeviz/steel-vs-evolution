@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv48rh5k2sha5"]
+
+[ext_resource type="PackedScene" uid="uid://dfea4q55nhh2y" path="res://InterfaceComponents/GameplayUI/weapon_icon.tscn" id="1_a4jg2"]
+[ext_resource type="Script" path="res://InterfaceComponents/GameplayUI/weapon_upgrade_info.gd" id="1_tlyri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_032js"]
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WeaponUpgradeInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 700.0
+offset_bottom = 200.0
+script = ExtResource("1_tlyri")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponIcon" parent="." instance=ExtResource("1_a4jg2")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -50.0
+offset_right = 110.0
+offset_bottom = 50.0
+grow_horizontal = 1
+
+[node name="UpgradeDescription" type="Label" parent="."]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 683.0
+offset_bottom = 186.0
+text = "Description"
+label_settings = SubResource("LabelSettings_032js")
+autowrap_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

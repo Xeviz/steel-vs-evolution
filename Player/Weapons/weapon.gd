@@ -6,6 +6,13 @@ var weapon_name = "Weapon"
 var weapon_type = "gun"
 var weapon_level = 1
 
+var upgrade_variants = {
+	
+}
+
+func apply_upgrade(variant_id):
+	pass
+
 func go_to_idle():
 	state_machine.on_child_transition(state_machine.current_state, "WeaponIdle")
 	

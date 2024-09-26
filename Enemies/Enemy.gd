@@ -5,6 +5,7 @@ class_name Enemy
 @onready var model = $Armature
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
+@onready var damage_label = $DamageLabel
 
 var speed: int
 var health: int
@@ -14,6 +15,7 @@ var experience: int
 	
 func receive_damage(damage_amount, damage_source):
 	health -= damage_amount
+	damage_label.display_damage(damage_amount)
 	if health<=0:
 		die(-health, damage_source)
 	

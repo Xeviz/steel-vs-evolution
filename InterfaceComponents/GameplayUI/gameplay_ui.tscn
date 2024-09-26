@@ -60,3 +60,33 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 35
 text = "Lv.1"
+
+[node name="HealthDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1910.0
+offset_top = 936.0
+offset_right = -1660.0
+offset_bottom = 971.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+text = "110/120"
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = -113.0
+grow_vertical = 0
+value = 50.0
+show_percentage = false

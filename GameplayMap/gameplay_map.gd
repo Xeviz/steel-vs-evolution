@@ -24,7 +24,8 @@ func update_gameplay_ui_data(delta):
 	gameplay_ui.update_time(delta)
 	gameplay_ui.update_enemies_slain()
 	gameplay_ui.update_level()
-	pass
+	gameplay_ui.update_health()
+
 
 func load_gameplay_ui_data():
 	gameplay_ui.load_weapons_icons(player.weapons.get_children())

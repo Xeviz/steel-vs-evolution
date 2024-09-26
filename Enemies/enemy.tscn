@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2wvk6t85enkj"]
+[gd_scene load_steps=9 format=3 uid="uid://b2wvk6t85enkj"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_ibu5e"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_kycqa"]
-[ext_resource type="ArrayMesh" path="res://Models/untitled.obj" id="2_qyjy0"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_follow_player.gd" id="3_phvss"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_die.gd" id="4_w2q4t"]
+[ext_resource type="Script" path="res://Enemies/damage_label.gd" id="5_odj21"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3j32v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsi5h"]
+albedo_color = Color(0.599171, 0.212841, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m1qqg"]
+material = SubResource("StandardMaterial3D_gsi5h")
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
@@ -18,7 +24,7 @@ shape = SubResource("CapsuleShape3D_3j32v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 2
-mesh = ExtResource("2_qyjy0")
+mesh = SubResource("CapsuleMesh_m1qqg")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_kycqa")
@@ -31,3 +37,10 @@ enemy = NodePath("../..")
 [node name="EnemyDie" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_w2q4t")
 enemy = NodePath("../..")
+
+[node name="DamageLabel" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 1.103, 0)
+visible = false
+text = "test
+"
+script = ExtResource("5_odj21")
