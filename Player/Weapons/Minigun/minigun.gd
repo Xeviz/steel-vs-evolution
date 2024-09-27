@@ -66,8 +66,6 @@ func on_bullet_stored(bullet):
 
 
 func apply_upgrade(variant_id):
-	print(variant_id)
-	print("weapon damage przed:" + str(ammo_damage))
 	if variant_id == 1:
 		upgrade_fire_rate(0.10)
 		upgrade_ammo_capacity(25)
@@ -80,7 +78,6 @@ func apply_upgrade(variant_id):
 		upgrade_damage(7)
 		upgrade_time_to_reload(-0.10)
 	stored_bullets.clear()
-	print("weapon damage po:" + str(ammo_damage))
 
 
 

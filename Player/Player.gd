@@ -18,7 +18,8 @@ var health: int = 120
 var construction_points: int = 1
 var level: int = 1
 var experience: int = 0
-var experience_to_level_up: int = 8
+var experience_to_level_up: int = 20
+var next_required_exp = 10
 
 func apply_menu_upgrades():
 	pass
@@ -86,4 +87,6 @@ func get_experience(amount):
 	while experience>=experience_to_level_up:
 		level += 1
 		experience -= experience_to_level_up
+		experience_to_level_up += next_required_exp
+		next_required_exp+=5
 		get_parent().activate_level_up_window()
