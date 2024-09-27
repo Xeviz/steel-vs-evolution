@@ -7,11 +7,11 @@ var base_weapon_cost = 1
 var base_fire_rate: float = 0.15
 var fire_rate: float = 0.15
 var fire_rate_modifier: float = 1.0
-var fire_timer: float = 0.0
 
 var base_ammo_capacity: int = 100
 var ammo_capacity: int = 100
 var ammo_capacity_modifier: float = 1.0
+var ammo_capacity_stats = [100, 1.0]
 var ammo_left: int = ammo_capacity
 
 var base_time_to_reload: float = 2.0
@@ -67,7 +67,7 @@ func on_bullet_stored(bullet):
 
 func apply_upgrade(variant_id):
 	if variant_id == 1:
-		upgrade_fire_rate(0.10)
+		upgrade_fire_rate(-0.10)
 		upgrade_ammo_capacity(25)
 	elif variant_id == 2:
 		upgrade_damage(10)
@@ -78,8 +78,6 @@ func apply_upgrade(variant_id):
 		upgrade_damage(7)
 		upgrade_time_to_reload(-0.10)
 	stored_bullets.clear()
-
-
 
 func upgrade_damage(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:
@@ -108,8 +106,10 @@ func upgrade_ammo_penetration(upgrade_value):
 func upgrade_ammo_capacity(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:
 		ammo_capacity_modifier+=upgrade_value
+		ammo_left+=int(upgrade_value*base_ammo_capacity)
 	else:
 		base_ammo_capacity+=upgrade_value
+		ammo_left+=upgrade_value
 	ammo_capacity = int(base_ammo_capacity * ammo_capacity_modifier)
 
 func upgrade_time_to_reload(upgrade_value):

@@ -10,7 +10,6 @@ var stored_bullets: Array = []
 var base_fire_rate: float = 0.5
 var fire_rate: float = 0.5
 var fire_rate_modifier: float = 1.0
-var fire_timer: float = 0.0
 
 
 var base_ammo_damage: int = 120

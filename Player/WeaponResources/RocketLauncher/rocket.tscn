@@ -18,7 +18,7 @@ height = 0.2
 radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e58kw"]
-size = Vector3(7, 1, 7)
+size = Vector3(4, 1, 4)
 
 [node name="Rocket" type="Node3D"]
 script = ExtResource("1_kbdrb")
