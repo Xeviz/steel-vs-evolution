@@ -14,10 +14,10 @@ var range : float
 @onready var bullet_mesh = $MeshInstance3D
 
 func connect_to_weapon(weapon):
-	speed = weapon.ammo_speed
+	speed = weapon.ammo_speed 
 	damage = weapon.ammo_damage
-	penetration = weapon.ammo_penetration
 	range = weapon.ammo_range
+	penetration = weapon.ammo_penetration
 
 func _on_bullet_area_body_entered(body):
 	if body is Enemy:

@@ -6,6 +6,7 @@ class_name GameplayMap
 @export var map_floor: Node3D
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
+@onready var level_up_scene = preload("res://InterfaceComponents/GameplayUI/level_up_window.tscn")
 var dif_z: float
 var dif_x: float
 var game_time: int
@@ -37,8 +38,15 @@ func pause_game():
 func unpause_game():
 	get_tree().paused = false
 	$PauseMenu.hide()
-		
 	
+func activate_level_up_window():
+	get_tree().paused = true
+	var new_level_up_scene = level_up_scene.instantiate()
+	add_child(new_level_up_scene)
+	new_level_up_scene.get_random_upgrades(player.weapons.get_children())
+	
+
+
 func _check_if_slide_map():
 	dif_x = player.position.x - map_floor.position.x
 	dif_z = player.position.z - map_floor.position.z

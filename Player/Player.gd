@@ -18,7 +18,7 @@ var health: int = 120
 var construction_points: int = 1
 var level: int = 1
 var experience: int = 0
-var experience_to_level_up: int = 20
+var experience_to_level_up: int = 8
 
 func apply_menu_upgrades():
 	pass
@@ -75,7 +75,6 @@ func go_to_customization_state():
 	state_machine.on_child_transition(state_machine.current_state, "CustomizationMode")
 	
 func get_player():
-	print("xd?")
 	get_tree().current_scene.player = get_tree().get_first_node_in_group("Player")
 	transform.basis = Basis()
 	global_position.x = 0
@@ -84,6 +83,7 @@ func get_player():
 		
 func get_experience(amount):
 	experience+=amount
-	if experience>=experience_to_level_up:
+	while experience>=experience_to_level_up:
 		level += 1
 		experience -= experience_to_level_up
+		get_parent().activate_level_up_window()

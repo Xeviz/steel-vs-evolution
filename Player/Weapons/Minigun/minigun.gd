@@ -4,24 +4,30 @@ class_name Minigun
 @export var bullet_scene: PackedScene
 var base_weapon_cost = 1
 
+var base_fire_rate: float = 0.15
 var fire_rate: float = 0.15
 var fire_rate_modifier: float = 1.0
 var fire_timer: float = 0.0
 
+var base_ammo_capacity: int = 100
 var ammo_capacity: int = 100
 var ammo_capacity_modifier: float = 1.0
 var ammo_left: int = ammo_capacity
 
+var base_time_to_reload: float = 2.0
 var time_to_reload: float = 2.0
 var time_to_reload_modifier: float = 1.0
 
+var base_ammo_speed: float = 5.0
 var ammo_speed: float = 5.0
 var ammo_speed_modifier: float = 1.0
 
+var base_ammo_damage: int = 10
 var ammo_damage: int = 10
 var ammo_damage_modifier: float = 1.0
 
 var ammo_penetration: int = 2
+var base_ammo_range: float = 15.0
 var ammo_range: float = 15.0
 var ammo_range_modifier: float = 1.0
 
@@ -60,6 +66,8 @@ func on_bullet_stored(bullet):
 
 
 func apply_upgrade(variant_id):
+	print(variant_id)
+	print("weapon damage przed:" + str(ammo_damage))
 	if variant_id == 1:
 		upgrade_fire_rate(0.10)
 		upgrade_ammo_capacity(25)
@@ -71,37 +79,46 @@ func apply_upgrade(variant_id):
 	elif variant_id == 4:
 		upgrade_damage(7)
 		upgrade_time_to_reload(-0.10)
+	stored_bullets.clear()
+	print("weapon damage po:" + str(ammo_damage))
+
+
 
 func upgrade_damage(upgrade_value):
-	if -1 < upgrade_value < 1:
-		ammo_damage_modifier+=ammo_damage
+	if upgrade_value < 1 and upgrade_value > -1:
+		ammo_damage_modifier+=upgrade_value
 	else:
-		ammo_damage+=upgrade_value
+		base_ammo_damage+=upgrade_value
+	ammo_damage = base_ammo_damage*ammo_damage_modifier
 	
 func upgrade_fire_rate(upgrade_value):
-	if -1 < upgrade_value < 1:
+	if upgrade_value < 1 and upgrade_value > -1:
 		fire_rate_modifier+=upgrade_value
 	else:
-		fire_rate+=upgrade_value
+		base_fire_rate+=upgrade_value
+	fire_rate = base_fire_rate * fire_rate_modifier
 	
 func upgrade_ammo_speed(upgrade_value):
-	if -1 < upgrade_value < 1:
+	if upgrade_value < 1 and upgrade_value > -1:
 		ammo_speed_modifier+=upgrade_value
 	else:
-		ammo_speed+=upgrade_value
+		base_ammo_speed+=upgrade_value
+	ammo_speed = base_ammo_speed*ammo_speed_modifier
 
 func upgrade_ammo_penetration(upgrade_value):
 	ammo_penetration+=upgrade_value
 	
 func upgrade_ammo_capacity(upgrade_value):
-	if -1 < upgrade_value < 1:
+	if upgrade_value < 1 and upgrade_value > -1:
 		ammo_capacity_modifier+=upgrade_value
 	else:
-		ammo_capacity+=upgrade_value
+		base_ammo_capacity+=upgrade_value
+	ammo_capacity = int(base_ammo_capacity * ammo_capacity_modifier)
 
 func upgrade_time_to_reload(upgrade_value):
-	if -1 < upgrade_value < 1:
+	if upgrade_value < 1 and upgrade_value > -1:
 		time_to_reload_modifier+=upgrade_value
 	else:
-		time_to_reload+=upgrade_value
+		base_time_to_reload+=upgrade_value
+	time_to_reload = base_time_to_reload*time_to_reload_modifier
 		

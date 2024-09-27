@@ -28,10 +28,10 @@ func show_item_preview(item_name):
 		var new_weapon = weapon_scenes[item_name].instantiate()
 		player.weapons.add_child(new_weapon)
 		new_weapon.go_to_preview()
+		print(player.weapons.get_children())
 	else:
 		var new_body_part = body_part_scenes[item_name].instantiate()
 		player.lower_body.lower_collider_area.add_child(new_body_part)
-		#player.weapons.add_child(new_body_part)
 		new_body_part.go_to_preview()
 
 func go_to_gameplay_zone():
@@ -46,6 +46,4 @@ func go_to_gameplay_zone():
 	
 	
 	global_data.player.get_player()
-	print(global_data.slain_enemies)
 	new_gameplay_scene.load_gameplay_ui_data()
-	print(global_data.slain_enemies)

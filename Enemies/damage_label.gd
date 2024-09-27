@@ -10,7 +10,5 @@ func _process(delta: float) -> void:
 		
 
 func display_damage(value):
-	text = str(value)
-	print("hi " + text)
 	time_to_hide = 1
 	self.show()
