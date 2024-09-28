@@ -17,9 +17,7 @@ var body_part_scenes = {
 
 func _process(delta):
 	
-	if Input.is_action_just_pressed("mouse_pointer_in_creator"):
-		show_item_preview("minigun")
-		
+
 	if Input.is_action_just_pressed("ui_cancel"):
 		go_to_gameplay_zone()
 

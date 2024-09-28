@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7vw4baiyab0i"
+path="res://.godot/imported/rotator_model.obj-7ba1ebf0bdd4f45c40c4ce149cc5843d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rotator_model.obj-7ba1ebf0bdd4f45c40c4ce149cc5843d.mesh"]
+
+source_file="res://Models/rotator_model.obj"
+dest_files=["res://.godot/imported/rotator_model.obj-7ba1ebf0bdd4f45c40c4ce149cc5843d.mesh", "res://.godot/imported/rotator_model.obj-7ba1ebf0bdd4f45c40c4ce149cc5843d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

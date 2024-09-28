@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://3s6tv5c2ra5l"]
+[gd_scene load_steps=14 format=3 uid="uid://3s6tv5c2ra5l"]
 
 [ext_resource type="PackedScene" uid="uid://bgl2x83xg0l7y" path="res://Models/Player/lower_body.glb" id="1_rq012"]
 [ext_resource type="Script" path="res://Player/BodyParts/lower_body.gd" id="2_vmbni"]
+[ext_resource type="PackedScene" uid="uid://dc8p4bti3cfsp" path="res://Player/BodyParts/UpperBodyParts/upper_body_part_1.tscn" id="3_ntjm4"]
 
 [sub_resource type="Animation" id="Animation_kd67q"]
 resource_name = "IdleNLA"
@@ -1041,3 +1042,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 4.554, -0.444)
 
 [node name="LowerBodyCollision" type="CollisionShape3D" parent="LowerBodyPlayer" index="0"]
 shape = SubResource("CylinderShape3D_ebmhx")
+
+[node name="UpperBodyPart1" parent="." index="4" instance=ExtResource("3_ntjm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 5.33726, -0.444)

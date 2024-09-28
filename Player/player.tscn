@@ -16,7 +16,7 @@ weapons = NodePath("Weapons")
 lower_body = NodePath("lower_body")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08226, -0.125864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30464, 3.08226, -0.125864)
 shape = SubResource("CapsuleShape3D_bb0ky")
 
 [node name="Weapons" type="Node3D" parent="."]

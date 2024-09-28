@@ -3,10 +3,12 @@ class_name GameplayMap
 
 
 @onready var gameplay_ui = $GameplayUI
+@onready var pause_menu = $PauseMenu
 @export var map_floor: Node3D
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
 @onready var level_up_scene = preload("res://InterfaceComponents/GameplayUI/level_up_window.tscn")
+
 var dif_z: float
 var dif_x: float
 var game_time: int
@@ -32,12 +34,13 @@ func load_gameplay_ui_data():
 	gameplay_ui.load_weapons_icons(player.weapons.get_children())
 
 func pause_game():
+	pause_menu.unpause_delay = 0.3
 	get_tree().paused = true
-	$PauseMenu.show()
+	pause_menu.show()
 
 func unpause_game():
 	get_tree().paused = false
-	$PauseMenu.hide()
+	pause_menu.hide()
 	
 func activate_level_up_window():
 	get_tree().paused = true

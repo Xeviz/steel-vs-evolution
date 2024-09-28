@@ -6,6 +6,7 @@ class_name WeaponPreview
 @onready var camera : Camera3D = get_tree().get_first_node_in_group("Camera")
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var player_lower_body : CharacterBody3D = get_tree().get_first_node_in_group("Player").lower_body.lower_collider_area
+@onready var player_upper_body : CharacterBody3D = get_tree().get_first_node_in_group("Player").lower_body.upper_collider_area
 @onready var attachment_point : Node3D = weapon.get_node("AttachmentPoint")
 
 var is_on_player = false
@@ -26,7 +27,7 @@ func check_if_on_player():
 	var space_state = player.get_world_3d().direct_space_state
 	var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
 	var result = space_state.intersect_ray(new_intersection)
-	if result and (result.collider == player or result.collider == player_lower_body):
+	if result and (result.collider == player or result.collider == player_lower_body or result.collider == player_upper_body):
 		collision_point_with_player = result.position
 		is_on_player = true
 	else:

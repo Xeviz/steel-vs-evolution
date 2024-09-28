@@ -52,6 +52,7 @@ script = ExtResource("1_q5ptp")
 [node name="CameraPitch" type="Node3D" parent="CameraRoot/CameraYaw"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraRoot/CameraYaw/CameraPitch"]
+collision_mask = 2
 shape = SubResource("SphereShape3D_srbph")
 spring_length = 5.0
 
