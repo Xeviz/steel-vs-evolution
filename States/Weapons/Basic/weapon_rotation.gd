@@ -6,7 +6,8 @@ class_name WeaponRotation
 @export var weapon: Weapon
 var rotator_x: StaticBody3D
 var is_on_rotator = false
-var initial_mouse_pos: Vector2  # Zmienna do przechowywania początkowej pozycji myszy
+var is_rotating = false
+var initial_mouse_pos: Vector2
 var initial_rotation: Vector3
 
 func enter():
@@ -36,18 +37,22 @@ func check_if_on_rotator():
 
 func check_if_rotate():
 	if Input.is_action_just_pressed("left_mouse_click") and is_on_rotator:
-		initial_mouse_pos = get_viewport().get_mouse_position()  # Zapamiętaj początkową pozycję myszy
-		initial_rotation = weapon.rotation  # Zapamiętaj początkową rotację broni
-
-	if Input.is_action_pressed("left_mouse_click") and is_on_rotator:
-		var current_mouse_pos = get_viewport().get_mouse_position()  # Aktualna pozycja myszy
-		var mouse_delta = current_mouse_pos - initial_mouse_pos  # Oblicz różnicę
-		var rotation_amount = mouse_delta.x * 0.01  # Skaluje rotację (dostosuj wartość wedle potrzeby)
-
-		# Aktualizuje rotację broni wokół osi X
-		weapon.rotation.x = initial_rotation.x + rotation_amount
+		initial_mouse_pos = get_viewport().get_mouse_position() 
+		initial_rotation = weapon.rotation 
+		is_rotating = true
 	elif Input.is_action_just_pressed("left_mouse_click"):
 		state_transition.emit(self, "WeaponIdle")
+
+	if Input.is_action_pressed("left_mouse_click") and is_rotating:
+		var current_mouse_pos = get_viewport().get_mouse_position()
+		var mouse_delta = current_mouse_pos - initial_mouse_pos
+		var rotation_amount = mouse_delta.y * 0.01
+		weapon.rotation.x = initial_rotation.x - rotation_amount
+	elif is_rotating:
+		print("rotating status : " + str(is_rotating))
+		is_rotating = false
+		print("rotating status : " + str(is_rotating))
+		
 		
 func exit():
 	weapon.item_rotator.hide()
