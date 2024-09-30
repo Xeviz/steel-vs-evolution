@@ -62,5 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21413, -1.93001)
 [node name="LaserMesh" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D"]
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRoot"]
+collision_mask = 17
 
 [node name="CustomizationMenu" parent="." instance=ExtResource("3_s7bfo")]

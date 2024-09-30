@@ -35,3 +35,4 @@ func check_if_on_weapon():
 func check_if_go_to_rotation():
 	if Input.is_action_just_pressed("left_mouse_click") and is_on_weapon:
 		state_transition.emit(self, "WeaponRotation")
+		

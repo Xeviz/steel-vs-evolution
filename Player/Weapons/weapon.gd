@@ -4,6 +4,7 @@ class_name Weapon
 @onready var state_machine = $FiniteStateMachine
 @onready var item_rotator = $ItemRotator
 @onready var weapon_area: StaticBody3D = $WeaponArea
+@onready var attachment_point: Node3D = $AttachmentPoint
 var weapon_name = "Weapon"
 var weapon_type = "gun"
 var weapon_level = 1
