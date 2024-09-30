@@ -29,10 +29,8 @@ func check_if_on_player():
 	var result = space_state.intersect_ray(new_intersection)
 	if result and (result.collider == player or result.collider == player_lower_body or result.collider == player_upper_body):
 		collision_point_with_player = result.position
-		print("jestem na graczu")
 		is_on_player = true
 	else:
-		print("nie jestem na graczu")
 		is_on_player = false
 		
 func display_weapon():

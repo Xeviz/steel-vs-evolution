@@ -56,16 +56,15 @@ func check_if_rotate():
 	if Input.is_action_pressed("left_mouse_click") and is_rotating:
 		var current_mouse_pos = get_viewport().get_mouse_position()
 		var mouse_delta = current_mouse_pos - initial_mouse_pos
+		
 		var rotation_amount = mouse_delta.y * 0.01
 		weapon.rotation.x = initial_rotation.x - rotation_amount
 		
 		rotation_amount = mouse_delta.x * 0.01
 		weapon.rotation.y = initial_rotation.y + rotation_amount
 		
-		
 		var new_weapon_attachment_pos = weapon.attachment_point.to_global(Vector3.ZERO)
 		var offset = initial_weapon_pos - new_weapon_attachment_pos
-		
 		weapon.global_position += offset
 	elif is_rotating:
 		print("rotating status : " + str(is_rotating))

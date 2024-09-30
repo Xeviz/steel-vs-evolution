@@ -4,9 +4,12 @@ class_name WeaponIdle
 @export var weapon: Weapon
 @onready var camera : Camera3D = get_tree().get_first_node_in_group("Camera")
 var is_on_weapon = false
-
+var time_to_preview: float
+var paralyze_time: float
 
 func enter():
+	paralyze_time = 0.1
+	time_to_preview = 0.25
 	if weapon is not MeleeWeapon:
 		print(weapon)
 		weapon.fired_bullets.clear()
@@ -15,9 +18,12 @@ func enter():
 		
 		
 func update(delta):
+	print(paralyze_time)
 	check_if_on_weapon()
-	check_if_go_to_rotation()
-	
+	if paralyze_time<=0:
+		check_if_go_to_rotation(delta)
+	else:
+		paralyze_time-=delta
 func check_if_on_weapon():
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -32,7 +38,16 @@ func check_if_on_weapon():
 	else:
 		is_on_weapon = false
 		
-func check_if_go_to_rotation():
-	if Input.is_action_just_pressed("left_mouse_click") and is_on_weapon:
+func check_if_go_to_rotation(delta):
+	if Input.is_action_pressed("left_mouse_click") and is_on_weapon:
+		time_to_preview-=delta
+		print(str(time_to_preview))
+		if time_to_preview<=0:
+			weapon.go_to_preview()
+	elif Input.is_action_just_released("left_mouse_click") and is_on_weapon:
 		state_transition.emit(self, "WeaponRotation")
+		time_to_preview = 0.15
+	else:
+		time_to_preview = 0.15
+		
 		
