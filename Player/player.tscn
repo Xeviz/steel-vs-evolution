@@ -36,4 +36,3 @@ weapons = NodePath("../../Weapons")
 player = NodePath("../..")
 
 [node name="lower_body" parent="." instance=ExtResource("5_8s5f7")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

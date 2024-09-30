@@ -30,6 +30,7 @@ func change_upper_body(upper_body_scene):
 	add_child(upper_collider_area)
 	offset_upper_body()
 	
+	
 func offset_upper_body():
 	var upper_attachment_point = upper_collider_area.attachment_point.global_transform.origin
 	var self_attachment_point = attachment_point.global_transform.origin

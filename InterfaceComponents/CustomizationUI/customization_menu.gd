@@ -6,6 +6,7 @@ extends Control
 @onready var weapons_grid = $AttachableWeapons
 @onready var lower_bodies_grid = $ChosableLowerBodies
 @onready var upper_bodies_grid = $ChosableUpperBodies
+var current_upper_body_scene = "upper_body_part_1"
 
 func _ready():
 	var minigun_item = attachable_item.instantiate()
@@ -59,4 +60,6 @@ func pass_item_preview(item_scene_name):
 	get_parent().show_weapon_preview(item_scene_name)
 	
 func pass_item_choice(item_scene_name):
-	get_parent().chose_item(item_scene_name)
+	if item_scene_name.begins_with("upper_body_part"):
+		current_upper_body_scene = item_scene_name
+	get_parent().chose_item(item_scene_name, current_upper_body_scene)

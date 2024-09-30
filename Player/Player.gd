@@ -22,6 +22,7 @@ var next_required_exp = 10
 
 func change_lower_body(lower_body_scene):
 	remove_child(lower_body)
+	var previous_upper_body = lower_body.upper_collider_area
 	lower_body = lower_body_scene.instantiate()
 	add_child(lower_body)
 

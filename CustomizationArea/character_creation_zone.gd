@@ -30,14 +30,15 @@ func show_weapon_preview(item_name):
 	new_weapon.go_to_preview()
 	print(player.weapons.get_children())
 	
-func chose_item(item_name):
-	print(str(item_name))
+func chose_item(item_name, previous_upper_body_name):
 	if item_name in upper_body_parts_scenes:
 		var body_part_scene = upper_body_parts_scenes[item_name]
 		player.lower_body.change_upper_body(body_part_scene)
 	elif item_name in lower_body_parts_scenes:
 		var body_part_scene = lower_body_parts_scenes[item_name]
+		var prev_upper_body_scene = upper_body_parts_scenes[previous_upper_body_name]
 		player.change_lower_body(body_part_scene)
+		player.lower_body.change_upper_body(prev_upper_body_scene)
 
 func go_to_gameplay_zone():
 	var new_gameplay_scene = gameplay_scene.instantiate()
