@@ -10,27 +10,27 @@ var weapon_scenes = {
 	"rocket_launcher": preload("res://Player/Weapons/RocketLauncher/rocket_launcher.tscn")
 }
 
-var body_part_scenes = {
-	"body_part_2": preload("res://Player/BodyParts/body_part_2.tscn"),
-	"body_part_4": preload("res://Player/BodyParts/body_part_4.tscn")
+var upper_body_parts_scenes = {
+	"upper_body_part_1": preload("res://Player/BodyParts/UpperBodyParts/upper_body_part_1.tscn"),
+	"upper_body_part_2": preload("res://Player/BodyParts/UpperBodyParts/upper_body_part_2.tscn"),
 }
 
 func _process(delta):
-	
-
 	if Input.is_action_just_pressed("ui_cancel"):
 		go_to_gameplay_zone()
 
-func show_item_preview(item_name):
-	if item_name in weapon_scenes:
-		var new_weapon = weapon_scenes[item_name].instantiate()
-		player.weapons.add_child(new_weapon)
-		new_weapon.go_to_preview()
-		print(player.weapons.get_children())
-	else:
-		var new_body_part = body_part_scenes[item_name].instantiate()
-		player.lower_body.lower_collider_area.add_child(new_body_part)
-		new_body_part.go_to_preview()
+func show_weapon_preview(item_name):
+	var new_weapon = weapon_scenes[item_name].instantiate()
+	player.weapons.add_child(new_weapon)
+	new_weapon.go_to_preview()
+	print(player.weapons.get_children())
+	
+func chose_item(item_name):
+	print(str(item_name))
+	if item_name in upper_body_parts_scenes:
+		print("poszlo")
+		var body_part_scene = upper_body_parts_scenes[item_name]
+		player.lower_body.change_upper_body(body_part_scene)
 
 func go_to_gameplay_zone():
 	var new_gameplay_scene = gameplay_scene.instantiate()

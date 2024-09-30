@@ -8,7 +8,6 @@ var is_on_the_map = false
 var current_map
 var camera
 var params = PhysicsRayQueryParameters3D.new()
-
 @onready var state_machine = $FiniteStateMachine
 
 

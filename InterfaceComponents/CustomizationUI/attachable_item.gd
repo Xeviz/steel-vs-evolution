@@ -1,4 +1,5 @@
-extends Control
+extends Button
+class_name AttachableItem
 
 var time_to_display = 0.35
 var should_display = false

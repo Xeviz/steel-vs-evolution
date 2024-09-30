@@ -41,7 +41,6 @@ func check_if_on_weapon():
 func check_if_go_to_rotation(delta):
 	if Input.is_action_pressed("left_mouse_click") and is_on_weapon:
 		time_to_preview-=delta
-		print(str(time_to_preview))
 		if time_to_preview<=0:
 			weapon.go_to_preview()
 	elif Input.is_action_just_released("left_mouse_click") and is_on_weapon:

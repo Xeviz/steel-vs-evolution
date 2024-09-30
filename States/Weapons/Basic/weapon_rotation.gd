@@ -67,12 +67,12 @@ func check_if_rotate():
 		var offset = initial_weapon_pos - new_weapon_attachment_pos
 		weapon.global_position += offset
 	elif is_rotating:
-		print("rotating status : " + str(is_rotating))
 		is_rotating = false
-		print("rotating status : " + str(is_rotating))
 		
 		
 func exit():
 	weapon.item_rotator.hide()
 	rotator_x.set_collision_layer_value(1,false)
 	rotator_x.set_collision_mask_value(1,false)
+	rotator_y.set_collision_layer_value(1,false)
+	rotator_y.set_collision_mask_value(1,false)

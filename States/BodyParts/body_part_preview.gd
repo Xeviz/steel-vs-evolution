@@ -4,7 +4,7 @@ class_name BodyPartPreview
 @export var body_part : BodyPart
 @onready var camera : Camera3D = get_tree().get_first_node_in_group("Camera")
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
-@onready var player_lower_body : Area3D = get_tree().get_first_node_in_group("Player").lower_body.lower_collider_area
+@onready var player_lower_body : StaticBody3D = get_tree().get_first_node_in_group("Player").lower_body.lower_collider_area
 @onready var attachment_point : Node3D = body_part.get_node("AttachmentPoint")
 
 var is_on_player = false
