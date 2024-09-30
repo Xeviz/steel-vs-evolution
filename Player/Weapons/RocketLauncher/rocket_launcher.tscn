@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwlg6lb01rpyt"]
+[gd_scene load_steps=13 format=3 uid="uid://bwlg6lb01rpyt"]
 
 [ext_resource type="Script" path="res://Player/Weapons/RocketLauncher/rocket_launcher.gd" id="1_8ei7y"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="1_i0hyu"]
@@ -7,6 +7,11 @@
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_preview.gd" id="3_6vlo1"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_idle.gd" id="4_iionb"]
 [ext_resource type="Script" path="res://States/Weapons/RocketLauncher/rocket_launcher_firing.gd" id="7_x0sen"]
+[ext_resource type="PackedScene" uid="uid://lhiwkmw3mkyc" path="res://InterfaceComponents/CustomizationUI/item_rotator.tscn" id="8_7s3gm"]
+[ext_resource type="Script" path="res://States/Weapons/Basic/weapon_rotation.gd" id="9_tfi73"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_51gqo"]
+data = PackedVector3Array(-0.1, 0.4, 0.1, 0.1, 0.4, 0.1, -0.1, -0.4, 0.1, 0.1, 0.4, 0.1, 0.1, -0.4, 0.1, -0.1, -0.4, 0.1, 0.1, 0.4, -0.1, -0.1, 0.4, -0.1, 0.1, -0.4, -0.1, -0.1, 0.4, -0.1, -0.1, -0.4, -0.1, 0.1, -0.4, -0.1, 0.1, 0.4, 0.1, 0.1, 0.4, -0.1, 0.1, -0.4, 0.1, 0.1, 0.4, -0.1, 0.1, -0.4, -0.1, 0.1, -0.4, 0.1, -0.1, 0.4, -0.1, -0.1, 0.4, 0.1, -0.1, -0.4, -0.1, -0.1, 0.4, 0.1, -0.1, -0.4, 0.1, -0.1, -0.4, -0.1, 0.1, 0.4, 0.1, -0.1, 0.4, 0.1, 0.1, 0.4, -0.1, -0.1, 0.4, 0.1, -0.1, 0.4, -0.1, 0.1, 0.4, -0.1, -0.1, -0.4, 0.1, 0.1, -0.4, 0.1, -0.1, -0.4, -0.1, 0.1, -0.4, 0.1, 0.1, -0.4, -0.1, -0.1, -0.4, -0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_13d8o"]
 size = Vector3(0.2, 0.8, 0.2)
@@ -18,6 +23,12 @@ height = 0.04
 [node name="RocketLauncher" type="Node3D"]
 script = ExtResource("1_8ei7y")
 bullet_scene = ExtResource("2_q650v")
+
+[node name="WeaponArea" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponArea"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_51gqo")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
@@ -36,6 +47,10 @@ collide_with_areas = true
 
 [node name="AttachmentPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.398449)
+
+[node name="ItemRotator" parent="." instance=ExtResource("8_7s3gm")]
+transform = Transform3D(4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 0, 0, -0.526208)
+visible = false
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_i0hyu")
@@ -56,3 +71,7 @@ weapon = NodePath("../..")
 [node name="RocketLauncherFiring" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("rocket_launcher")]
 script = ExtResource("7_x0sen")
 rocket_launcher = NodePath("../..")
+
+[node name="WeaponRotation" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
+script = ExtResource("9_tfi73")
+weapon = NodePath("../..")

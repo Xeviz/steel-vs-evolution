@@ -47,6 +47,13 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 target_position = Vector3(0, 0, -1)
 collide_with_areas = true
 
+[node name="AttachmentPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22)
+
+[node name="ItemRotator" parent="." instance=ExtResource("8_7j2yi")]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0, 0, -0.307699)
+visible = false
+
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_un0ld")
 initial_state = NodePath("MinigunFiring")
@@ -70,10 +77,3 @@ weapon = NodePath("../..")
 [node name="WeaponRotation" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapon")]
 script = ExtResource("8_ao4d1")
 weapon = NodePath("../..")
-
-[node name="AttachmentPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22)
-
-[node name="ItemRotator" parent="." instance=ExtResource("8_7j2yi")]
-transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0, 0, -0.307699)
-visible = false

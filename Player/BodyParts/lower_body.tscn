@@ -1045,5 +1045,4 @@ shape = SubResource("CylinderShape3D_ebmhx")
 
 [node name="UpperBodyPart1" parent="." index="4" instance=ExtResource("3_ntjm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 5.33726, -0.444)
-collision_layer = 7
-collision_mask = 7
+collision_layer = 1
