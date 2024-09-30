@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://3s6tv5c2ra5l"]
 
-[ext_resource type="PackedScene" uid="uid://bgl2x83xg0l7y" path="res://Models/Player/lower_body.glb" id="1_rq012"]
-[ext_resource type="Script" path="res://Player/BodyParts/lower_body.gd" id="2_vmbni"]
+[ext_resource type="PackedScene" uid="uid://bgl2x83xg0l7y" path="res://Models/Player/lower_body.glb" id="1_ewmff"]
+[ext_resource type="Script" path="res://Player/BodyParts/lower_body.gd" id="2_gs5s8"]
 
 [sub_resource type="Animation" id="Animation_kd67q"]
 resource_name = "IdleNLA"
@@ -884,8 +884,11 @@ transitions = ["Start", "IdleNLA", SubResource("AnimationNodeStateMachineTransit
 height = 0.01
 radius = 1.8
 
-[node name="lower_body" instance=ExtResource("1_rq012")]
-script = ExtResource("2_vmbni")
+[node name="lower_body" instance=ExtResource("1_ewmff")]
+script = ExtResource("2_gs5s8")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.22, 0, 0, 0, -0.22, -8.56712e-08, 0, 8.56712e-08, -0.22, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(1, -7.88861e-31, -1.32349e-23, -6.75513e-08)
@@ -1037,10 +1040,10 @@ tree_root = SubResource("AnimationNodeStateMachine_fclm4")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="LowerBodyPlayer" type="StaticBody3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 4.554, -0.444)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.014, 2.38663, -0.444)
 
 [node name="LowerBodyCollision" type="CollisionShape3D" parent="LowerBodyPlayer" index="0"]
 shape = SubResource("CylinderShape3D_ebmhx")
 
 [node name="AttachmentPoint" type="Node3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.55581, -0.51713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0689571, 2.5735, -0.301095)

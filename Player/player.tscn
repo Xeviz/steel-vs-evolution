@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kh8c7"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="3_7l488"]
 [ext_resource type="Script" path="res://States/Player/gameplay_mode.gd" id="4_rd3ps"]
-[ext_resource type="PackedScene" uid="uid://3s6tv5c2ra5l" path="res://Player/BodyParts/lower_body.tscn" id="5_8s5f7"]
+[ext_resource type="PackedScene" uid="uid://3s6tv5c2ra5l" path="res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn" id="5_8s5f7"]
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0ky"]

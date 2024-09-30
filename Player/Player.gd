@@ -20,6 +20,11 @@ var experience: int = 0
 var experience_to_level_up: int = 20
 var next_required_exp = 10
 
+func change_lower_body(lower_body_scene):
+	remove_child(lower_body)
+	lower_body = lower_body_scene.instantiate()
+	add_child(lower_body)
+
 func apply_menu_upgrades():
 	pass
 
@@ -67,7 +72,6 @@ func look_at_mouse():
 		var direction = look_at_position - global_transform.origin
 		rotation_degrees.y = atan2(direction.x, direction.z) * rad_to_deg(1.0)
 		
-
 func go_to_gameplay_state():
 	state_machine.on_child_transition(state_machine.current_state, "GameplayMode")
 
@@ -79,7 +83,6 @@ func get_player():
 	transform.basis = Basis()
 	global_position.x = 0
 	global_position.z = 0
-		
 		
 func get_experience(amount):
 	experience+=amount

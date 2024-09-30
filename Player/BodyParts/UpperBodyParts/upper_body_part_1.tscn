@@ -48,11 +48,13 @@ collision_layer = 17
 script = ExtResource("1_1ecmj")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8j7is")
 skeleton = NodePath("")
 
 [node name="AttachmentPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.844768, -0.571311)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.178099, -0.201312)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_5r4ql")

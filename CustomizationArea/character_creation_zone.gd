@@ -15,6 +15,11 @@ var upper_body_parts_scenes = {
 	"upper_body_part_2": preload("res://Player/BodyParts/UpperBodyParts/upper_body_part_2.tscn"),
 }
 
+var lower_body_parts_scenes = {
+	"lower_body_part_1": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn"),
+	"lower_body_part_2": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_2.tscn")
+}
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		go_to_gameplay_zone()
@@ -28,9 +33,11 @@ func show_weapon_preview(item_name):
 func chose_item(item_name):
 	print(str(item_name))
 	if item_name in upper_body_parts_scenes:
-		print("poszlo")
 		var body_part_scene = upper_body_parts_scenes[item_name]
 		player.lower_body.change_upper_body(body_part_scene)
+	elif item_name in lower_body_parts_scenes:
+		var body_part_scene = lower_body_parts_scenes[item_name]
+		player.change_lower_body(body_part_scene)
 
 func go_to_gameplay_zone():
 	var new_gameplay_scene = gameplay_scene.instantiate()

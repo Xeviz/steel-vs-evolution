@@ -32,6 +32,14 @@ func _ready():
 	upper_body_part_2_item.load_upper_body_part_data("upper_body_part_2")
 	upper_bodies_grid.add_child(upper_body_part_2_item)
 	
+	var lower_body_part_1_item = chosable_item.instantiate()
+	lower_body_part_1_item.load_lower_body_part_data("lower_body_part_1")
+	lower_bodies_grid.add_child(lower_body_part_1_item)
+	
+	var lower_body_part_2_item = chosable_item.instantiate()
+	lower_body_part_2_item.load_lower_body_part_data("lower_body_part_2")
+	lower_bodies_grid.add_child(lower_body_part_2_item)
+	
 
 	
 	open_bodies_window()
