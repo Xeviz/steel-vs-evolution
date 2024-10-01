@@ -4,21 +4,22 @@ class_name Player
 
 @export var weapons: Node3D
 @export var lower_body: Node3D
+@onready var state_machine = $FiniteStateMachine
+var params = PhysicsRayQueryParameters3D.new()
 var is_on_the_map = false
 var current_map
 var camera
-var params = PhysicsRayQueryParameters3D.new()
-@onready var state_machine = $FiniteStateMachine
 
-
-var speed: int = 250
-var max_health: int = 150
-var health: int = 120
 var construction_points: int = 1
 var level: int = 1
 var experience: int = 0
 var experience_to_level_up: int = 20
-var next_required_exp = 10
+var next_required_exp: int = 10
+
+var speed: int = 250
+var max_health: int = 150
+var health: int = 120
+
 
 func change_lower_body(lower_body_scene):
 	remove_child(lower_body)

@@ -11,47 +11,92 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gg85f")
 
-[node name="AttachableWeapons" type="GridContainer" parent="."]
+[node name="WeaponsRect" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
+offset_left = 1470.0
+offset_right = 1920.0
+offset_bottom = 600.0
+color = Color(0.268824, 0.159125, 0.120003, 1)
+
+[node name="AttachableWeapons" type="GridContainer" parent="WeaponsRect"]
 layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1470.0
-offset_bottom = -480.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 600.0
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 10
 columns = 3
 
-[node name="ChosableLowerBodies" type="GridContainer" parent="."]
-visible = false
+[node name="UpperBodiesRect" type="ColorRect" parent="."]
+offset_left = 1470.0
+offset_right = 1920.0
+offset_bottom = 500.0
+color = Color(0.268824, 0.159125, 0.120003, 1)
+
+[node name="ChosableUpperBodies" type="GridContainer" parent="UpperBodiesRect"]
 layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 500.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="LowerBodiesRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 1470.0
 offset_top = 540.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 940.0
+color = Color(0.268824, 0.159125, 0.120003, 1)
+
+[node name="ChosableLowerBodies" type="GridContainer" parent="LowerBodiesRect"]
+layout_direction = 2
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 400.0
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 10
 columns = 3
 
-[node name="ChosableUpperBodies" type="GridContainer" parent="."]
+[node name="GoToWeaponery" type="Button" parent="."]
 visible = false
-layout_direction = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1470.0
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 15
-theme_override_constants/v_separation = 10
-columns = 3
+layout_mode = 0
+offset_left = 1707.0
+offset_top = 965.0
+offset_right = 1907.0
+offset_bottom = 1065.0
+theme_override_font_sizes/font_size = 30
+text = "CONTINUE"
+
+[node name="GoToGameplay" type="Button" parent="."]
+visible = false
+offset_left = 1707.0
+offset_top = 965.0
+offset_right = 1907.0
+offset_bottom = 1065.0
+theme_override_font_sizes/font_size = 30
+text = "CONTINUE"
+
+[node name="CPInfo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 435.0
+offset_bottom = 96.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "Available CP: "
+
+[connection signal="button_down" from="GoToWeaponery" to="." method="_on_go_to_weaponery_button_down"]
+[connection signal="button_down" from="GoToGameplay" to="." method="_on_go_to_gameplay_button_down"]

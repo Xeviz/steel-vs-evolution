@@ -3,7 +3,7 @@ class_name ChosableItem
 
 
 func _on_button_down():
-	get_parent().get_parent().pass_item_choice(item_name)
+	get_parent().get_parent().get_parent().pass_item_choice(item_name)
 
 
 func load_upper_body_part_data(part_name):

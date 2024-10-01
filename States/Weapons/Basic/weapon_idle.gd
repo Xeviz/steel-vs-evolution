@@ -11,14 +11,12 @@ func enter():
 	paralyze_time = 0.1
 	time_to_preview = 0.25
 	if weapon is not MeleeWeapon:
-		print(weapon)
 		weapon.fired_bullets.clear()
 		weapon.stored_bullets.clear()
 		
 		
 		
 func update(delta):
-	print(paralyze_time)
 	check_if_on_weapon()
 	if paralyze_time<=0:
 		check_if_go_to_rotation(delta)

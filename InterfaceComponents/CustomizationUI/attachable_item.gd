@@ -40,4 +40,4 @@ func _on_mouse_exited():
 
 
 func _on_button_down():
-	get_parent().get_parent().pass_item_preview(item_name)
+	get_parent().get_parent().get_parent().pass_item_preview(item_name)
