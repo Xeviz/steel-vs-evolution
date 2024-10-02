@@ -6,6 +6,9 @@ var slain_enemies: int = 0
 var attached_weapons: int = 0
 var gameplay_minute: int = 0
 var alive_enemies: int = 0
+var time_stopped = false
+var stage_cleared = false
+
 
 var base_costs = {
 	"minigun": 1,

@@ -10,8 +10,6 @@ extends Control
 @onready var health_bar = $HealthBar
 @onready var icons_container = $HBoxContainer
 
-var stop_time = false
-var stage_cleared = false
 
 var seconds: float = 0
 var minutes: int = 0
@@ -24,12 +22,10 @@ func load_weapons_icons(weapons):
 		weapon.update_icon_data()
 		icons_container.add_child(weapon.weapon_icon)
 
-func update_weapons_icons():
-	for weapon_icon in icons_container.get_children():
-		pass
-	pass
 
 func _ready():
+	global_data.time_stopped = false
+	global_data.stage_cleared = false
 	minutes = global_data.gameplay_minute
 	update_enemies_slain()
 	update_level()
@@ -37,6 +33,11 @@ func _ready():
 	time_label.text = str(minutes) + ":" + str(seconds)
 
 func update_time(delta):
+	if global_data.time_stopped and not global_data.stage_cleared:
+		check_if_stage_cleared()
+		return
+	elif global_data.stage_cleared:
+		get_parent().go_to_creation_zone()
 	passed_time += delta
 	if passed_time < 1:
 		return
@@ -47,7 +48,7 @@ func update_time(delta):
 		minutes+=1
 		global_data.gameplay_minute+=1
 		if minutes in [1,3,7,12,18,25]:
-			get_parent().go_to_creation_zone()
+			global_data.time_stopped = true
 	else:
 		seconds+=1
 	time_label.text = str(minutes) + ":" + str(seconds)
@@ -67,3 +68,7 @@ func update_health():
 
 func update_enemies_slain():
 	enemies_slain_label.text = "ENEMIES SLAIN: " + str(global_data.slain_enemies)
+	
+func check_if_stage_cleared():
+	if global_data.alive_enemies == 0:
+		global_data.stage_cleared = true

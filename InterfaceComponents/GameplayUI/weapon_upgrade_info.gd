@@ -20,4 +20,3 @@ func _on_button_button_down() -> void:
 	weapon.update_icon_data()
 	print(str(weapon.weapon_icon.label.text))
 	get_parent().get_parent().deactivate_level_up_window()
-	gameplay_ui.update_weapons_icons()
