@@ -16,7 +16,7 @@ var experience: int = 0
 var experience_to_level_up: int = 20
 var next_required_exp: int = 10
 
-var speed: int = 250
+var speed: float = 250.0
 var max_health: int = 150
 var health: int = 120
 
@@ -49,7 +49,6 @@ func move_player(delta: float):
 		input = input.normalized()
 	else:
 		lower_body.go_to_idle()
-	
 
 	velocity = input * speed * delta
 	move_and_slide()

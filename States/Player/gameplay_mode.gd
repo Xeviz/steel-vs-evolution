@@ -16,5 +16,8 @@ func update(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		state_transition.emit(self, "CustomizationMode")
 	else:
-		player.move_player(delta)
 		player.look_at_mouse()
+
+func physics_update(delta):
+	player.move_player(delta)
+	

@@ -30,6 +30,8 @@ size = Vector3(0.25, 0.12, 0.12)
 script = ExtResource("1_5nr2h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+process_priority = -1
+process_physics_priority = -1
 mesh = SubResource("BoxMesh_hgnpr")
 
 [node name="BulletArea" type="Area3D" parent="."]
