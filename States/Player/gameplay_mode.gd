@@ -21,3 +21,5 @@ func update(delta):
 func physics_update(delta):
 	player.move_player(delta)
 	
+	
+	

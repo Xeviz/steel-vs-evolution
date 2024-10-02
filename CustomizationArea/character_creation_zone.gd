@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
+@onready var customization_menu = $CustomizationMenu
 @export var gameplay_scene = preload("res://GameplayMap/gameplay_map.tscn")
 
 var weapon_scenes = {

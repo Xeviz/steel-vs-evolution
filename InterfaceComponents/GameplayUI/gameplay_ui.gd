@@ -8,19 +8,33 @@ extends Control
 @onready var health_label = $HealthDisplay
 @onready var level_progress = $LevelProgress
 @onready var health_bar = $HealthBar
+@onready var icons_container = $HBoxContainer
 
-var seconds = 0
-var minutes = 0
-var passed_time = 0.0
-var level = 0
+var stop_time = false
+var stage_cleared = false
+
+var seconds: float = 0
+var minutes: int = 0
+var passed_time: float = 0.0
+var level: int = 0
 
 
 func load_weapons_icons(weapons):
 	for weapon in weapons:
-		var new_weapon_icon = weapon_icon.instantiate()
-		new_weapon_icon.load_icon_data(weapon.weapon_name, weapon.weapon_level)
-		$HBoxContainer.add_child(new_weapon_icon)
+		weapon.update_icon_data()
+		icons_container.add_child(weapon.weapon_icon)
 
+func update_weapons_icons():
+	for weapon_icon in icons_container.get_children():
+		pass
+	pass
+
+func _ready():
+	minutes = global_data.gameplay_minute
+	update_enemies_slain()
+	update_level()
+	update_health()
+	time_label.text = str(minutes) + ":" + str(seconds)
 
 func update_time(delta):
 	passed_time += delta
@@ -31,6 +45,9 @@ func update_time(delta):
 	if seconds == 59:
 		seconds = 0
 		minutes+=1
+		global_data.gameplay_minute+=1
+		if minutes in [1,3,7,12,18,25]:
+			get_parent().go_to_creation_zone()
 	else:
 		seconds+=1
 	time_label.text = str(minutes) + ":" + str(seconds)

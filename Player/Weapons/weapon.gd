@@ -5,6 +5,9 @@ class_name Weapon
 @onready var item_rotator = $ItemRotator
 @onready var weapon_area: StaticBody3D = $WeaponArea
 @onready var attachment_point: Node3D = $AttachmentPoint
+var weapon_icon_scene = preload("res://InterfaceComponents/GameplayUI/weapon_icon.tscn")
+
+var weapon_icon: WeaponIcon
 var weapon_name = "Weapon"
 var weapon_type = "gun"
 var weapon_level = 1
@@ -12,6 +15,13 @@ var weapon_level = 1
 var upgrade_variants = {
 	
 }
+
+func _enter_tree():
+	if not weapon_icon:
+		weapon_icon = weapon_icon_scene.instantiate()
+	
+func update_icon_data():
+	weapon_icon.load_icon_data(weapon_name, weapon_level)
 
 func apply_upgrade(variant_id):
 	pass
