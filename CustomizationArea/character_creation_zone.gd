@@ -1,7 +1,6 @@
 extends Node3D
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
-@onready var customization_menu = $CustomizationMenu
 @export var gameplay_scene = preload("res://GameplayMap/gameplay_map.tscn")
 
 var weapon_scenes = {
@@ -34,10 +33,16 @@ func show_weapon_preview(item_name):
 func chose_item(item_name, previous_upper_body_name):
 	if item_name in upper_body_parts_scenes:
 		var body_part_scene = upper_body_parts_scenes[item_name]
+		
+		player.upper_body_base_speed_bonus = global_data.upper_bodies_stats[item_name]["base_speed_bonus"]
+		player.upper_body_base_health_bonus = global_data.upper_bodies_stats[item_name]["base_health_bonus"]
 		player.lower_body.change_upper_body(body_part_scene)
 	elif item_name in lower_body_parts_scenes:
 		var body_part_scene = lower_body_parts_scenes[item_name]
 		var prev_upper_body_scene = upper_body_parts_scenes[previous_upper_body_name]
+		
+		player.lower_body_base_speed_bonus = global_data.lower_bodies_stats[item_name]["base_speed_bonus"]
+		player.lower_body_base_health_bonus = global_data.lower_bodies_stats[item_name]["base_health_bonus"]
 		player.change_lower_body(body_part_scene)
 		player.lower_body.change_upper_body(prev_upper_body_scene)
 

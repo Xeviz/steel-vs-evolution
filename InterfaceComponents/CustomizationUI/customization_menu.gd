@@ -77,6 +77,7 @@ func pass_item_choice(item_scene_name):
 
 
 func _on_go_to_weaponery_button_down() -> void:
+	player.apply_body_parts_bonuses()
 	open_weapons_window()
 
 

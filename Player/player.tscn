@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://3s6tv5c2ra5l" path="res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn" id="5_8s5f7"]
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0ky"]
-radius = 0.4
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0dqu"]
+size = Vector3(2, 2, 2)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons", "lower_body") groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)
@@ -16,8 +16,9 @@ weapons = NodePath("Weapons")
 lower_body = NodePath("lower_body")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30464, 3.08226, -0.125864)
-shape = SubResource("CapsuleShape3D_bb0ky")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410264, 1.20185, -0.12783)
+shape = SubResource("BoxShape3D_d0dqu")
+disabled = true
 
 [node name="Weapons" type="Node3D" parent="."]
 

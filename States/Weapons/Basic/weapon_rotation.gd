@@ -22,7 +22,6 @@ func enter():
 	rotator_x.set_collision_mask_value(1,true)
 	rotator_y.set_collision_layer_value(1,true)
 	rotator_y.set_collision_mask_value(1,true)
-	camera = get_tree().get_first_node_in_group("Camera")
 	
 func update(delta):
 	check_if_on_rotator()

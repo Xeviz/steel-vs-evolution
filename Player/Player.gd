@@ -5,6 +5,8 @@ class_name Player
 @export var weapons: Node3D
 @export var lower_body: Node3D
 @onready var state_machine = $FiniteStateMachine
+@onready var player_collision_shape = $CollisionShape3D
+
 var params = PhysicsRayQueryParameters3D.new()
 var is_on_the_map = false
 var current_map
@@ -16,9 +18,18 @@ var experience: int = 0
 var experience_to_level_up: int = 20
 var next_required_exp: int = 10
 
-var speed: float = 250.0
+var base_speed: int = 250
+var speed: int = 250
+var speed_multiplier: float = 1.0
+var lower_body_base_speed_bonus: int = 0
+var upper_body_base_speed_bonus: int = 0
+
+var base_max_health: int = 150
 var max_health: int = 150
 var health: int = 120
+var health_multiplier: float = 1.0
+var lower_body_base_health_bonus: int = 0
+var upper_body_base_health_bonus: int = 0
 
 
 func change_lower_body(lower_body_scene):
@@ -26,6 +37,12 @@ func change_lower_body(lower_body_scene):
 	var previous_upper_body = lower_body.upper_collider_area
 	lower_body = lower_body_scene.instantiate()
 	add_child(lower_body)
+
+func apply_body_parts_bonuses():
+	base_max_health += lower_body_base_health_bonus + upper_body_base_health_bonus
+	base_speed += lower_body_base_speed_bonus + upper_body_base_speed_bonus
+	max_health = base_max_health
+	health = max_health
 
 func apply_menu_upgrades():
 	pass
@@ -49,6 +66,7 @@ func move_player(delta: float):
 		input = input.normalized()
 	else:
 		lower_body.go_to_idle()
+	
 
 	velocity = input * speed * delta
 	move_and_slide()
@@ -74,6 +92,8 @@ func look_at_mouse():
 		rotation_degrees.y = atan2(direction.x, direction.z) * rad_to_deg(1.0)
 		
 func go_to_gameplay_state():
+	update_max_health()
+	update_speed()
 	state_machine.on_child_transition(state_machine.current_state, "GameplayMode")
 
 func go_to_customization_state():
@@ -93,3 +113,14 @@ func get_experience(amount):
 		experience_to_level_up += next_required_exp
 		next_required_exp+=5
 		get_parent().activate_level_up_window()
+		
+		
+func update_speed():
+	speed = base_speed * speed_multiplier
+	
+func update_max_health():
+	max_health = base_max_health * health_multiplier
+	
+	
+func receive_damage(damage_amount):
+	health -= damage_amount

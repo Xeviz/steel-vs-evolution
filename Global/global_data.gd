@@ -2,13 +2,9 @@ extends Node
 
 
 var player: Player
-var slain_enemies: int = 0
-var attached_weapons: int = 0
-var gameplay_minute: int = 0
-var alive_enemies: int = 0
-var time_stopped = false
-var stage_cleared = false
-
+var slain_enemies = 5
+var attached_weapons = 0
+var gameplay_time = 0.0
 
 var base_costs = {
 	"minigun": 1,
@@ -29,4 +25,27 @@ var weapons_icons_paths = {
 	"Shotgun": "res://Textures/Icons/Weapons/shotgun.png",
 	"Chainsaw": "res://Textures/Icons/Weapons/chainsaw.png",
 	"RocketLauncher": "res://Textures/Icons/Weapons/rocket_launcher.png"
+}
+
+
+var lower_bodies_stats = {
+	"lower_body_part_1": {
+		"base_health_bonus": 0,
+		"base_speed_bonus": 50,
+	},
+	"lower_body_part_2": {
+		"base_health_bonus": 150,
+		"base_speed_bonus": 0,
+	}
+}
+
+var upper_bodies_stats = {
+	"upper_body_part_1": {
+		"base_health_bonus": 200,
+		"base_speed_bonus": 0,
+	},
+	"upper_body_part_2": {
+		"base_health_bonus": 300,
+		"base_speed_bonus": -50,
+	}
 }

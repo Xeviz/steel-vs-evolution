@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2wvk6t85enkj" path="res://Enemies/enemy.tscn" id="2_iyvee"]
 [ext_resource type="Script" path="res://GameplayMap/EnemySpawner/spawn_info.gd" id="3_k0uex"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="4_6jo84"]
-[ext_resource type="PackedScene" uid="uid://bjimrx3ctae7o" path="res://Models/Basic/basic_enemy.tscn" id="4_t8xk8"]
+[ext_resource type="PackedScene" uid="uid://bjimrx3ctae7o" path="res://Enemies/basic_enemy.tscn" id="4_t8xk8"]
 [ext_resource type="Script" path="res://States/EnemySpawner/spawning_enemies.gd" id="5_e2xxl"]
 [ext_resource type="Script" path="res://States/EnemySpawner/switching_pattern.gd" id="6_twwps"]
 

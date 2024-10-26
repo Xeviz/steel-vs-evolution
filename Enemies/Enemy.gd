@@ -9,31 +9,35 @@ class_name Enemy
 
 var speed: int
 var health: int
+var damage: int
 var experience: int
-var is_alive = true
+var player_in_range: bool = false
+var attack_finished: bool = false
 
 
-	
 func receive_damage(damage_amount, damage_source):
 	health -= damage_amount
 	damage_label.display_damage(damage_amount)
-	if health<=0 and is_alive:
+	if health<=0:
 		die(-health, damage_source)
 	
 func set_stats_from_recipe(recipe):
 	speed = recipe["speed"]
 	health = recipe["health"]
 	experience = recipe["experience"]
+	damage = recipe["damage"]
 	
 func die(damage_overkill, damage_source):
-	is_alive = false
+	global_data.slain_enemies+=1
 	if damage_source=="bullet":
 		die_from_bullet(damage_overkill)
 	animation_state.travel("DieNLA")
-	global_data.slain_enemies+=1
-	global_data.alive_enemies-=1
-	print(global_data.alive_enemies)
 
+func attack_player():
+	animation_state.travel("AttackNLA")
 
 func die_from_bullet(damage_overkill):
+	pass
+
+func _on_attack_range_area_body_entered(body: Node3D) -> void:
 	pass

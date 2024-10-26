@@ -5,6 +5,7 @@ extends Node3D
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
 @onready var lower_collider_area = $LowerBodyPlayer
+@onready var lower_body_collision_shape = $LowerBodyPlayer/LowerBodyCollision
 @onready var attachment_point: Node3D = $AttachmentPoint
 @onready var upper_collider_area: StaticBody3D
 var is_idle = true
@@ -36,3 +37,10 @@ func offset_upper_body():
 	var self_attachment_point = attachment_point.global_transform.origin
 	var offset = self_attachment_point - upper_attachment_point
 	upper_collider_area.global_transform.origin += offset
+	
+func disable_colliders():
+	lower_collider_area.set_collision_layer_value(1, false)
+	lower_collider_area.set_collision_mask_value(1, false)
+	
+	upper_collider_area.set_collision_layer_value(1, false)
+	upper_collider_area.set_collision_mask_value(1, false)

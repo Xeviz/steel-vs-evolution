@@ -10,10 +10,10 @@ var paralyze_time: float
 func enter():
 	paralyze_time = 0.1
 	time_to_preview = 0.25
-	camera = get_tree().get_first_node_in_group("Camera")
 	if weapon is not MeleeWeapon:
 		weapon.fired_bullets.clear()
 		weapon.stored_bullets.clear()
+		
 		
 		
 func update(delta):
@@ -22,7 +22,6 @@ func update(delta):
 		check_if_go_to_rotation(delta)
 	else:
 		paralyze_time-=delta
-
 func check_if_on_weapon():
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(mouse_pos)
