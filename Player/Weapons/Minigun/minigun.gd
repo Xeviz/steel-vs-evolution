@@ -1,6 +1,8 @@
 extends Weapon
 class_name Minigun
 
+@onready var animation_tree = $AnimationTree
+@onready var animation_state = $AnimationTree.get("parameters/playback")
 @export var bullet_scene: PackedScene
 var base_weapon_cost = 1
 
