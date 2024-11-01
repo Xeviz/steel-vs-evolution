@@ -8,6 +8,7 @@ var time_to_preview: float
 var paralyze_time: float
 
 func enter():
+	weapon.animation_state.travel("WeaponIdle")
 	paralyze_time = 0.1
 	time_to_preview = 0.25
 	if weapon is not MeleeWeapon:
