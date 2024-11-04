@@ -4,9 +4,12 @@ class_name Chainsaw
 
 
 @onready var damage_area = $DamageArea
+@onready var animation_tree = $AnimationTree
+@onready var animation_state = $AnimationTree.get("parameters/playback")
 
-var base_cut_interval: float = 0.2
-var cut_interval: float = 0.2
+
+var base_cut_interval: float = 0.1
+var cut_interval: float = 0.1
 var cut_interval_modifier = 1.0
 
 var base_cut_damage: int = 10

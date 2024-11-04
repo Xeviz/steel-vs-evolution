@@ -6,6 +6,7 @@ class_name WeaponIdle
 var is_on_weapon = false
 var time_to_preview: float
 var paralyze_time: float
+var test: StaticBody3D
 
 func enter():
 	weapon.animation_state.travel("WeaponIdle")
@@ -49,3 +50,7 @@ func check_if_go_to_rotation(delta):
 		time_to_preview = 0.15
 		
 		
+func exit():
+	print("wychodze z kolizji")
+	weapon.weapon_area.set_collision_layer_value(1, false)
+	weapon.weapon_area.set_collision_mask_value(1, false)

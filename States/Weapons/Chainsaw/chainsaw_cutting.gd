@@ -7,9 +7,9 @@ class_name ChainsawCutting
 
 func enter():
 	time_to_cut = chainsaw.cut_interval
-	print("cuttuje")
+	chainsaw.animation_state.travel("ChainsawCutting")
 
-func update(delta: float):
+func physics_update(delta: float):
 	time_to_cut -= delta
 	if time_to_cut <= 0:
 		time_to_cut = chainsaw.cut_interval

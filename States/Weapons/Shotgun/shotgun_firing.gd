@@ -4,6 +4,7 @@ class_name ShotgunFiring
 @export var shotgun : Shotgun
 var fire_timer = 0.0
 
+
 func update(delta: float):
 	fire_timer -= delta
 	if fire_timer <= 0:

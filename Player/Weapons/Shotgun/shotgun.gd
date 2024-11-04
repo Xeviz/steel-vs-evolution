@@ -2,6 +2,8 @@ extends Weapon
 class_name Shotgun
 
 @export var bullet_scene: PackedScene
+@onready var animation_tree = $AnimationTree
+@onready var animation_state = $AnimationTree.get("parameters/playback")
 var base_weapon_cost = 2
 
 var fired_bullets: Array = []
@@ -53,6 +55,7 @@ func _ready():
 }
 
 func fire_bullet():
+	animation_state.travel("ShotgunFiring")
 	var original_transform = $BulletSpawner.transform
 	var angle_increment = spread_angle * 2.0 / max(1, ammo_capacity - 1)
 	var start_angle = -spread_angle-angle_increment
