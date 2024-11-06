@@ -4,6 +4,9 @@ class_name RocketLauncherFiring
 @export var rocket_launcher : RocketLauncher
 var fire_timer = 0.0
 
+func enter():
+	rocket_launcher.animation_state.travel("LauncherFiring")
+
 func update(delta: float):
 	fire_timer -= delta
 	if fire_timer <= 0:
