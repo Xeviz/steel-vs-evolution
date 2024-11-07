@@ -9,8 +9,8 @@ var base_weapon_cost = 2
 var fired_bullets: Array = []
 var stored_bullets: Array = []
 
-var base_fire_rate: float = 0.5
-var fire_rate: float = 0.5
+var base_fire_rate: float = 0.1
+var fire_rate: float = 0.1
 var fire_rate_modifier: float = 1.0
 
 
@@ -33,8 +33,8 @@ var ammo_capacity: int = 3
 var ammo_capacity_modifier: float = 1.0
 var ammo_left: int = ammo_capacity
 
-var base_time_to_reload: float = 2.0
-var time_to_reload: float = 2.0
+var base_time_to_reload: float = 2.5
+var time_to_reload: float = 2.5
 var time_to_reload_modifier: float = 1.0
 
 var base_spread_angle: int = 20
@@ -55,7 +55,7 @@ func _ready():
 }
 
 func fire_bullet():
-	animation_state.travel("ShotgunFiring")
+	
 	var original_transform = $BulletSpawner.transform
 	var angle_increment = spread_angle * 2.0 / max(1, ammo_capacity - 1)
 	var start_angle = -spread_angle-angle_increment

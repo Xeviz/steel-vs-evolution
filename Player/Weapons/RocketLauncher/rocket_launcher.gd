@@ -8,8 +8,8 @@ class_name RocketLauncher
 @export var bullet_scene: PackedScene
 var base_weapon_cost = 1
 
-var base_fire_rate: float = 1.0
-var fire_rate: float = 1.0
+var base_fire_rate: float = 0.1
+var fire_rate: float = 0.1
 var fire_rate_modifier: float = 1.0
 
 var base_ammo_capacity: int = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfea4q55nhh2y"]
 
-[ext_resource type="Texture2D" uid="uid://ce4o2kevrsv2r" path="res://Textures/Icons/Weapons/chainsaw.png" id="1_dgseq"]
+[ext_resource type="Texture2D" uid="uid://t7doukul8xkj" path="res://Textures/Icons/Weapons/chainsaw.png" id="1_dgseq"]
 [ext_resource type="Script" path="res://InterfaceComponents/GameplayUI/weapon_icon.gd" id="2_ogbwf"]
 
 [node name="WeaponIcon" type="TextureRect"]

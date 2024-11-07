@@ -4,6 +4,8 @@ class_name ShotgunFiring
 @export var shotgun : Shotgun
 var fire_timer = 0.0
 
+func enter():
+	shotgun.animation_state.travel("ShotgunFiring")
 
 func update(delta: float):
 	fire_timer -= delta
