@@ -7,6 +7,7 @@ var penetration : int
 var penetrated_targets = 0
 var is_fired = true
 var range : float
+var velocity: Vector3 = Vector3.ZERO
 
 @onready var starting_position = position
 @onready var bullet_ray = $RayCast3D
@@ -18,6 +19,8 @@ func connect_to_weapon(weapon):
 	damage = weapon.ammo_damage
 	range = weapon.ammo_range
 	penetration = weapon.ammo_penetration
+	velocity = transform.basis.z.normalized() * -speed
+
 
 func _on_bullet_area_body_entered(body):
 	if body is Enemy:

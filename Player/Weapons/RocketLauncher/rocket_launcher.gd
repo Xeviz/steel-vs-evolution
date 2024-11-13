@@ -21,8 +21,8 @@ var time_to_reload: float = 4.0
 var time_to_reload_modifier: float = 1.0
 var ammo_left: int = ammo_capacity
 
-var base_ammo_speed: float = 7.0
-var ammo_speed: float = 7.0
+var base_ammo_speed: float = 15.0
+var ammo_speed: float = 15.0
 var ammo_speed_modifier: float = 1.0
 
 var base_ammo_damage: int = 150

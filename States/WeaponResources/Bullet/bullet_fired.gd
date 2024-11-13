@@ -13,8 +13,8 @@ func enter():
 		bullet.bullet_mesh.visible = true
 	
 func physics_update(delta):
-	bullet.position += bullet.transform.basis * Vector3(0, 0, -bullet.speed) * delta
-	if bullet.position.distance_to(bullet.starting_position) >= bullet.range or bullet.penetrated_targets>=bullet.penetration:
+	bullet.translate(bullet.velocity * delta)
+	if bullet.position.distance_to(bullet.starting_position) >= bullet.range or bullet.penetrated_targets >= bullet.penetration:
 		bullet.stored.emit(bullet)
 		state_transition.emit(self, "BulletStored")
 		

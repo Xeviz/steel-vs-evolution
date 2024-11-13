@@ -6,26 +6,26 @@ class_name Minigun
 @export var bullet_scene: PackedScene
 var base_weapon_cost = 1
 
-var base_fire_rate: float = 0.15
-var fire_rate: float = 0.15
+var base_fire_rate: float = 0.1
+var fire_rate: float = 0.1
 var fire_rate_modifier: float = 1.0
 
-var base_ammo_capacity: int = 100
-var ammo_capacity: int = 100
+var base_ammo_capacity: int = 250
+var ammo_capacity: int = 250
 var ammo_capacity_modifier: float = 1.0
-var ammo_capacity_stats = [100, 1.0]
+var ammo_capacity_stats = [250, 1.0]
 var ammo_left: int = ammo_capacity
 
 var base_time_to_reload: float = 2.0
 var time_to_reload: float = 2.0
 var time_to_reload_modifier: float = 1.0
 
-var base_ammo_speed: float = 5.0
-var ammo_speed: float = 5.0
+var base_ammo_speed: float = 10.0
+var ammo_speed: float = 10.0
 var ammo_speed_modifier: float = 1.0
 
-var base_ammo_damage: int = 10
-var ammo_damage: int = 10
+var base_ammo_damage: int = 5
+var ammo_damage: int = 5
 var ammo_damage_modifier: float = 1.0
 
 var ammo_penetration: int = 2

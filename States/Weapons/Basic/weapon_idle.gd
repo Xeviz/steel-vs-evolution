@@ -24,6 +24,7 @@ func update(delta):
 		check_if_go_to_rotation(delta)
 	else:
 		paralyze_time-=delta
+		
 func check_if_on_weapon():
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(mouse_pos)

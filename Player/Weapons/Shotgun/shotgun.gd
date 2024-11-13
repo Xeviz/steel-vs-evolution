@@ -18,8 +18,8 @@ var base_ammo_damage: int = 120
 var ammo_damage: int = 120
 var ammo_damage_modifier: float = 1.0
 
-var base_ammo_speed: float = 20.0
-var ammo_speed: float = 20.0
+var base_ammo_speed: float = 13.0
+var ammo_speed: float = 13.0
 var ammo_speed_modifier: float = 1.0
 
 var ammo_penetration: int = 10
@@ -55,7 +55,6 @@ func _ready():
 }
 
 func fire_bullet():
-	
 	var original_transform = $BulletSpawner.transform
 	var angle_increment = spread_angle * 2.0 / max(1, ammo_capacity - 1)
 	var start_angle = -spread_angle-angle_increment
