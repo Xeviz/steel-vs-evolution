@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ey1oslymu4mu"]
+
+[ext_resource type="PackedScene" uid="uid://cd7pq2k1ikls3" path="res://GameplayMap/FloorTile/map_floor.tscn" id="1_mhmeq"]
+[ext_resource type="PackedScene" uid="uid://bela3deikrqbt" path="res://placeholder/spider_bot.tscn" id="2_qvx3x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4xua"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dgkiu"]
+sky_material = SubResource("ProceduralSkyMaterial_h4xua")
+
+[sub_resource type="Environment" id="Environment_jw17m"]
+background_mode = 2
+sky = SubResource("Sky_dgkiu")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="GameplayMap" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.149234, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jw17m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerFollowingCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 20, 0)
+
+[node name="MapFloor" parent="." instance=ExtResource("1_mhmeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134433, 0)
+
+[node name="SpiderBot" parent="." instance=ExtResource("2_qvx3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24679, 0)
+ground_offset = 2.0
