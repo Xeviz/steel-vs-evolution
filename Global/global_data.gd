@@ -1,10 +1,26 @@
 extends Node
 
+var base_max_health = 150
+var base_speed = 250
 
+
+#current_session
 var player: Player
-var slain_enemies = 5
-var attached_weapons = 0
-var gameplay_time = 0.0
+var slain_enemies := 0
+var construction_points := 5
+var attached_weapons := 0
+var gameplay_time := 0.0
+
+var amount_of_enemies_spawned := 0
+var minimum_amount_of_enemies := 15
+var maximum_amount_of_enemies := 40
+var time_to_spawn_boss := false
+var stop_spawning_enemies := false
+var amount_of_bosses_spawned := 0
+var seconds := 57
+var minutes := 0
+
+
 
 var base_costs = {
 	"minigun": 1,
@@ -34,6 +50,10 @@ var lower_bodies_stats = {
 		"base_speed_bonus": 50,
 	},
 	"lower_body_part_2": {
+		"base_health_bonus": 150,
+		"base_speed_bonus": 0,
+	},
+	"lower_body_part_3": {
 		"base_health_bonus": 150,
 		"base_speed_bonus": 0,
 	}

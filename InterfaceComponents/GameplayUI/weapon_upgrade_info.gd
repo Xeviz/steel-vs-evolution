@@ -14,4 +14,6 @@ func load_upgrade_data(weapon, variant_id):
 
 func _on_button_button_down() -> void:
 	weapon.apply_upgrade(variant_id)
+	weapon.weapon_level+=1
+	weapon.icon_refference.update_label(weapon.weapon_level)
 	get_parent().get_parent().deactivate_level_up_window()

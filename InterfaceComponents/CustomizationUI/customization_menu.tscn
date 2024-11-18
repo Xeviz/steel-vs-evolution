@@ -91,15 +91,70 @@ text = "CONTINUE"
 [node name="CPInfo" type="Label" parent="."]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 13.0
+offset_top = 15.0
 offset_right = 435.0
-offset_bottom = 96.0
+offset_bottom = 98.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 60
 text = "Available CP: "
+
+[node name="PlayerWeaponsRect" type="ColorRect" parent="."]
+visible = false
+offset_top = 330.0
+offset_right = 450.0
+offset_bottom = 830.0
+color = Color(0.5, 0.18, 0.593, 1)
+
+[node name="PlayerWeapons" type="GridContainer" parent="PlayerWeaponsRect"]
+layout_direction = 2
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 500.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="WeaponsInfo" type="Label" parent="."]
+visible = false
+offset_left = 15.0
+offset_top = 250.0
+offset_right = 451.0
+offset_bottom = 333.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "Your Weapons"
+
+[node name="HealthInfo" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 85.0
+offset_right = 451.0
+offset_bottom = 168.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "Health:"
+
+[node name="SpeedInfo" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 155.0
+offset_right = 451.0
+offset_bottom = 238.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "Speed:"
 
 [connection signal="button_down" from="GoToWeaponery" to="." method="_on_go_to_weaponery_button_down"]
 [connection signal="button_down" from="GoToGameplay" to="." method="_on_go_to_gameplay_button_down"]

@@ -17,8 +17,8 @@ var game_time: int
 func _process(delta):
 	_check_if_slide_map()
 	if Input.is_action_just_pressed("ui_accept"):
-		player.go_to_customization_state()
-		go_to_creation_zone()
+		proceed_to_customization_scene()
+		
 	if Input.is_action_just_pressed("ui_cancel"):
 		pause_game()
 	update_gameplay_ui_data(delta)
@@ -29,9 +29,13 @@ func update_gameplay_ui_data(delta):
 	gameplay_ui.update_level()
 	gameplay_ui.update_health()
 
+func proceed_to_customization_scene():
+	go_to_creation_zone()
+	player.go_to_customization_state()
 
 func load_gameplay_ui_data():
 	gameplay_ui.load_weapons_icons(player.weapons.get_children())
+	gameplay_ui.load_time_data()
 
 func pause_game():
 	pause_menu.unpause_delay = 0.3

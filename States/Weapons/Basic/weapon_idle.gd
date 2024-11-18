@@ -10,6 +10,7 @@ var test: StaticBody3D
 
 func enter():
 	weapon.animation_state.travel("WeaponIdle")
+	camera = get_tree().get_first_node_in_group("Camera")
 	paralyze_time = 0.1
 	time_to_preview = 0.25
 	if weapon is not MeleeWeapon:
@@ -19,8 +20,8 @@ func enter():
 		
 		
 func update(delta):
-	check_if_on_weapon()
 	if paralyze_time<=0:
+		check_if_on_weapon()
 		check_if_go_to_rotation(delta)
 	else:
 		paralyze_time-=delta

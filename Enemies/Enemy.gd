@@ -29,6 +29,7 @@ func set_stats_from_recipe(recipe):
 	
 func die(damage_overkill, damage_source):
 	global_data.slain_enemies+=1
+	global_data.amount_of_enemies_spawned-=1
 	if damage_source=="bullet":
 		die_from_bullet(damage_overkill)
 	animation_state.travel("DieNLA")

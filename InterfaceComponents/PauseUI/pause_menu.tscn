@@ -29,3 +29,4 @@ offset_bottom = 624.0
 text = "EXIT"
 
 [connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_button_down"]
+[connection signal="button_down" from="ExitButton" to="." method="_on_exit_button_button_down"]

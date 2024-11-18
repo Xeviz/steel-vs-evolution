@@ -9,6 +9,7 @@ class_name Player
 
 var params = PhysicsRayQueryParameters3D.new()
 var is_on_the_map = false
+var is_spider_leg = true
 var current_map
 var camera
 
@@ -65,7 +66,8 @@ func move_player(delta: float):
 	elif input.length() > 0:
 		input = input.normalized()
 	else:
-		lower_body.go_to_idle()
+		if not is_spider_leg:
+			lower_body.go_to_idle()
 	
 
 	velocity = input * speed * delta

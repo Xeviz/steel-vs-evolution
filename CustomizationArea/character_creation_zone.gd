@@ -17,7 +17,8 @@ var upper_body_parts_scenes = {
 
 var lower_body_parts_scenes = {
 	"lower_body_part_1": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn"),
-	"lower_body_part_2": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_2.tscn")
+	"lower_body_part_2": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_2.tscn"),
+	"lower_body_part_3": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn")
 }
 
 func _process(delta):

@@ -19,11 +19,13 @@ grow_vertical = 2
 script = ExtResource("1_v4g3j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_nn6wl")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 128.0
 offset_right = 127.0
@@ -34,6 +36,7 @@ vertical_alignment = 1
 
 [node name="Description" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 745.0
 offset_bottom = 168.0
 text = "Cost: 1 CP
@@ -41,3 +44,5 @@ Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ip
 label_settings = SubResource("LabelSettings_w3vfb")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
