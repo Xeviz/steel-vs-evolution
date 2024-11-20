@@ -43,6 +43,7 @@ var stored_bullets: Array = []
 
 
 func _ready():
+	apply_menu_progression()
 	weapon_name = "RocketLauncher"
 	upgrade_variants = {
 	1: "Increase explosion area by 20%",
@@ -50,6 +51,10 @@ func _ready():
 	3: "Decrease reload time by 10%",
 	4: "Increase ammo capacity by 1"
 }
+
+func apply_menu_progression():
+	ammo_damage_modifier += global_data.menu_progressions["rocket_launcher_damage"][1]*0.01
+	ammo_damage = int(base_ammo_damage*ammo_damage_modifier)
 
 
 func fire_bullet():

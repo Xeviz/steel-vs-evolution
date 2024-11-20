@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtsd54xvfuan6"]
+
+[ext_resource type="Script" path="res://InterfaceComponents/PauseUI/game_end_ui.gd" id="1_rvgxt"]
+
+[node name="GameEndUi" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rvgxt")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = 10.0
+offset_right = 104.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK TO MAIN MENU"
+
+[node name="GameResultLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -140.0
+offset_right = 200.5
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "YOU HAVE WON!"
+
+[node name="AddedCoinsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -60.0
+offset_right = 88.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 35
+text = "+500 coins"
+
+[connection signal="button_down" from="ExitButton" to="." method="_on_exit_button_button_down"]

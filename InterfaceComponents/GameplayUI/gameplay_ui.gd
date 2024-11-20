@@ -30,9 +30,7 @@ func update_time(delta):
 		global_data.stop_spawning_enemies = true
 		return
 	elif global_data.seconds == 0 and global_data.minutes in customization_intervals:
-		global_data.stop_spawning_enemies = false
 		passed_time = 0.0
-		global_data.seconds = 1
 		get_parent().proceed_to_customization_scene()
 	passed_time += delta
 	if passed_time < 1:
@@ -45,6 +43,7 @@ func update_time(delta):
 		global_data.time_to_spawn_boss = true
 		global_data.minimum_amount_of_enemies+=1
 		global_data.maximum_amount_of_enemies+=1
+		get_parent().enemy_spawner.update_recipes()
 	else:
 		global_data.seconds+=1
 	time_label.text = "%02d:%02d" % [global_data.minutes, global_data.seconds]

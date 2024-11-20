@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0dqu"]
-size = Vector3(2, 2, 2)
+size = Vector3(1.5, 1.5, 1.5)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons", "lower_body") groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)

@@ -14,8 +14,9 @@ var is_spawning = true
 var time_to_spawn = 1.5
 var spawn_directions = ["up", "down", "left", "right"]
 var offsets_directions = [1, -1]
-var current_recipe = {"speed": 120, "health": 50, "experience": 3, "damage": 7}
-var current_boss_recipe = {"speed": 120, "health": 500, "experience": 0, "damage": 35}
+var i = 1
+var current_recipe = global_data.basic_enemy_recipes[0]
+var current_boss_recipe = global_data.basic_boss_recipes[1]
 
 func get_random_position(base_offset):
 	var offset = base_offset * randf_range(1.1, 1.5) * offsets_directions.pick_random()
@@ -33,6 +34,8 @@ func get_random_position(base_offset):
 	return new_position
 
 func spawn_regular_enemy():
+	print("spawn " + str(i))
+	i+=1
 	global_data.amount_of_enemies_spawned+=1
 	var new_enemy = current_enemy.instantiate()
 	new_enemy.set_stats_from_recipe(current_recipe)
@@ -40,8 +43,18 @@ func spawn_regular_enemy():
 	gameplay_world.add_child(new_enemy)
 	
 func spawn_boss():
+	print("boss spawn " + str(i))
+	i+=1
 	global_data.amount_of_enemies_spawned+=1
 	var new_enemy = current_boss.instantiate()
 	new_enemy.set_stats_from_recipe(current_boss_recipe)
 	new_enemy.global_position = get_random_position(8)
 	gameplay_world.add_child(new_enemy)
+
+func update_recipes():
+	print("before update:" + str(current_recipe))
+	current_recipe = global_data.basic_enemy_recipes[global_data.minutes]
+	current_boss_recipe = global_data.basic_boss_recipes[global_data.minutes+1]
+	print("after update:" + str(current_recipe))
+
+	

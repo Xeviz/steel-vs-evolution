@@ -20,3 +20,7 @@ func update(delta):
 	else:
 		player.move_player(delta)
 		player.look_at_mouse()
+		
+func exit():
+	player.lower_body.enable_colliders()
+	player.player_collision_shape.disabled = true

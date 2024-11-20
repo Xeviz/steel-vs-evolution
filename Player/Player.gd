@@ -126,3 +126,6 @@ func update_max_health():
 	
 func receive_damage(damage_amount):
 	health -= damage_amount
+	if health<=0:
+		get_parent().end_game(false)
+	

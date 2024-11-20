@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckk7kvs3p4gaa"]
+
+[ext_resource type="Script" path="res://InterfaceComponents/MenuProgressionUI/menu_progression_interface.gd" id="1_22xa4"]
+[ext_resource type="PackedScene" uid="uid://ckii8bt6wwsi" path="res://InterfaceComponents/MenuProgressionUI/ProgressOption.tscn" id="2_6e3pw"]
+
+[node name="MenuProgressionInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22xa4")
+progress_option_scene = ExtResource("2_6e3pw")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 375.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 100
+text = "BACK"
+
+[node name="UpgradesContainer" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 57.0
+offset_right = 1507.0
+offset_bottom = 1078.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesContainer"]
+layout_mode = 1
+theme_override_constants/separation = 25
+
+[node name="CoinInfo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 159.0
+offset_right = 380.0
+offset_bottom = 234.0
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 60
+text = "COINS: 10000"
+
+[connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]

@@ -8,6 +8,12 @@ extends Control
 @export var customization_scene : PackedScene
 @export var player_scene : PackedScene
 
+
+
+func _ready() -> void:
+	global_data.restart_session()
+	global_data.load_menu_progress()
+
 func _on_play_button_pressed():
 	
 	var new_player = player_scene.instantiate()
@@ -20,7 +26,7 @@ func _on_play_button_pressed():
 
 
 func _on_upgrades_button_pressed():
-	pass
+	get_tree().change_scene_to_file("res://InterfaceComponents/MenuProgressionUI/MenuProgressionInterface.tscn")
 
 
 func _on_settings_button_pressed():

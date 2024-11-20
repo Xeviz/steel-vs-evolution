@@ -45,6 +45,7 @@ var spread_angle_modifier: float = 1.0
 
 func _ready():
 	weapon_name = "Shotgun"
+	apply_menu_progression()
 	upgrade_variants = {
 	1: "Increase ammo damage by 30",
 	2: "Decrease reload time by 12%",
@@ -53,6 +54,10 @@ func _ready():
 	5: "Increase penetration by 5 and spread angle by 5%"
 	
 }
+
+func apply_menu_progression():
+	ammo_damage_modifier += global_data.menu_progressions["shotgun_damage"][1]*0.01
+	ammo_damage = int(base_ammo_damage*ammo_damage_modifier)
 
 func fire_bullet():
 	var original_transform = $BulletSpawner.transform

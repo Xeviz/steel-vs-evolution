@@ -4,10 +4,13 @@ class_name GameplayMap
 
 @onready var gameplay_ui = $GameplayUI
 @onready var pause_menu = $PauseMenu
+@onready var end_game_menu = $GameEndUi
+@onready var enemy_spawner = $EnemySpawner
 @export var map_floor: Node3D
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
 @onready var level_up_scene = preload("res://InterfaceComponents/GameplayUI/level_up_window.tscn")
+
 
 var dif_z: float
 var dif_x: float
@@ -67,7 +70,6 @@ func _check_if_slide_map():
 		map_floor.position.z -= 25
 		
 	
-	
 func go_to_creation_zone():
 	var new_customization_scene = customization_scene.instantiate()
 	player.get_parent().remove_child(player)
@@ -78,3 +80,10 @@ func go_to_creation_zone():
 	get_tree().current_scene = new_customization_scene
 	
 	global_data.player.get_player()
+
+func end_game(is_game_won):
+	global_data.add_coins(is_game_won)
+	end_game_menu.set_labels(is_game_won)
+	get_tree().paused = true
+	end_game_menu.show()
+	

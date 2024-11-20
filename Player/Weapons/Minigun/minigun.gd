@@ -40,12 +40,17 @@ var stored_bullets: Array = []
 
 func _ready():
 	weapon_name = "Minigun"
+	apply_menu_progression()
 	upgrade_variants = {
 	1: "Increase fire rate by 10% and ammo capacity by 25",
 	2: "Increase damage by 10",
 	3: "Increase ammo speed by 10% and penetration by 1",
 	4: "Increase damage by 7 and decrease reload time by 10%"
 }
+
+func apply_menu_progression():
+	ammo_damage_modifier += global_data.menu_progressions["minigun_damage"][1]*0.01
+	ammo_damage = int(base_ammo_damage*ammo_damage_modifier)
 
 
 func fire_bullet():

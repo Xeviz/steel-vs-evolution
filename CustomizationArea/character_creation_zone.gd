@@ -21,6 +21,11 @@ var lower_body_parts_scenes = {
 	"lower_body_part_3": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn")
 }
 
+func _ready() -> void:
+	print("witam")
+	if global_data.minutes>0: 
+		global_data.seconds = 1
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		go_to_gameplay_zone()
@@ -60,3 +65,4 @@ func go_to_gameplay_zone():
 	
 	global_data.player.get_player()
 	new_gameplay_scene.load_gameplay_ui_data()
+	global_data.stop_spawning_enemies = false

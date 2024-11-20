@@ -18,6 +18,7 @@ var cut_damage_modifier: int = 1.0
 
 
 func _ready() -> void:
+	apply_menu_progression()
 	weapon_name = "Chainsaw"
 	upgrade_variants = {
 	1: "Increase cutting frequency by 0.02s",
@@ -25,6 +26,10 @@ func _ready() -> void:
 	3: "Increase cut damage by 10%",
 	4: "Increase cut damage by 1 and cut frequency by 0.01s"
 }
+
+func apply_menu_progression():
+	cut_damage_modifier += global_data.menu_progressions["chainsaw_damage"][1]*0.01
+	cut_damage = int(base_cut_damage*cut_damage_modifier)
 
 func deal_damage_in_area():
 	for enemy in damage_area.get_overlapping_bodies():

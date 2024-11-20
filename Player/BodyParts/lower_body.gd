@@ -44,3 +44,10 @@ func disable_colliders():
 	
 	upper_collider_area.set_collision_layer_value(1, false)
 	upper_collider_area.set_collision_mask_value(1, false)
+	
+func enable_colliders():
+	lower_collider_area.set_collision_layer_value(1, true)
+	lower_collider_area.set_collision_mask_value(1, true)
+	
+	upper_collider_area.set_collision_layer_value(1, true)
+	upper_collider_area.set_collision_mask_value(1, true)

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckii8bt6wwsi"]
+
+[ext_resource type="Script" path="res://InterfaceComponents/MenuProgressionUI/progress_option.gd" id="1_cqjgh"]
+[ext_resource type="Texture2D" uid="uid://t7doukul8xkj" path="res://Textures/Icons/Weapons/chainsaw.png" id="2_v7b83"]
+
+[node name="ProgressOption" type="ColorRect" node_paths=PackedStringArray("option_image", "upgrade_button", "cost_label", "description_label", "current_bonus_label")]
+custom_minimum_size = Vector2(700, 160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1220.0
+offset_bottom = -920.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.253, 0.058, 0.162, 0.75)
+script = ExtResource("1_cqjgh")
+option_image = NodePath("OptionImage")
+upgrade_button = NodePath("Button")
+cost_label = NodePath("CostLabel")
+description_label = NodePath("DescriptionLabel")
+current_bonus_label = NodePath("CurrentBonusLabel")
+
+[node name="OptionImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 140.0
+offset_bottom = 143.0
+texture = ExtResource("2_v7b83")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 43.0
+offset_right = 658.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 25
+text = "UPGRADE"
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 22.0
+offset_right = 330.0
+offset_bottom = 63.0
+text = "UPGRADE COST: 5000"
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 50.0
+offset_right = 378.0
+offset_bottom = 73.0
+text = "INCREASE MINIGUN % DMG
+"
+
+[node name="CurrentBonusLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 130.0
+offset_right = 358.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 20
+text = "CURRENTLY: +0"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

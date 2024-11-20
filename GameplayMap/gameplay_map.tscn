@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn1ggy27aucsf"]
+[gd_scene load_steps=11 format=3 uid="uid://bn1ggy27aucsf"]
 
 [ext_resource type="Script" path="res://GameplayMap/gameplay_map.gd" id="1_p1itd"]
 [ext_resource type="Script" path="res://GameplayMap/player_following_camera.gd" id="1_v1w5t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvduerfnq7pg1" path="res://InterfaceComponents/GameplayUI/gameplay_ui.tscn" id="5_1oatm"]
 [ext_resource type="PackedScene" uid="uid://bup7ogssvi01m" path="res://InterfaceComponents/PauseUI/pause_menu.tscn" id="5_tewcl"]
 [ext_resource type="PackedScene" uid="uid://cd7pq2k1ikls3" path="res://GameplayMap/FloorTile/map_floor.tscn" id="6_kf3tu"]
+[ext_resource type="PackedScene" uid="uid://dtsd54xvfuan6" path="res://InterfaceComponents/PauseUI/game_end_ui.tscn" id="7_jbnyj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4xua"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,4 +43,7 @@ script = ExtResource("1_v1w5t")
 [node name="GameplayUI" parent="." instance=ExtResource("5_1oatm")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_tewcl")]
+visible = false
+
+[node name="GameEndUi" parent="." instance=ExtResource("7_jbnyj")]
 visible = false
