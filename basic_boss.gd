@@ -20,7 +20,6 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 func die(damage_overkill, damage_source):
 	global_data.slain_enemies+=1
-	print("slain: " + str(global_data.slain_enemies))
 	global_data.amount_of_enemies_spawned-=1
 	global_data.construction_points+=1
 	if damage_source=="bullet":

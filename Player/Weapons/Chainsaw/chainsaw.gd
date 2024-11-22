@@ -6,6 +6,8 @@ class_name Chainsaw
 @onready var damage_area = $DamageArea
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
+@onready var cutting_player: AudioStreamPlayer3D = $CuttingPlayer
+@onready var grinding_player: AudioStreamPlayer3D = $GrindingPlayer
 
 
 var base_cut_interval: float = 0.1
@@ -15,6 +17,8 @@ var cut_interval_modifier = 1.0
 var base_cut_damage: int = 10
 var cut_damage: int = 10
 var cut_damage_modifier: int = 1.0
+
+var no_enemy_under_blade := true
 
 
 func _ready() -> void:
@@ -32,9 +36,15 @@ func apply_menu_progression():
 	cut_damage = int(base_cut_damage*cut_damage_modifier)
 
 func deal_damage_in_area():
+	no_enemy_under_blade = true
 	for enemy in damage_area.get_overlapping_bodies():
 		if enemy is Enemy:
+			no_enemy_under_blade = false
 			enemy.receive_damage(cut_damage, "blade")
+	if !no_enemy_under_blade and !grinding_player.is_playing():
+		grinding_player.play()
+	elif no_enemy_under_blade:
+		grinding_player.stop()
 			
 func apply_upgrade(variant_id):
 	if variant_id == 1:

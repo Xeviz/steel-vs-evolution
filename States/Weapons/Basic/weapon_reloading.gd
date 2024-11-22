@@ -5,6 +5,7 @@ class_name WeaponReloading
 var time_to_reload: float
 
 func enter():
+	weapon.reload_player.play()
 	weapon.animation_state.travel("WeaponReloading")
 	time_to_reload = weapon.time_to_reload
 

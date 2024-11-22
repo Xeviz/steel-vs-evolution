@@ -4,6 +4,8 @@ class_name Shotgun
 @export var bullet_scene: PackedScene
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
+@onready var reload_player = $ReloadPlayer
+
 var base_weapon_cost = 2
 
 var fired_bullets: Array = []
@@ -82,7 +84,7 @@ func fire_bullet():
 		
 		var spawner_transform = $BulletSpawner.global_transform
 		bullet.global_transform = spawner_transform
-		
+		bullet.audio_player.play()
 		fired_bullets.append(bullet)
 	$BulletSpawner.transform = original_transform
 

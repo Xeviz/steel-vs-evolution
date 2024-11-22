@@ -19,7 +19,7 @@ var maximum_amount_of_enemies := 40
 var time_to_spawn_boss := false
 var stop_spawning_enemies := false
 var amount_of_bosses_spawned := 0
-var seconds := 57
+var seconds := 0
 var minutes := 0
 
 #description, current_bonus, current_level, increase_per_level

@@ -65,10 +65,16 @@ func _process(delta):
 	
 func _handle_movement(delta):
 	var dir = Input.get_axis('ui_down', 'ui_up')
+	var movement = Vector3(0, 0, -dir) * speed * delta
 	translate(Vector3(0, 0, -dir) * speed * delta)
 	
 	var a_dir = Input.get_axis('ui_right', 'ui_left')
 	rotate_object_local(Vector3.UP, a_dir * turn_speed * delta)
+	
+	var player_position = player.position
+	player_position += transform.basis.x * movement.x + transform.basis.z * movement.z
+	player_position.y = player.position.y 
+	player.position = player_position
 
 func _basis_from_normal(normal: Vector3) -> Basis:
 	var result = Basis()

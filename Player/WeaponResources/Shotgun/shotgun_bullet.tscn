@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://d0rb8byxp7efo"]
+[gd_scene load_steps=11 format=4 uid="uid://d0rb8byxp7efo"]
 
 [ext_resource type="Script" path="res://Player/WeaponResources/Minigun/bullet.gd" id="1_5b0qr"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_28x6c"]
 [ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_fired.gd" id="3_5wbae"]
 [ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_stored.gd" id="4_6t4ip"]
+[ext_resource type="AudioStream" uid="uid://u10x0goca7io" path="res://Audio/WeaponSounds/ShotgunShoot.mp3" id="5_dcd5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fj3co"]
 size = Vector3(0.25, 0.12, 0.11)
@@ -112,5 +113,10 @@ transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, 0.12, 0, -0.12, -5.24537e-0
 sorting_offset = -1.0
 mesh = SubResource("ArrayMesh_jr0w6")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("5_dcd5f")
+volume_db = -20.0
 
 [connection signal="body_entered" from="BulletArea" to="." method="_on_bullet_area_body_entered"]

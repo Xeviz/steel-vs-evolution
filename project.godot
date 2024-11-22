@@ -18,6 +18,7 @@ config/icon="res://Textures/icon.svg"
 [autoload]
 
 global_data="*res://Global/global_data.gd"
+background_music_player="*res://Audio/BackgroundMusic/background_music_player.tscn"
 
 [display]
 

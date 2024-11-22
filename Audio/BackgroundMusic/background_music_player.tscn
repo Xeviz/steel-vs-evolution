@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4nckdh7moqtk"]
+
+[ext_resource type="AudioStream" uid="uid://oj5rc470s0r6" path="res://Audio/BackgroundMusic/MenuMusic.mp3" id="1_1ib33"]
+[ext_resource type="Script" path="res://Audio/BackgroundMusic/background_music_player.gd" id="2_15snk"]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_1ib33")
+volume_db = -25.0
+autoplay = true
+script = ExtResource("2_15snk")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

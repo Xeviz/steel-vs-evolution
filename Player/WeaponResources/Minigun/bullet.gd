@@ -9,6 +9,7 @@ var is_fired = true
 var range : float
 var velocity: Vector3 = Vector3.ZERO
 
+@onready var audio_player = $AudioStreamPlayer3D
 @onready var starting_position = position
 @onready var bullet_ray = $RayCast3D
 @onready var bullet_area = $BulletArea

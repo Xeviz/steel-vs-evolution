@@ -16,6 +16,8 @@ var dif_z: float
 var dif_x: float
 var game_time: int
 
+func _ready() -> void:
+	background_music_player.play_gameplay_music()
 
 func _process(delta):
 	_check_if_slide_map()
