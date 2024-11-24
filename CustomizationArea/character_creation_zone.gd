@@ -18,12 +18,10 @@ var upper_body_parts_scenes = {
 var lower_body_parts_scenes = {
 	"lower_body_part_1": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn"),
 	"lower_body_part_2": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_2.tscn"),
-	"lower_body_part_3": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn")
 }
 
 func _ready() -> void:
 	background_music_player.play_menu_music()
-	print("witam")
 	if global_data.minutes>0: 
 		global_data.seconds = 1
 
@@ -35,7 +33,6 @@ func show_weapon_preview(item_name):
 	var new_weapon = weapon_scenes[item_name].instantiate()
 	player.weapons.add_child(new_weapon)
 	new_weapon.go_to_preview()
-	print(player.weapons.get_children())
 	
 func chose_item(item_name, previous_upper_body_name):
 	if item_name in upper_body_parts_scenes:

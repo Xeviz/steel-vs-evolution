@@ -104,10 +104,6 @@ var lower_bodies_stats = {
 		"base_health_bonus": 150,
 		"base_speed_bonus": 0,
 	},
-	"lower_body_part_3": {
-		"base_health_bonus": 150,
-		"base_speed_bonus": 0,
-	}
 }
 
 var upper_bodies_stats = {

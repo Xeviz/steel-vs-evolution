@@ -18,7 +18,7 @@ func initialize_upgrades():
 	minigun_damage.load_progress_data("minigun_damage")
 	
 	var shotgun_damage = progress_option_scene.instantiate()
-	shotgun_damage.add_child(shotgun_damage)
+	upgrades_container.add_child(shotgun_damage)
 	shotgun_damage.load_progress_data("shotgun_damage")
 	
 	var chainsaw_damage = progress_option_scene.instantiate()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=4 uid="uid://4timn3rn048b"]
 
-[ext_resource type="Script" path="res://basic_boss.gd" id="1_ra2it"]
-[ext_resource type="Texture2D" uid="uid://df6givv3evxsb" path="res://Models/Basic/basic_enemy_Mutant_diffuse.png" id="2_8unv4"]
-[ext_resource type="Texture2D" uid="uid://rhvcah305myy" path="res://Models/Basic/basic_enemy_Mutant_normal.png" id="3_23ntd"]
+[ext_resource type="Script" path="res://Enemies/basic_boss.gd" id="1_ra2it"]
+[ext_resource type="Texture2D" uid="uid://df6givv3evxsb" path="res://Models/BasicEnemy/basic_enemy_Mutant_diffuse.png" id="2_8unv4"]
+[ext_resource type="Texture2D" uid="uid://rhvcah305myy" path="res://Models/BasicEnemy/basic_enemy_Mutant_normal.png" id="3_23ntd"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="4_v8yvf"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_die.gd" id="5_tc3en"]
 [ext_resource type="Script" path="res://States/Enemy/enemy_follow_player.gd" id="6_p4dc0"]

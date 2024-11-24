@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpjasvvc8ka4m" path="res://Player/WeaponResources/RocketLauncher/rocket.tscn" id="2_q650v"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_preview.gd" id="3_6vlo1"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_idle.gd" id="4_iionb"]
-[ext_resource type="Texture2D" uid="uid://of1kppmwbbdp" path="res://placeholder/rocket_launcher_Material.png" id="4_ja37p"]
+[ext_resource type="Texture2D" uid="uid://of1kppmwbbdp" path="res://Models/Weapons/RocketLauncher/rocket_launcher_Material.png" id="4_ja37p"]
 [ext_resource type="Script" path="res://States/Weapons/RocketLauncher/rocket_launcher_firing.gd" id="7_x0sen"]
 [ext_resource type="PackedScene" uid="uid://lhiwkmw3mkyc" path="res://InterfaceComponents/CustomizationUI/item_rotator.tscn" id="8_7s3gm"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_rotation.gd" id="9_tfi73"]

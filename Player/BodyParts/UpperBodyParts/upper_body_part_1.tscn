@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dc8p4bti3cfsp"]
 
 [ext_resource type="Script" path="res://Player/BodyParts/UpperBodyParts/upper_body_part.gd" id="1_1ecmj"]
-[ext_resource type="Texture2D" uid="uid://k7kwp7wc7trr" path="res://placeholder/upper_body_ver_1_Dark Metal Base Color.png" id="2_65ftu"]
+[ext_resource type="Texture2D" uid="uid://k7kwp7wc7trr" path="res://Models/Player/UpperBody/upper_body_ver_1_Dark Metal Base Color.png" id="2_65ftu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0x172"]
 resource_name = "Dark"

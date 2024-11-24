@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_preview.gd" id="7_m476k"]
 [ext_resource type="PackedScene" uid="uid://lhiwkmw3mkyc" path="res://InterfaceComponents/CustomizationUI/item_rotator.tscn" id="8_7j2yi"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_rotation.gd" id="8_ao4d1"]
-[ext_resource type="Texture2D" uid="uid://g1ry12wuvugt" path="res://Models/Minigun/minigun_Material_1.png" id="10_m4kxr"]
-[ext_resource type="Texture2D" uid="uid://ojgqwho7tdsb" path="res://Models/Minigun/minigun_Material.png" id="11_gkv1s"]
+[ext_resource type="Texture2D" uid="uid://dmdcorm4qt00r" path="res://Models/Weapons/Minigun/scaled_painted_minigun_Material_1.png" id="10_m4kxr"]
+[ext_resource type="Texture2D" uid="uid://b4myvpwlswgv0" path="res://Models/Weapons/Minigun/scaled_painted_minigun_Material.png" id="11_gkv1s"]
 [ext_resource type="AudioStream" uid="uid://cfv4jkilg4yp5" path="res://Audio/WeaponSounds/MinigunReloading.mp3" id="12_62i65"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fi0ig"]

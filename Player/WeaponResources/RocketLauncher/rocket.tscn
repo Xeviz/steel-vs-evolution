@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="1_7tpk6"]
 [ext_resource type="Script" path="res://Player/WeaponResources/RocketLauncher/rocket.gd" id="1_kbdrb"]
-[ext_resource type="PackedScene" uid="uid://bgbrfbcyygpti" path="res://placeholder/explosion.tscn" id="2_e643k"]
+[ext_resource type="PackedScene" uid="uid://bgbrfbcyygpti" path="res://Player/WeaponResources/RocketLauncher/explosion.tscn" id="2_e643k"]
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_fired.gd" id="3_txp12"]
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_stored.gd" id="4_pofw0"]
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_exploded.gd" id="5_6qq23"]

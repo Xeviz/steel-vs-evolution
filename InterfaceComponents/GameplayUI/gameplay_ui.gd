@@ -14,7 +14,7 @@ extends Control
 
 var passed_time = 0.0
 var level = 0
-var customization_intervals = [1,3,7,12,18,25]
+var customization_intervals = [3,7,12,18,25]
 
 func load_time_data():
 	time_label.text = "%02d:%02d" % [global_data.minutes, global_data.seconds]

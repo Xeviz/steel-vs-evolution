@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://caw0fbat447jf"]
 
-[ext_resource type="PackedScene" uid="uid://bgl2x83xg0l7y" path="res://Models/Player/lower_body.glb" id="1_7c8mw"]
-[ext_resource type="Script" path="res://Player/BodyParts/lower_body.gd" id="2_ii5kt"]
+[ext_resource type="PackedScene" uid="uid://bgl2x83xg0l7y" path="res://Models/Player/LowerBody/lower_body.glb" id="1_7c8mw"]
+[ext_resource type="Script" path="res://Player/BodyParts/LowerBodyParts/lower_body.gd" id="2_ii5kt"]
 
 [sub_resource type="Animation" id="Animation_kd67q"]
 resource_name = "IdleNLA"

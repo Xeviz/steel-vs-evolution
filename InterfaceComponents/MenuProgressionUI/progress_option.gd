@@ -32,6 +32,7 @@ func load_progress_data(upgrade_name):
 		upgrade_button.hide()
 		cost_label.text = "MAX BONUS REACHED"
 		color.a = 1.0
+	option_image.texture = load("res://Textures/Icons/MenuUpgrades/" + str(upgrade_name) + ".png")
 	description_label.text = global_data.menu_progressions[upgrade_name][0]
 	current_bonus_label.text = "CURRENTLY: +" + str(global_data.menu_progressions[upgrade_name][1])
 	
