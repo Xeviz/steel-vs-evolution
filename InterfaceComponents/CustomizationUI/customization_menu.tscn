@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ur8xi4thde2"]
+[gd_scene load_steps=3 format=3 uid="uid://ur8xi4thde2"]
 
 [ext_resource type="Script" path="res://InterfaceComponents/CustomizationUI/customization_menu.gd" id="1_gg85f"]
+[ext_resource type="AudioStream" uid="uid://0ut3xo05bnng" path="res://Audio/PlayerSounds/ChangeCore.ogg" id="2_3cpru"]
 
 [node name="CustomizationMenu" type="Control"]
 layout_mode = 3
@@ -159,6 +160,10 @@ theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 60
 text = "Speed:"
+
+[node name="CoreChangePlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_3cpru")
+volume_db = -5.0
 
 [connection signal="button_down" from="GoToWeaponery" to="." method="_on_go_to_weaponery_button_down"]
 [connection signal="button_down" from="GoToGameplay" to="." method="_on_go_to_gameplay_button_down"]

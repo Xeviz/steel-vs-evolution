@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnr5xlkbi8box"]
+
+[ext_resource type="Script" path="res://Audio/WeaponSounds/penetration_sound_script.gd" id="1_slf22"]
+[ext_resource type="AudioStream" uid="uid://cl8ggvmo01lyx" path="res://Audio/WeaponSounds/ShotgunBulletPenetrate.mp3" id="1_yf4dp"]
+
+[node name="ShotgunPenetration" type="AudioStreamPlayer3D"]
+process_mode = 3
+stream = ExtResource("1_yf4dp")
+volume_db = -15.0
+autoplay = true
+script = ExtResource("1_slf22")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

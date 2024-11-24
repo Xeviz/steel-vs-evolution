@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://he6k5vt4mfh5"]
+[gd_scene load_steps=12 format=4 uid="uid://he6k5vt4mfh5"]
 
 [ext_resource type="Script" path="res://Player/WeaponResources/Minigun/bullet.gd" id="1_yijmb"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="2_1hd3j"]
+[ext_resource type="PackedScene" uid="uid://j2t6dyrokv38" path="res://Audio/WeaponSounds/minigun_penetration.tscn" id="2_s0w5k"]
 [ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_fired.gd" id="3_wivq0"]
 [ext_resource type="Script" path="res://States/WeaponResources/Bullet/bullet_stored.gd" id="4_lbjil"]
 [ext_resource type="AudioStream" uid="uid://bbcf5kl0n1kii" path="res://Audio/WeaponSounds/MinigunShoot.mp3" id="5_xorih"]
@@ -83,6 +84,7 @@ shadow_mesh = SubResource("ArrayMesh_3dxpi")
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_yijmb")
+penetration_player = ExtResource("2_s0w5k")
 
 [node name="BulletArea" type="Area3D" parent="."]
 collision_layer = 2

@@ -459,3 +459,4 @@ anim_player = NodePath("../AnimationPlayer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136441, -0.183752)
 stream = ExtResource("12_62i65")
 volume_db = -20.0
+autoplay = true

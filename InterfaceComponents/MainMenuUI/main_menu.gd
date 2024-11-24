@@ -11,6 +11,7 @@ extends Control
 
 
 func _ready() -> void:
+	background_music_player.play_menu_music()
 	global_data.restart_session()
 	global_data.load_menu_progress()
 

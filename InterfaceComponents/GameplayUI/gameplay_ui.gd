@@ -10,6 +10,8 @@ extends Control
 @onready var health_bar = $HealthBar
 
 
+
+
 var passed_time = 0.0
 var level = 0
 var customization_intervals = [1,3,7,12,18,25]

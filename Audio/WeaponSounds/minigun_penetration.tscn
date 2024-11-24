@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://j2t6dyrokv38"]
+
+[ext_resource type="AudioStream" uid="uid://dwkqbtch7fi6v" path="res://Audio/WeaponSounds/MinigunBulletPenetrate.mp3" id="1_758xb"]
+[ext_resource type="Script" path="res://Audio/WeaponSounds/penetration_sound_script.gd" id="2_jep77"]
+
+[node name="MinigunPenetration" type="AudioStreamPlayer3D"]
+process_mode = 3
+stream = ExtResource("1_758xb")
+volume_db = -28.0
+autoplay = true
+script = ExtResource("2_jep77")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

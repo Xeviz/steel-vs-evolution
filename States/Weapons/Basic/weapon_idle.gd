@@ -9,6 +9,8 @@ var paralyze_time: float
 var test: StaticBody3D
 
 func enter():
+	weapon.weapon_area.set_collision_layer_value(1, true)
+	weapon.weapon_area.set_collision_mask_value(1, true)
 	weapon.animation_state.travel("WeaponIdle")
 	camera = get_tree().get_first_node_in_group("Camera")
 	paralyze_time = 0.1
@@ -53,6 +55,5 @@ func check_if_go_to_rotation(delta):
 		
 		
 func exit():
-	print("wychodze z kolizji")
 	weapon.weapon_area.set_collision_layer_value(1, false)
 	weapon.weapon_area.set_collision_mask_value(1, false)

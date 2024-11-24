@@ -5,6 +5,7 @@ class_name RocketLauncher
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
+@onready var reload_player = $ReloadPlayer
 @export var bullet_scene: PackedScene
 var base_weapon_cost = 1
 
@@ -70,6 +71,7 @@ func fire_bullet():
 		bullet.update_explosion_size(ammo_explosion_area)
 	var bullet_spawn_position = $BulletSpawner.global_transform
 	bullet.global_transform = bullet_spawn_position
+	bullet.audio_player.play()
 	fired_bullets.append(bullet)
 
 func on_bullet_stored(bullet):

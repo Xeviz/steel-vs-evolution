@@ -20,6 +20,8 @@ extends Control
 @onready var player_weapons_rect = $PlayerWeaponsRect
 @onready var player_weapons_grid = $PlayerWeaponsRect/PlayerWeapons
 
+@onready var core_change_player = $CoreChangePlayer
+
 var current_upper_body_scene = "upper_body_part_1"
 var current_lower_body_scene = "lower_body_part_1"
 
@@ -109,8 +111,10 @@ func pass_item_preview(item_scene_name):
 	
 func pass_item_choice(item_scene_name):
 	if item_scene_name.begins_with("upper_body_part"):
+		core_change_player.play()
 		current_upper_body_scene = item_scene_name
 	elif item_scene_name.begins_with("lower_body_part"):
+		core_change_player.play()
 		current_lower_body_scene = item_scene_name
 	get_parent().chose_item(item_scene_name, current_upper_body_scene)
 	

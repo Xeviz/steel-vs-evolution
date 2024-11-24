@@ -6,6 +6,7 @@ class_name Player
 @export var lower_body: Node3D
 @onready var state_machine = $FiniteStateMachine
 @onready var player_collision_shape = $CollisionShape3D
+@onready var level_up_player = $AudioStreamPlayer
 
 var params = PhysicsRayQueryParameters3D.new()
 var is_on_the_map = false
@@ -110,6 +111,7 @@ func get_player():
 func get_experience(amount):
 	experience+=amount
 	while experience>=experience_to_level_up:
+		level_up_player.play()
 		level += 1
 		experience -= experience_to_level_up
 		experience_to_level_up += next_required_exp

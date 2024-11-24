@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dpjasvvc8ka4m"]
+[gd_scene load_steps=16 format=4 uid="uid://dpjasvvc8ka4m"]
 
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="1_7tpk6"]
 [ext_resource type="Script" path="res://Player/WeaponResources/RocketLauncher/rocket.gd" id="1_kbdrb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_fired.gd" id="3_txp12"]
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_stored.gd" id="4_pofw0"]
 [ext_resource type="Script" path="res://States/WeaponResources/Rocket/rocket_exploded.gd" id="5_6qq23"]
+[ext_resource type="AudioStream" uid="uid://c34oiq3f6hsxl" path="res://Audio/WeaponSounds/RocketLauncherShoot.mp3" id="7_apnux"]
+[ext_resource type="AudioStream" uid="uid://6sprsej6u6qo" path="res://Audio/WeaponSounds/RocketExplosion.mp3" id="8_mqrfw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1wqb3"]
 size = Vector3(0.15, 0.225, 0.455)
@@ -155,5 +157,15 @@ rocket = NodePath("../..")
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0.222)
 mesh = SubResource("ArrayMesh_ofabq")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("7_apnux")
+volume_db = -15.0
+
+[node name="ExplosionPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("8_mqrfw")
+volume_db = -12.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
