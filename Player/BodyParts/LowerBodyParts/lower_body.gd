@@ -1,6 +1,8 @@
 extends Node3D
 
 
+@export var movement_type: String
+
 @onready var model = $Armature
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")

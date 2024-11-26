@@ -39,7 +39,7 @@ func proceed_to_customization_scene():
 	player.go_to_customization_state()
 
 func load_gameplay_ui_data():
-	gameplay_ui.load_weapons_icons(player.weapons.get_children())
+	gameplay_ui.load_weapons_icons(player.lower_body.upper_body.weapons.get_children())
 	gameplay_ui.load_time_data()
 
 func pause_game():
@@ -55,7 +55,7 @@ func activate_level_up_window():
 	get_tree().paused = true
 	var new_level_up_scene = level_up_scene.instantiate()
 	add_child(new_level_up_scene)
-	new_level_up_scene.get_random_upgrades(player.weapons.get_children())
+	new_level_up_scene.get_random_upgrades(player.lower_body.upper_body.weapons.get_children())
 	
 
 

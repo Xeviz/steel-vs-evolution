@@ -345,6 +345,7 @@ transitions = ["WalkingNLA", "IdleNLA", SubResource("AnimationNodeStateMachineTr
 [node name="LowerBodyPart4" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.304929, 0)
 script = ExtResource("1_uqyqs")
+movement_type = "TANK_DRIVE"
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)

@@ -48,6 +48,6 @@ func spawn_boss():
 
 func update_recipes():
 	current_recipe = global_data.basic_enemy_recipes[global_data.minutes]
-	current_boss_recipe = global_data.basic_boss_recipes[global_data.minutes+1]
+	current_boss_recipe = global_data.basic_boss_recipes[global_data.minutes]
 
 	

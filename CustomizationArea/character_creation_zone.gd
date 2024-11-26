@@ -16,8 +16,6 @@ var upper_body_parts_scenes = {
 }
 
 var lower_body_parts_scenes = {
-	"lower_body_part_1": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn"),
-	"lower_body_part_2": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_2.tscn"),
 	"lower_body_part_3": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn"),
 	"lower_body_part_4": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_4.tscn"),
 }
@@ -33,7 +31,7 @@ func _process(delta):
 
 func show_weapon_preview(item_name):
 	var new_weapon = weapon_scenes[item_name].instantiate()
-	player.weapons.add_child(new_weapon)
+	player.lower_body.upper_body.weapons.add_child(new_weapon)
 	new_weapon.go_to_preview()
 	
 func chose_item(item_name, previous_upper_body_name):

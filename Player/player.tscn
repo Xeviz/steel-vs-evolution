@@ -3,18 +3,17 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kh8c7"]
 [ext_resource type="Script" path="res://States/finite_state_machine.gd" id="3_7l488"]
 [ext_resource type="Script" path="res://States/Player/gameplay_mode.gd" id="4_rd3ps"]
-[ext_resource type="PackedScene" uid="uid://3s6tv5c2ra5l" path="res://Player/BodyParts/LowerBodyParts/lower_body_part_1.tscn" id="5_8s5f7"]
 [ext_resource type="Script" path="res://States/Player/customization_mode.gd" id="5_l8my1"]
+[ext_resource type="PackedScene" uid="uid://brvn11s4ue08t" path="res://Player/BodyParts/LowerBodyParts/lower_body_part_4.tscn" id="6_mg3vs"]
 [ext_resource type="AudioStream" uid="uid://dhlkbruyu7yfr" path="res://Audio/PlayerSounds/LevelUp.ogg" id="6_sbuj6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0dqu"]
 size = Vector3(1.5, 1.5, 1.5)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapons", "lower_body") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("lower_body") groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)
 script = ExtResource("1_kh8c7")
-weapons = NodePath("Weapons")
-lower_body = NodePath("lower_body")
+lower_body = NodePath("LowerBody")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.202, 0)
@@ -27,19 +26,17 @@ disabled = true
 script = ExtResource("3_7l488")
 initial_state = NodePath("CustomizationMode")
 
-[node name="GameplayMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player", "weapons")]
+[node name="GameplayMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("4_rd3ps")
 player = NodePath("../..")
-weapons = NodePath("../../Weapons")
 
-[node name="CustomizationMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("weapons", "player")]
+[node name="CustomizationMode" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_l8my1")
-weapons = NodePath("../../Weapons")
 player = NodePath("../..")
-
-[node name="lower_body" parent="." instance=ExtResource("5_8s5f7")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("6_sbuj6")
 volume_db = -5.0
+
+[node name="LowerBody" parent="." instance=ExtResource("6_mg3vs")]

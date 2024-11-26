@@ -49,7 +49,7 @@ func restart_session():
 	time_to_spawn_boss = false
 	stop_spawning_enemies = false
 	amount_of_bosses_spawned = 0
-	seconds = 57
+	seconds = 0
 	minutes = 0
 	
 func save_menu_progress():
@@ -96,21 +96,13 @@ var weapons_icons_paths = {
 
 
 var lower_bodies_stats = {
-	"lower_body_part_1": {
-		"base_health_bonus": 0,
-		"base_speed_bonus": 50,
-	},
-	"lower_body_part_2": {
+	"lower_body_part_3": {
 		"base_health_bonus": 150,
 		"base_speed_bonus": 0,
 	},
-	"lower_body_part_3": {
-		"base_health_bonus": 170,
-		"base_speed_bonus": 0,
-	},
 	"lower_body_part_4": {
-		"base_health_bonus": 170,
-		"base_speed_bonus": 0,
+		"base_health_bonus": 50,
+		"base_speed_bonus": 80,
 	},
 }
 

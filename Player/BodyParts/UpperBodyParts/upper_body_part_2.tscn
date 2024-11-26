@@ -233,3 +233,5 @@ shape = SubResource("ConcavePolygonShape3D_qelo6")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_0mu66")
+
+[node name="Weapons" type="Node3D" parent="."]

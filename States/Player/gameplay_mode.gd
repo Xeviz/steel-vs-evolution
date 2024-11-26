@@ -2,12 +2,11 @@ extends State
 class_name GameplayMode
 
 @export var player: CharacterBody3D
-@export var weapons: Node3D
 
 func enter():
 	player.lower_body.disable_colliders()
 	player.player_collision_shape.disabled = false
-	var all_weapons = weapons.get_children()
+	var all_weapons = player.lower_body.upper_body.weapons.get_children()
 	for weapon in all_weapons:
 		if weapon is not MeleeWeapon:
 			weapon.go_to_reloading()

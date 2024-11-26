@@ -13,9 +13,12 @@ func _on_attack_range_area_body_exited(body: Node3D) -> void:
 
 
 
+
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "AttackNLA":
 		attack_finished = true
+		if player_in_range:
+			player.receive_damage(damage)
 
 
 func die(damage_overkill, damage_source):

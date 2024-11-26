@@ -2,7 +2,6 @@ extends CharacterBody3D
 class_name Player
 
 
-@export var weapons: Node3D
 @export var lower_body: Node3D
 @onready var state_machine = $FiniteStateMachine
 @onready var player_collision_shape = $CollisionShape3D
@@ -30,11 +29,12 @@ var upper_body_base_speed_bonus: int = 0
 
 var base_max_health: int = 150
 var max_health: int = 150
-var health: int = 120
+var health: int = 150
 var health_multiplier: float = 1.0
 var lower_body_base_health_bonus: int = 0
 var upper_body_base_health_bonus: int = 0
 
+var movement_type := "MECH_WALK"
 
 func change_lower_body(lower_body_scene):
 	remove_child(lower_body)
@@ -47,9 +47,8 @@ func apply_body_parts_bonuses():
 	base_speed += lower_body_base_speed_bonus + upper_body_base_speed_bonus
 	max_health = base_max_health
 	health = max_health
-
-func apply_menu_upgrades():
-	pass
+	speed = base_speed * speed_multiplier
+	movement_type = lower_body.movement_type
 
 
 func _enter_tree():
@@ -59,27 +58,56 @@ func _enter_tree():
 
 
 func move_player(delta: float):
+	if movement_type == "MECH_WALK":
+		move_player_mech_walk(delta)
+	if movement_type == "TANK_DRIVE":
+		move_player_tank_drive(delta)
+
+
+func move_player_mech_walk(delta):
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_backward")
 
-	# Normalizacja wektora ruchu
 	if input.length() > 0:
 		input = input.normalized()
-
 		var target_rotation := atan2(input.x, input.z)
 		lower_body.rotation.y = lerp_angle(lower_body.rotation.y, target_rotation, 5 * delta)
-
 		rotation_offset = lower_body.rotation.y
-
-		# Animacje ruchu
+		
 		if lower_body.is_idle:
 			lower_body.go_to_walking()
 	else:
 		lower_body.go_to_idle()
 
-	# Ruch postaci
+
 	velocity = input * speed * delta
+	move_and_slide()
+	
+	
+func move_player_tank_drive(delta):
+	var forward_input := Input.get_axis("move_forward", "move_backward")
+	var turn_input := Input.get_axis("move_left", "move_right")
+
+	if turn_input != 0:
+		lower_body.rotation.y -= turn_input * delta
+
+	rotation_offset = lower_body.rotation.y
+
+	var forward_direction := Vector3(
+		sin(lower_body.rotation.y), 
+		0, 
+		cos(lower_body.rotation.y)
+	)
+	
+	velocity = forward_direction * forward_input * speed * delta
+
+	if forward_input != 0:
+		if lower_body.is_idle:
+			lower_body.go_to_walking()
+	else:
+		lower_body.go_to_idle()
+	
 	move_and_slide()
 
 
@@ -101,15 +129,13 @@ func look_at_mouse():
 		var direction = look_at_position - lower_body.global_transform.origin
 		var target_rotation = atan2(direction.x, direction.z) * rad_to_deg(1.0)
 
-		# Obrót upper_body z uwzględnieniem offsetu
 		if lower_body.upper_body:
 			lower_body.upper_body.rotation_degrees.y = target_rotation - rad_to_deg(rotation_offset)
 
 		
-		if weapons:
-			weapons.rotation_degrees.y = target_rotation
 		
 func go_to_gameplay_state():
+	health = max_health
 	update_max_health()
 	update_speed()
 	state_machine.on_child_transition(state_machine.current_state, "GameplayMode")
@@ -146,3 +172,8 @@ func receive_damage(damage_amount):
 	if health<=0:
 		get_parent().end_game(false)
 	
+	
+func reset_rotations():
+	lower_body.rotation = Vector3.ZERO
+	if lower_body.upper_body:
+		lower_body.upper_body.rotation = Vector3.ZERO

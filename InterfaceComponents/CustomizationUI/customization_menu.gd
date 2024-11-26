@@ -23,7 +23,7 @@ extends Control
 @onready var core_change_player = $CoreChangePlayer
 
 var current_upper_body_scene = "upper_body_part_1"
-var current_lower_body_scene = "lower_body_part_1"
+var current_lower_body_scene = "lower_body_part_4"
 
 
 func _ready():
@@ -53,13 +53,6 @@ func _ready():
 	upper_body_part_2_item.load_upper_body_part_data("upper_body_part_2")
 	upper_bodies_grid.add_child(upper_body_part_2_item)
 	
-	var lower_body_part_1_item = chosable_item.instantiate()
-	lower_body_part_1_item.load_lower_body_part_data("lower_body_part_1")
-	lower_bodies_grid.add_child(lower_body_part_1_item)
-	
-	var lower_body_part_2_item = chosable_item.instantiate()
-	lower_body_part_2_item.load_lower_body_part_data("lower_body_part_2")
-	lower_bodies_grid.add_child(lower_body_part_2_item)
 	
 	var lower_body_part_3_item = chosable_item.instantiate()
 	lower_body_part_3_item.load_lower_body_part_data("lower_body_part_3")
@@ -102,12 +95,13 @@ func reload_player_weapons():
 		player_weapons_grid.remove_child(node)
 		node.queue_free()
 
-	for weapon in player.weapons.get_children():
-		var new_weapon_icon = weapon_icon.instantiate()
-		new_weapon_icon.load_icon_data(weapon.weapon_name, weapon.weapon_level)
-		weapon.icon_refference = new_weapon_icon
-		player_weapons_grid.add_child(new_weapon_icon)
-	pass
+	if player.lower_body.upper_body:
+		for weapon in player.lower_body.upper_body.weapons.get_children():
+			var new_weapon_icon = weapon_icon.instantiate()
+			new_weapon_icon.load_icon_data(weapon.weapon_name, weapon.weapon_level)
+			weapon.icon_refference = new_weapon_icon
+			player_weapons_grid.add_child(new_weapon_icon)
+
 	
 func pass_item_preview(item_scene_name):
 	cp_label.text = "Available CP: " + str(global_data.construction_points)

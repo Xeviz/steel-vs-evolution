@@ -14,7 +14,7 @@ extends Control
 
 var passed_time = 0.0
 var level = 0
-var customization_intervals = [3,7,12,18,25]
+var customization_intervals = [1,3,7,12,18,25, 30]
 
 func load_time_data():
 	time_label.text = "%02d:%02d" % [global_data.minutes, global_data.seconds]
@@ -33,7 +33,10 @@ func update_time(delta):
 		return
 	elif global_data.seconds == 0 and global_data.minutes in customization_intervals:
 		passed_time = 0.0
-		get_parent().proceed_to_customization_scene()
+		if global_data.minutes == 30:
+			get_parent().end_game(true)
+		else:
+			get_parent().proceed_to_customization_scene()
 	passed_time += delta
 	if passed_time < 1:
 		return
