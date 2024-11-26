@@ -17,7 +17,7 @@ weapons = NodePath("Weapons")
 lower_body = NodePath("lower_body")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410264, 1.20185, -0.12783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.202, 0)
 shape = SubResource("BoxShape3D_d0dqu")
 disabled = true
 

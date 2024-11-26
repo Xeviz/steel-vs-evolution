@@ -6,7 +6,7 @@
 [node name="MinigunPenetration" type="AudioStreamPlayer3D"]
 process_mode = 3
 stream = ExtResource("1_758xb")
-volume_db = -28.0
+volume_db = -38.0
 autoplay = true
 script = ExtResource("2_jep77")
 

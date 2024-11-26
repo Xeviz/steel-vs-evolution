@@ -6,7 +6,7 @@
 [node name="ShotgunPenetration" type="AudioStreamPlayer3D"]
 process_mode = 3
 stream = ExtResource("1_yf4dp")
-volume_db = -15.0
+volume_db = -33.0
 autoplay = true
 script = ExtResource("1_slf22")
 

@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://States/Weapons/Chainsaw/chainsaw_cutting.gd" id="5_812wy"]
 [ext_resource type="PackedScene" uid="uid://lhiwkmw3mkyc" path="res://InterfaceComponents/CustomizationUI/item_rotator.tscn" id="6_ou7fp"]
 [ext_resource type="Script" path="res://States/Weapons/Basic/weapon_rotation.gd" id="7_r0lbj"]
-[ext_resource type="Texture2D" uid="uid://cdbqywnauggqu" path="res://placeholder/chainsaw_Material.png" id="8_rg5ci"]
-[ext_resource type="Texture2D" uid="uid://bbfdla0e47gw" path="res://placeholder/chainsaw_Material_1.png" id="9_3364y"]
-[ext_resource type="Texture2D" uid="uid://cgnrmafgcnqu4" path="res://placeholder/chainsaw_Material_2.png" id="10_npwt5"]
+[ext_resource type="Texture2D" uid="uid://cdbqywnauggqu" path="res://Models/Weapons/Chainsaw/chainsaw_Material.png" id="8_rg5ci"]
+[ext_resource type="Texture2D" uid="uid://bbfdla0e47gw" path="res://Models/Weapons/Chainsaw/chainsaw_Material_1.png" id="9_3364y"]
+[ext_resource type="Texture2D" uid="uid://cgnrmafgcnqu4" path="res://Models/Weapons/Chainsaw/chainsaw_Material_2.png" id="10_npwt5"]
 [ext_resource type="AudioStream" uid="uid://cd2qlfo87btl5" path="res://Audio/WeaponSounds/ChainsawCutting.mp3" id="11_fv248"]
 [ext_resource type="AudioStream" uid="uid://drmhol2fkbhpn" path="res://Audio/WeaponSounds/ChainsawGrinding.mp3" id="12_fciac"]
 

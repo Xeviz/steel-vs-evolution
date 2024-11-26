@@ -65,6 +65,10 @@ func _ready():
 	lower_body_part_3_item.load_lower_body_part_data("lower_body_part_3")
 	lower_bodies_grid.add_child(lower_body_part_3_item)
 	
+	var lower_body_part_4_item = chosable_item.instantiate()
+	lower_body_part_4_item.load_lower_body_part_data("lower_body_part_4")
+	lower_bodies_grid.add_child(lower_body_part_4_item)
+	
 	if global_data.minutes==0:
 		open_bodies_window()
 	else:
