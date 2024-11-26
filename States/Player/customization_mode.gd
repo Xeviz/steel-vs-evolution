@@ -9,6 +9,7 @@ func enter():
 		for weapon in all_weapons:
 			weapon.go_to_idle()
 		player.reset_rotations()
+		player.lower_body.go_to_idle()
 
 
 		

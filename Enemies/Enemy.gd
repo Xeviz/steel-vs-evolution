@@ -6,6 +6,7 @@ class_name Enemy
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
 @onready var damage_label = $DamageLabel
+@onready var death_sound = $DeathPlayer
 
 var speed: int
 var health: int
@@ -20,6 +21,7 @@ func receive_damage(damage_amount, damage_source):
 	health -= damage_amount
 	damage_label.display_damage(damage_amount)
 	if health<=0 and is_alive:
+		death_sound.play()
 		is_alive = false
 		die(-health, damage_source)
 	

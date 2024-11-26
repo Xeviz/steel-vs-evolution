@@ -10,6 +10,7 @@ extends Node3D
 @onready var lower_body_collision_shape = $LowerBodyPlayer/LowerBodyCollision
 @onready var attachment_point: Node3D = $AttachmentPoint
 @onready var upper_body: StaticBody3D
+@onready var movement_player: AudioStreamPlayer3D = $MovementPlayer
 var is_idle = true
 
 func _ready() -> void:
@@ -19,10 +20,12 @@ func _ready() -> void:
 	offset_upper_body()
 
 func go_to_idle():
+	movement_player.stop()
 	animation_state.travel("IdleNLA")
 	is_idle = true
 	
 func go_to_walking():
+	movement_player.play()
 	animation_state.travel("WalkingNLA")
 	is_idle = false
 

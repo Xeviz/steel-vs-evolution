@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://brvn11s4ue08t"]
+[gd_scene load_steps=31 format=4 uid="uid://brvn11s4ue08t"]
 
 [ext_resource type="Script" path="res://Player/BodyParts/LowerBodyParts/lower_body.gd" id="1_uqyqs"]
+[ext_resource type="AudioStream" uid="uid://bcuxcybkid6nj" path="res://Audio/PlayerSounds/tank_movement.mp3" id="2_mvgri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr00v"]
 resource_name = "TankBody"
@@ -390,3 +391,7 @@ shape = SubResource("BoxShape3D_sd5ts")
 
 [node name="AttachmentPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307444, 0.833927, 0.0134071)
+
+[node name="MovementPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_mvgri")
+volume_db = -18.0
