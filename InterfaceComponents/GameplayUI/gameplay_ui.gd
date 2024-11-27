@@ -11,7 +11,7 @@ extends Control
 
 
 
-
+var time_to_continue = 1.0
 var passed_time = 0.0
 var level = 0
 var customization_intervals = [1,3,7,12,18,25, 30]
@@ -33,6 +33,9 @@ func update_time(delta):
 		return
 	elif global_data.seconds == 0 and global_data.minutes in customization_intervals:
 		passed_time = 0.0
+		time_to_continue-=delta
+		if time_to_continue>0:
+			return
 		if global_data.minutes == 30:
 			get_parent().end_game(true)
 		else:

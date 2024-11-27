@@ -13,7 +13,7 @@ func enter():
 		else:
 			weapon.go_to_cutting()
 
-func update(delta):
+func physics_update(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		state_transition.emit(self, "CustomizationMode")
 	else:
