@@ -9,6 +9,7 @@ func enter():
 	rocket.rocket_area.monitorable = false
 	rocket.rocket_mesh.visible = false
 	rocket.is_fired = false
+	rocket.rocket_explosion()
 
 func update(delta):
 	explosion_time -= delta
@@ -16,3 +17,5 @@ func update(delta):
 		rocket.stored.emit(rocket)
 		state_transition.emit(self, "RocketStored")
 	
+func exit():
+	rocket.is_exploding = false

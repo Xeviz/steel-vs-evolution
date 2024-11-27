@@ -5,8 +5,10 @@ class_name Enemy
 @onready var model = $Armature
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = $AnimationTree.get("parameters/playback")
-@onready var damage_label = $DamageLabel
 @onready var death_sound = $DeathPlayer
+@onready var damage_label_scene = preload("res://Enemies/damage_label.tscn")
+
+@export var height: float
 
 var speed: int
 var health: int
@@ -19,7 +21,7 @@ var is_alive := true
 
 func receive_damage(damage_amount, damage_source):
 	health -= damage_amount
-	damage_label.display_damage(damage_amount)
+	display_damage_label(damage_amount)
 	if health<=0 and is_alive:
 		death_sound.play()
 		is_alive = false
@@ -46,3 +48,9 @@ func die_from_bullet(damage_overkill):
 
 func _on_attack_range_area_body_entered(body: Node3D) -> void:
 	pass
+
+
+func display_damage_label(damage_amount):
+	var new_damage_label = damage_label_scene.instantiate()
+	get_tree().root.add_child(new_damage_label)
+	new_damage_label.display_damage(damage_amount, height, global_position.x, global_position.z)

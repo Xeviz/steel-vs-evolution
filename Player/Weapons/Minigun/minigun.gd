@@ -46,9 +46,9 @@ func _ready():
 	apply_menu_progression()
 	upgrade_variants = {
 	1: "Increase fire rate by 10% and ammo capacity by 25",
-	2: "Increase damage by 10",
+	2: "Increase base damage by 10",
 	3: "Increase ammo speed by 10% and penetration by 1",
-	4: "Increase damage by 7 and decrease reload time by 10%"
+	4: "Increase base damage by 7 and decrease reload time by 10%"
 }
 
 func apply_menu_progression():
@@ -89,6 +89,11 @@ func apply_upgrade(variant_id):
 		upgrade_damage(7)
 		upgrade_time_to_reload(-0.10)
 	stored_bullets.clear()
+	update_fired_ammo_stats()
+
+func update_fired_ammo_stats():
+	for fired_bullet in fired_bullets:
+		fired_bullet.update_stats(self)
 
 func upgrade_damage(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:

@@ -114,9 +114,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_komgu")
 
-[node name="Rocket" type="Node3D"]
+[node name="Rocket" type="Node3D" node_paths=PackedStringArray("rocket_area", "rocket_mesh")]
 script = ExtResource("1_kbdrb")
 explosion_scene = ExtResource("2_e643k")
+rocket_area = NodePath("Area3D")
+rocket_mesh = NodePath("MeshInstance3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2

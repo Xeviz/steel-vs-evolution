@@ -47,8 +47,8 @@ func _ready():
 	apply_menu_progression()
 	weapon_name = "RocketLauncher"
 	upgrade_variants = {
-	1: "Increase explosion area by 20%",
-	2: "Increase damage by 12%",
+	1: "Increase explosion area by 10%",
+	2: "Increase damage by 5%",
 	3: "Decrease reload time by 10%",
 	4: "Increase ammo capacity by 1"
 }
@@ -62,7 +62,6 @@ func fire_bullet():
 	var bullet
 	if stored_bullets.size() > 0:
 		bullet = stored_bullets.pop_back()
-		bullet.is_fired = true
 	else:
 		bullet = bullet_scene.instantiate()
 		bullet.stored.connect(on_bullet_stored)
@@ -71,6 +70,7 @@ func fire_bullet():
 		bullet.update_explosion_size(ammo_explosion_area)
 	var bullet_spawn_position = $BulletSpawner.global_transform
 	bullet.global_transform = bullet_spawn_position
+	bullet.is_fired = true
 	bullet.audio_player.play()
 	fired_bullets.append(bullet)
 
@@ -81,14 +81,19 @@ func on_bullet_stored(bullet):
 	
 func apply_upgrade(variant_id):
 	if variant_id == 1:
-		upgrade_explosion_area(0.2)
+		upgrade_explosion_area(0.1)
 	elif variant_id == 2:
-		upgrade_damage(0.12)
+		upgrade_damage(0.5)
 	elif variant_id == 3:
 		upgrade_time_to_reload(-0.1)
 	elif variant_id == 4:
 		upgrade_ammo_capacity(1)
 	stored_bullets.clear()
+	update_fired_ammo_stats()
+
+func update_fired_ammo_stats():
+	for fired_bullet in fired_bullets:
+		fired_bullet.update_stats(self)
 
 func upgrade_explosion_area(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:

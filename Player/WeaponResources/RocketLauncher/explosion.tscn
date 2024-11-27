@@ -188,7 +188,7 @@ draw_pass_1 = SubResource("SphereMesh_avt7p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111, 0)
 material_override = SubResource("ShaderMaterial_rtvfx")
 emitting = false
-lifetime = 0.4
+lifetime = 0.6
 one_shot = true
 explosiveness = 0.9
 randomness = 1.0
@@ -202,6 +202,7 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
 light_color = Color(1, 0.323, 0, 1)
 light_energy = 20.0
 omni_range = 10.0

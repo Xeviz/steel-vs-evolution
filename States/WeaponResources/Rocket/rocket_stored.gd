@@ -8,7 +8,6 @@ func enter():
 	rocket.rocket_area.monitoring = false
 	rocket.rocket_area.monitorable = false
 	rocket.rocket_mesh.visible = false
-	rocket.is_fired = false
 
 func update(_delta):
 	if rocket.is_fired == true:

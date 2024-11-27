@@ -49,11 +49,11 @@ func _ready():
 	weapon_name = "Shotgun"
 	apply_menu_progression()
 	upgrade_variants = {
-	1: "Increase ammo damage by 30",
+	1: "Increase base damage by 30",
 	2: "Decrease reload time by 12%",
 	3: "Increase ammo range by 1.0 and decrease spread angle by 8%",
 	4: "Increase ammo capacity by 1",
-	5: "Increase penetration by 5 and spread angle by 5%"
+	5: "Increase penetration by 1 and spread angle by 5%"
 	
 }
 
@@ -103,9 +103,14 @@ func apply_upgrade(variant_id):
 	elif variant_id == 4:
 		upgrade_ammo_capacity(1)
 	elif variant_id == 5:
-		upgrade_ammo_penetration(5)
+		upgrade_ammo_penetration(1)
 		upgrade_spread_angle(-0.05)
 	stored_bullets.clear()
+	update_fired_ammo_stats()
+
+func update_fired_ammo_stats():
+	for fired_bullet in fired_bullets:
+		fired_bullet.update_stats(self)
 
 
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgjktuv8p1w3s"]
+
+[ext_resource type="Script" path="res://Enemies/damage_label.gd" id="1_wkbak"]
+
+[node name="DamageLabel" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+text = "test"
+script = ExtResource("1_wkbak")
