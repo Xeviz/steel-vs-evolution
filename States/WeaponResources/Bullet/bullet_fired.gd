@@ -15,7 +15,10 @@ func enter():
 func physics_update(delta):
 	bullet.translate(bullet.velocity * delta)
 	if bullet.global_position.distance_to(bullet.starting_position) >= bullet.range or bullet.penetrated_targets >= bullet.penetration:
-		bullet.stored.emit(bullet)
-		state_transition.emit(self, "BulletStored")
+		if not bullet.should_be_erased:
+			bullet.stored.emit(bullet)
+			state_transition.emit(self, "BulletStored")
+		else:
+			bullet.queue_free()
 		
 		

@@ -11,6 +11,7 @@ var explosion_time : float = 2.5
 var explosion
 var velocity: Vector3 = Vector3.ZERO
 var velocity_basis : Vector3
+var should_be_erased := false
 
 
 @onready var audio_player = $AudioStreamPlayer3D
@@ -37,11 +38,6 @@ func connect_to_weapon(weapon):
 	velocity_basis = transform.basis.z.normalized()
 	velocity = velocity_basis * -speed
 	
-func update_stats(weapon):
-	speed = weapon.ammo_speed 
-	damage = weapon.ammo_damage
-	range = weapon.ammo_range
-	velocity = velocity_basis * -speed
 	
 func update_explosion_size(new_size):
 	explosion_area_border.shape.size = Vector3(new_size, 1.0, new_size)

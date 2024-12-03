@@ -14,8 +14,11 @@ func enter():
 func update(delta):
 	explosion_time -= delta
 	if explosion_time<0:
-		rocket.stored.emit(rocket)
-		state_transition.emit(self, "RocketStored")
+		if not rocket.should_be_erased:
+			rocket.stored.emit(rocket)
+			state_transition.emit(self, "RocketStored")
+		else:
+			rocket.queue_free()
 	
 func exit():
 	rocket.is_exploding = false

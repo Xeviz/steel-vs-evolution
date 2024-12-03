@@ -5,6 +5,8 @@ class_name Weapon
 @onready var item_rotator = $ItemRotator
 @onready var weapon_area: StaticBody3D = $WeaponArea
 @onready var attachment_point: Node3D = $AttachmentPoint
+@onready var player = get_tree().get_first_node_in_group("Player")
+
 
 var icon_refference: WeaponIcon
 var weapon_name = "Weapon"

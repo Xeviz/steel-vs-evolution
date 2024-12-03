@@ -66,7 +66,7 @@ func fire_bullet():
 		bullet = bullet_scene.instantiate()
 		bullet.stored.connect(on_bullet_stored)
 		bullet.connect_to_weapon(self)
-		get_tree().current_scene.add_child(bullet)
+		player.current_map.add_child(bullet)
 		bullet.update_explosion_size(ammo_explosion_area)
 	var bullet_spawn_position = $BulletSpawner.global_transform
 	bullet.global_transform = bullet_spawn_position
@@ -88,12 +88,15 @@ func apply_upgrade(variant_id):
 		upgrade_time_to_reload(-0.1)
 	elif variant_id == 4:
 		upgrade_ammo_capacity(1)
-	stored_bullets.clear()
-	update_fired_ammo_stats()
+	clear_bullets()
 
-func update_fired_ammo_stats():
+func clear_bullets():
 	for fired_bullet in fired_bullets:
-		fired_bullet.update_stats(self)
+		fired_bullet.should_be_erased = true
+	for stored_bullet in stored_bullets:
+		stored_bullet.queue_free()
+	fired_bullets.clear()
+	stored_bullets.clear()
 
 func upgrade_explosion_area(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:

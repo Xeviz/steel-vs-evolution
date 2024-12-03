@@ -69,6 +69,8 @@ func fire_bullet():
 	$BulletSpawner.transform = $BulletSpawner.transform.rotated(rotation_axis, deg_to_rad(start_angle))  
 	for g in range(ammo_capacity):
 		var bullet
+		var angle_offset = start_angle + g * angle_increment
+		var rotation_amount = deg_to_rad(angle_increment)
 		if stored_bullets.size() > 0:
 			bullet = stored_bullets.pop_back()
 			bullet.is_fired = true
@@ -76,12 +78,9 @@ func fire_bullet():
 			bullet = bullet_scene.instantiate()
 			bullet.stored.connect(on_bullet_stored)
 			bullet.connect_to_weapon(self)
-			get_tree().root.add_child(bullet)
-		var angle_offset = start_angle + g * angle_increment
-		var rotation_amount = deg_to_rad(angle_increment)
-		
+			player.current_map.add_child(bullet)
+
 		$BulletSpawner.transform = $BulletSpawner.transform.rotated(rotation_axis, rotation_amount)
-		
 		var spawner_transform = $BulletSpawner.global_transform
 		bullet.global_transform = spawner_transform
 		bullet.audio_player.play()
@@ -105,13 +104,15 @@ func apply_upgrade(variant_id):
 	elif variant_id == 5:
 		upgrade_ammo_penetration(1)
 		upgrade_spread_angle(-0.05)
-	stored_bullets.clear()
-	update_fired_ammo_stats()
+	clear_bullets()
 
-func update_fired_ammo_stats():
+func clear_bullets():
 	for fired_bullet in fired_bullets:
-		fired_bullet.update_stats(self)
-
+		fired_bullet.should_be_erased = true
+	for stored_bullet in stored_bullets:
+		stored_bullet.queue_free()
+	stored_bullets.clear()
+	fired_bullets.clear()
 
 
 func upgrade_damage(upgrade_value):

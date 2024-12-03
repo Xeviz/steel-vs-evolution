@@ -65,7 +65,7 @@ func fire_bullet():
 		bullet = bullet_scene.instantiate()
 		bullet.stored.connect(on_bullet_stored)
 		bullet.connect_to_weapon(self)
-		get_tree().current_scene.add_child(bullet)
+		player.current_map.add_child(bullet)
 	var bullet_spawn_position = $BulletSpawner.global_transform
 	bullet.global_transform = bullet_spawn_position
 	bullet.audio_player.play()
@@ -88,12 +88,15 @@ func apply_upgrade(variant_id):
 	elif variant_id == 4:
 		upgrade_damage(7)
 		upgrade_time_to_reload(-0.10)
-	stored_bullets.clear()
-	update_fired_ammo_stats()
+	clear_bullets()
 
-func update_fired_ammo_stats():
+func clear_bullets():
 	for fired_bullet in fired_bullets:
-		fired_bullet.update_stats(self)
+		fired_bullet.should_be_erased = true
+	for stored_bullet in stored_bullets:
+		stored_bullet.queue_free()
+	fired_bullets.clear()
+	stored_bullets.clear()
 
 func upgrade_damage(upgrade_value):
 	if upgrade_value < 1 and upgrade_value > -1:

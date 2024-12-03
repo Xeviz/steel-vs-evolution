@@ -9,6 +9,7 @@ var is_fired = true
 var range : float
 var velocity: Vector3 = Vector3.ZERO
 var velocity_basis : Vector3
+var should_be_erased := false
 
 
 @export var penetration_player : PackedScene
@@ -26,13 +27,6 @@ func connect_to_weapon(weapon):
 	velocity_basis = transform.basis.z.normalized()
 	velocity = velocity_basis * -speed
 	
-func update_stats(weapon):
-	speed = weapon.ammo_speed 
-	damage = weapon.ammo_damage
-	range = weapon.ammo_range
-	penetration = weapon.ammo_penetration
-	velocity = velocity_basis * -speed
-
 
 
 func _on_bullet_area_body_entered(body):

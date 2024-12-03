@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=4 uid="uid://ckosteh5mwi46"]
+
+[ext_resource type="Script" path="res://Enemies/exp_ball.gd" id="1_xvanu"]
+[ext_resource type="AudioStream" uid="uid://8tni6lssim52" path="res://Audio/EnemySounds/exp.mp3" id="2_6kg80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uveah"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0, 1, 0.501961, 0.35)
+roughness = 0.2
+emission_enabled = true
+emission = Color(0, 1, 0.501961, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ncpwg"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQABABgAGQACAAEAFwAAABYADwACABkAGAAAABcAGAABAAAAAgAEAAEAAgAFAAQAAAADABYADwAFAAIAAQADAAAAAQAEAAMABQAHAAQABQAIAAcAAwAGABYADwAIAAUABAAGAAMABAAHAAYACAAKAAcACAALAAoABgAJABYADwALAAgABwAJAAYABwAKAAkACwANAAoACwAOAA0ACQAMABYADwAOAAsACgAMAAkACgANAAwADQAQAAwADQARABAADgARAA0ADgASABEADAAQABYADwASAA4ADwAVABIAEQATABAAEQAUABMAEgAUABEAEgAVABQAEAATABYADwAZABUAFAAXABMAFAAYABcAFQAYABQAFQAZABgAEwAXABYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("/7+B2v8/AACB2v9/fSUAAP+/fSX/PwAAgdqB2v9/AAD///9//38AAIHafSX/fwAA/7+B2v+/AACB2v9/gdoAAP+/fSX/vwAA/3+B2oHaAAD/f/9///8AAP9/fSWB2gAA/z+B2v+/AAB9Jf9/gdoAAP8/fSX/vwAA/38AAP9/AAB9JYHa/38AAAAA/3//fwAAfSV9Jf9/AAD/P4Ha/z8AAH0l/399JQAA/z99Jf8/AAD/f////38AAP9/gdp9JQAA/3//fwAAAAD/f30lfSUAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i8xhu"]
+resource_name = "exp_Sphere"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("gU5DXEfSsKuBTkNciQBYodLdZIvS3WSLVioykdLdZIuTT8A+0t24XZNPwD7S3bhdgU6keoFOpHqyCC64sgguuOA1fbHgNX2x4DV9sXX/tISTTyFdk08hXYRXLrib9f1YqzcfkLIIedirNx+Qsgh52OA1Kt+5Xx+Q4DUq3+A1Kt9pZpxyaWaccmlmnHKEV3nYXxcfkIkAT+9fFx+Q3711/1Yqdf9ljR+QpLC+06SwvtO1hpxytYaccrWGnHJVsn2xiQCketLduvqJAKR60t26+tLdDs3S3Q7N0t0OzcSFMpGLnSFdR9LDrIudIV2Rr1ihj3YCSI92AkiPdgJIj3YCSI92AkiPdgJIj3YCSI92AkiJAENciQBDXJv1df+WWC64df++0zp6fbE6en2xOnp9sYudwD6LncA+aKcuuGinLrhfF8hGXxfIRl8XyEaWWHnYrxBFKTp6Kt86eirfOnoq37WGRSlop3nYtYZFKWinediFJ2JxhSdicYUnYnGFJ2JxhSdicYUnYnGFJ2JxhSdicas3yEZVsvWmqzfIRqs3yEaksLSEpLC0hFs+RSnEhXX/aWZFKd+9/VhpZkUpka9P7w=="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("bQAFAGkAbQAJAAUAZAAAAF0APQAIAGwAaAABAGUAaAAEAAEACwATAAcACwAXABMAAgANAF8APwAVAAoABgAPAAMABgARAA8AFgAfABIAFgAjAB8ADAAaAF4APgAiABQAEAAbAA4AEAAeABsAIQApAB0AIQAtACkAGAAkAFwAPAAsACAAHAAlABkAHAAoACUALwA1ACsALwA5ADUAJgAwAGAAQAA4AC4AKgAxACcAKgA0ADEANgBGADMANgBIAEYAOwBKADcAOwBOAEoAMgBEAGIAQgBMADoAQwBaAE0ASQBTAEcASQBWAFMATwBXAEsATwBbAFcARQBSAGMAQQBuAFgAVABnAFEAVABqAGcAWQBrAFUAWQBvAGsAUABmAGEA"),
+"material": SubResource("StandardMaterial3D_uveah"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 112,
+"vertex_data": PackedByteArray("/7+B2v8/6M//v4Ha/z/o7/+/gdr/P63G/7+B2v8/CduB2v9/fSXo74Ha/399JZnygdr/f30lCduB2v9/fSVa8P+/fSX/P9D3/799Jf8/mfL/v30l/z/z/P+/fSX/P1rwgdqB2v9/07mB2oHa/3+txoHagdr/f2PGgdqB2v9/Cdv///9//39jxv///3//fwnb////f/9/sdT///9//39a8IHafSX/f0H9gdp9Jf9/8/yB2n0l/3+x1IHafSX/f1rw/7+B2v+/MLH/v4Ha/784s/+/gdr/v9O5/7+B2v+/Y8aB2v9/gdo4s4Ha/3+B2hv9gdr/f4HaY8aB2v9/gdqx1P+/fSX/v1b3/799Jf+/G/3/v30l/79B/f+/fSX/v7HU/3+B2oHaMLH/f4Hagdo4s/9/gdqB2ie3/3+B2oHaVPf/f/9///84s/9//3///xv9/3//f///VPf/f/9///8q+/9/fSWB2lb3/399JYHaG/3/f30lgdoT8P9/fSWB2ir7/z+B2v+/J7f/P4Ha/79U9/8/gdr/v4vC/z+B2v+/rvx9Jf9/gdpU930l/3+B2ir7fSX/f4Harvx9Jf9/gdq5vf8/fSX/vxPw/z99Jf+/Kvv/P30l/79L7f8/fSX/v7m9/38AAP9/Vvf/fwAA/3/Q9/9/AAD/f0H9/38AAP9/8/z/fwAA/38T8P9/AAD/f5fy/38AAP9/S+3/fwAA/38d730lgdr/f4vCfSWB2v9/vMx9JYHa/3+u/H0lgdr/f+roAAD/f/9/rvwAAP9//3/q6AAA/3//f7m9AAD/f/9/+dV9JX0l/39L7X0lfSX/fx3vfSV9Jf9/ub19JX0l/3/51f8/gdr/Py7S/z+B2v8/ZfH/P4Ha/z+8zP8/gdr/P+rofSX/f30lZfF9Jf9/fSXi6n0l/399JerofSX/f30l+dX/P30l/z+X8v8/fSX/P+Lq/z99Jf8/He//P30l/z/51f9/////fzCx/3////9/6M//f////3/Tuf9/////f63G/3////9/J7f/f////38u0v9/////f4vC/3////9/vMz/f4HafSXoz/9/gdp9Jejv/3+B2n0lLtL/f4HafSVl8f9//38AAOjv/3//fwAAmfL/f/9/AABl8f9//38AAOLq/399JX0l0Pf/f30lfSWZ8v9/fSV9JZfy/399JX0l4uoO6IRjGOepeeLbMWMRv0heGOepebMKTZ8Rv0heuQOetNk9X+mzCk2fqjSI5rkDnrQV2uph4tsxY1axCWQRv0heVrEJZBG/SF4mmZxTuQOetGcuUuqqNIjmJpmcU7kDnrTj5fxULqe2dxXa6mFWsQlkLqe2dxgRmO1WsQlkJpmcU+MsNPIYEZjtZy5S6iaZnFPj5fxULqe2d0LyLks28LYTLqe2dxgRmO028LYTKO1X7+MsNPIYEZjt3TKh/CjtV+9C8i5LNvC2E0r7nlE28CYsNvC2EyjtV+828CYstlDNpt0yofwo7VfvG8bV+rZQzabjLDTy2T1f6WcuUuqqNIjm3TKh/A5It/YbxtX6ALwz+0r7nlH4+wpbNvAmLKxYZrI28CYsrFhmsrZQzaYXRiytG8bV+gC8M/u2UM2mF0YsrZTzZ2Aw/JZn+PsKW6xYZrIw/JZnfTV/sKxYZrIXRiytDki39n01f7AAvDP7F0YsrePl/FQO6IRjFdrqYeLbMWNC8i5LlPNnYEr7nlH4+wpbDuiEYxjnqXmU82dgMPyWZxjnqXmzCk2fMPyWZ301f7DZPV/pswpNnw5It/Z9NX+w")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ncpwg")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qhv65"]
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t7rdx"]
+radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpeua"]
+
+[node name="ExpBall" type="RigidBody3D"]
+collision_layer = 0
+script = ExtResource("1_xvanu")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_i8xhu")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qhv65")
+
+[node name="AttractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221046, 0)
+shape = SubResource("CylinderShape3D_t7rdx")
+
+[node name="GatherArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GatherArea"]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+shape = SubResource("BoxShape3D_mpeua")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("2_6kg80")
+volume_db = -10.0
+pitch_scale = 1.03
+
+[connection signal="body_entered" from="AttractionArea" to="." method="_on_attraction_area_body_entered"]
+[connection signal="body_entered" from="GatherArea" to="." method="_on_gather_area_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
