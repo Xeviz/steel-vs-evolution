@@ -6,7 +6,6 @@ class_name WeaponIdle
 var is_on_weapon = false
 var time_to_preview: float
 var paralyze_time: float
-var test: StaticBody3D
 
 func enter():
 	weapon.weapon_area.set_collision_layer_value(1, true)

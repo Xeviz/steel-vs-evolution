@@ -10,14 +10,18 @@ class_name GameplayMap
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("Player")
 @onready var customization_scene = preload("res://CustomizationArea/character_creation_zone.tscn")
 @onready var level_up_scene = preload("res://InterfaceComponents/GameplayUI/level_up_window.tscn")
-
+@onready var rock_scene = preload("res://GameplayMap/FloorTile/rock.tscn")
 
 var dif_z: float
 var dif_x: float
 var game_time: int
+var map_seed := 312131231
+var rng: RandomNumberGenerator
 
 func _ready() -> void:
 	background_music_player.play_gameplay_music()
+	rng = RandomNumberGenerator.new()
+	rng.seed = map_seed
 
 func _process(delta):
 	_check_if_slide_map()
@@ -64,12 +68,27 @@ func _check_if_slide_map():
 	dif_z = player.position.z - map_floor.position.z
 	if dif_x > 15:
 		map_floor.position.x += 25
+		check_if_spawn_rock(map_floor.position.x+50, map_floor.position.z)
 	elif dif_x < -15:
 		map_floor.position.x -= 25
+		check_if_spawn_rock(map_floor.position.x-50, map_floor.position.z)
 	if dif_z > 15:
 		map_floor.position.z += 25
+		check_if_spawn_rock(map_floor.position.x, map_floor.position.z+50)
 	elif dif_z < -15:
 		map_floor.position.z -= 25
+		check_if_spawn_rock(map_floor.position.x, map_floor.position.z-50)
+		
+func check_if_spawn_rock(pos_x, pos_z):
+	var local_seed = map_seed + int(pos_x) * 1000 + int(pos_z) * 1000
+	rng.seed = local_seed
+	if rng.randf() < 0.45:
+		var offset_x = rng.randf_range(-5, 5)
+		var offset_z = rng.randf_range(-5, 5)
+		var rock_instance = rock_scene.instantiate()
+		rock_instance.global_transform.origin = Vector3(pos_x + offset_x, 0, pos_z + offset_z)
+		add_child(rock_instance)
+		
 		
 	
 func go_to_creation_zone():

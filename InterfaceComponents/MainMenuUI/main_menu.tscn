@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckkokmvpqe4o7" path="res://CustomizationArea/character_creation_zone.tscn" id="2_j3g2t"]
 [ext_resource type="PackedScene" uid="uid://ct4wpugyn0inh" path="res://Player/player.tscn" id="3_6qrn5"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "upgrades_button", "settings_button", "quit_button")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "upgrades_button", "quit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_i27d2")
 play_button = NodePath("MainMenuButtons/VBoxContainer/PlayButton")
 upgrades_button = NodePath("MainMenuButtons/VBoxContainer/UpgradesButton")
-settings_button = NodePath("MainMenuButtons/VBoxContainer/SettingsButton")
 quit_button = NodePath("MainMenuButtons/VBoxContainer/QuitButton")
 customization_scene = ExtResource("2_j3g2t")
 player_scene = ExtResource("3_6qrn5")
@@ -57,12 +56,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "UPGRADES"
 
-[node name="SettingsButton" type="Button" parent="MainMenuButtons/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "SETTINGS"
-
 [node name="QuitButton" type="Button" parent="MainMenuButtons/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -72,5 +65,4 @@ text = "QUIT"
 [connection signal="mouse_exited" from="MainMenuButtons/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer/UpgradesButton" to="." method="_on_upgrades_button_pressed"]
-[connection signal="pressed" from="MainMenuButtons/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

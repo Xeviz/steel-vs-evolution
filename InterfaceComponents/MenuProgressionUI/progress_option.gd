@@ -14,15 +14,6 @@ var current_cost := -1
 var current_bonus := 0
 var upgrade_name := "TBD"
 
-#description, current_bonus, current_level, increase_per_level
-#var menu_progressions = {
-	#"starting_cp": ["Increase starting CP", 2, 2, 1],
-	#"minigun_damage": ["Increase minigun % damage", 0, 0, 10],
-	#"shotgun_damage": ["Increase shotgun % damage", 0, 0, 10],
-	#"chainsaw_damage": ["Increase chainsaw % damage", 0, 0, 10],
-	#"rocket_launcher_damage": ["Increase rocket launcher % damage", 0, 0, 10]
-#}
-
 func load_progress_data(upgrade_name):
 	self.upgrade_name = upgrade_name
 	if global_data.menu_progressions[upgrade_name][2]<5:

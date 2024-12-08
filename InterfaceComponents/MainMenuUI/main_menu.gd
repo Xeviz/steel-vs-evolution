@@ -2,7 +2,6 @@ extends Control
 
 @export var play_button : Button
 @export var upgrades_button : Button
-@export var settings_button : Button
 @export var quit_button : Button
 
 @export var customization_scene : PackedScene
@@ -28,10 +27,6 @@ func _on_play_button_pressed():
 
 func _on_upgrades_button_pressed():
 	get_tree().change_scene_to_file("res://InterfaceComponents/MenuProgressionUI/MenuProgressionInterface.tscn")
-
-
-func _on_settings_button_pressed():
-	pass
 
 
 func _on_quit_button_pressed():

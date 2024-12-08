@@ -4,20 +4,20 @@ extends Node3D
 @export var gameplay_scene = preload("res://GameplayMap/gameplay_map.tscn")
 
 var weapon_scenes = {
-	"minigun": preload("res://Player/Weapons/Minigun/minigun.tscn"),
-	"shotgun": preload("res://Player/Weapons/Shotgun/shotgun.tscn"),
-	"chainsaw": preload("res://Player/Weapons/Chainsaw/chainsaw.tscn"),
-	"rocket_launcher": preload("res://Player/Weapons/RocketLauncher/rocket_launcher.tscn")
+	"minigun": load("res://Player/Weapons/Minigun/minigun.tscn"),
+	"shotgun": load("res://Player/Weapons/Shotgun/shotgun.tscn"),
+	"chainsaw": load("res://Player/Weapons/Chainsaw/chainsaw.tscn"),
+	"rocket_launcher": load("res://Player/Weapons/RocketLauncher/rocket_launcher.tscn")
 }
 
 var upper_body_parts_scenes = {
-	"upper_body_part_1": preload("res://Player/BodyParts/UpperBodyParts/upper_body_part_1.tscn"),
-	"upper_body_part_2": preload("res://Player/BodyParts/UpperBodyParts/upper_body_part_2.tscn"),
+	"upper_body_part_1": load("res://Player/BodyParts/UpperBodyParts/upper_body_part_1.tscn"),
+	"upper_body_part_2": load("res://Player/BodyParts/UpperBodyParts/upper_body_part_2.tscn"),
 }
 
 var lower_body_parts_scenes = {
-	"lower_body_part_3": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn"),
-	"lower_body_part_4": preload("res://Player/BodyParts/LowerBodyParts/lower_body_part_4.tscn"),
+	"lower_body_part_3": load("res://Player/BodyParts/LowerBodyParts/lower_body_part_3.tscn"),
+	"lower_body_part_4": load("res://Player/BodyParts/LowerBodyParts/lower_body_part_4.tscn"),
 }
 
 func _ready() -> void:
